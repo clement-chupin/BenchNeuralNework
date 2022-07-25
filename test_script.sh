@@ -4,7 +4,7 @@
 #SBATCH --time=1-00:00:00
 #SBATCH --ntasks=1
 #SBATCH --output=log_output.txt
-#SBATCH --mem-per-cpu=2G
+#SBATCH --mem-per-cpu=64M
 
 
 hostname
