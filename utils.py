@@ -3,8 +3,8 @@ import torch.nn.functional as F
 
 from stable_baselines3.common.utils import get_device
 torch.device(get_device())
-from stable_baselines3.common.vec_env import DummyVecEnv, VecNormalize
-
+from stable_baselines3.common.vec_env import DummyVecEnv
+from custom_vecenv_normalize import VecNormalize
 import gym
 import stable_baselines3
 import os
