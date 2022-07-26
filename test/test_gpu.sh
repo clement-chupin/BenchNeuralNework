@@ -13,5 +13,5 @@
 hostname
 sleep 10
 echo Début du job.
-python test_gpu.py
+python3.8 test_gpu.py
 echo Fin du job.
