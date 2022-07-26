@@ -6,9 +6,24 @@ import torch
 
 print("Nombre de gpu : {}".format(torch.cuda.device_count()))
 for i in range(torch.cuda.device_count()):
-    print(torch.cuda.get_device_name(i))
-    print(torch.cuda.mem_get_info(i))
-print("usage :")
+    print("name : {}".format(torch.cuda.get_device_name(i)))
+    
+    t = torch.cuda.get_device_properties(i).total_memory
+    r = torch.cuda.memory_reserved(i)
+    a = torch.cuda.memory_allocated(i)
+    f = r-a  # free inside reserved
+
+    print("t : {}".format(t))
+    print("r : {}".format(r))
+    print("a : {}".format(a))
+    print("f : {}".format(f))
+
+    print("info : {}".format(torch.cuda.mem_get_info(i)))
+
+
+
+
+
 
 
 
