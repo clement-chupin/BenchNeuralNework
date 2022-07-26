@@ -12,6 +12,6 @@
 
 hostname
 sleep 10
-echo Début du job.
+echo Lancement de la tache :
 python3.8 test_gpu.py
-echo Fin du job.
+echo Fin de la tache
