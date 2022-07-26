@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --partition=gpu
-#SBATCH --ntasks=4
+#SBATCH --ntasks=8
 #SBATCH --mem-per-cpu=2G
 
 #SBATCH --job-name=ia_chupin
