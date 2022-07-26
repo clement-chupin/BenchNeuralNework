@@ -7,8 +7,9 @@ import torch
 print("Nombre de gpu : {}".format(torch.cuda.device_count()))
 for i in range(torch.cuda.device_count()):
     print(torch.cuda.get_device_name(i))
+    print(torch.cuda.mem_get_info(i))
 print("usage :")
-print(torch.cuda.mem_get_info())
+
 
 
 
