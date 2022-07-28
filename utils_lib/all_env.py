@@ -6,7 +6,7 @@ all_envs = [
         "env"              :  "Ant-v4",
         "name"             :  "ant",
         "action_space"     :  [False,True],
-        "nb_train"         :  500,
+        "nb_train"         :  500000,
         "enable_ff"        :  True,
         "num_cpu"          :  1,
     },
