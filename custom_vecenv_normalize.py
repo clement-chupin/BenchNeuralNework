@@ -39,6 +39,7 @@ class VecNormalize(VecEnvWrapper):
         gamma: float = 0.99,
         epsilon: float = 1e-8,
         norm_obs_keys: Optional[List[str]] = None,
+        offset_obs=0.5,
     ):
         VecEnvWrapper.__init__(self, venv)
 
@@ -67,7 +68,7 @@ class VecNormalize(VecEnvWrapper):
         self.norm_reward = norm_reward
         self.old_obs = np.array([])
         self.old_reward = np.array([])
-        self.offest_obs = 0.5
+        self.offset_obs = offset_obs
 
     def _sanity_checks(self) -> None:
         """
@@ -186,13 +187,35 @@ class VecNormalize(VecEnvWrapper):
         :param obs_rms: associated statistics
         :return: normalized observation
         """
-        return np.clip(
-            self.offest_obs+((obs - obs_rms.mean) / np.sqrt(obs_rms.var + self.epsilon)), 
-            self.offest_obs-self.clip_obs, 
-            self.offest_obs+self.clip_obs
+        norm_obs = self.offset_obs+(self.clip_obs*0.5*(obs - obs_rms.mean) / np.sqrt(obs_rms.var + self.epsilon)) 
+        output = np.clip(
+            norm_obs, 
+            self.offset_obs-self.clip_obs, 
+            self.offset_obs+self.clip_obs
             )
+        # if np.max(np.absolute(norm_obs - output)) > 0.0 or True: 
+        #     #print("#")
+        #     print(
+        #         max(
+        #             float(np.absolute(np.max(norm_obs)-np.max(output))),
+        #             float(np.absolute(np.min(norm_obs)-np.min(output)))
+        #             )
+        #         )
+
+            
+            # print("{} vs {}".format(np.max(norm_obs),np.max(output)))
+            # print("{} vs {}".format(np.min(norm_obs),np.min(output)))
+
+        # output = np.clip(
+        #     self.offset_obs+(self.clip_obs*(obs - obs_rms.mean) / np.sqrt(obs_rms.var + self.epsilon)), 
+        #     self.offset_obs-self.clip_obs, 
+        #     self.offset_obs+self.clip_obs
+        #     )
+        #print(output)
+        return output
 
     def _unnormalize_obs(self, obs: np.ndarray, obs_rms: RunningMeanStd) -> np.ndarray:
+        print("unnormal called")
         """
         Helper to unnormalize observation.
         :param obs:

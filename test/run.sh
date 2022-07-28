@@ -9,6 +9,10 @@
 
 
 hostname
-sleep 1000
-python main.py
+echo $1
+sleep 10
+#python main.py
 echo Fin du job.
+
+for $i in range(10):
+    echo $i

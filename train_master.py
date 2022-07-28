@@ -74,7 +74,18 @@ class TrainMaster():
                             index=index
                             )
                         
-    def train_and_bench(self,policie_i,env_j,fe_k,fev_l,index=0):
+    def train_and_bench(self,policie_i,env_j,fe_k,fev_l=0,index=0):
+        if (
+            not(
+                self.all_policies[policie_i]["action_space"][0] and #or = and for this case
+                self.all_envs[env_j]["action_space"][0]
+                or 
+                self.all_policies[policie_i]["action_space"][1] and #or = and for this case
+                self.all_envs[env_j]["action_space"][1]
+                )
+            ):
+            return False
+
         policie =      self.all_policies[policie_i]["policie"]
         policie_name = self.all_policies[policie_i]["name"]
         compute_opti = self.all_policies[policie_i]["compute_opti"]
@@ -86,11 +97,16 @@ class TrainMaster():
         num_cpu  =     self.all_envs[env_j]["num_cpu"]
         
 
-        env = self.utils.get_env(env,num_cpu)
+        
 
         feature_extract = self.all_feature_extractor[fe_k]
         feature_extract_name = feature_extract["name"]
         feature_order = feature_extract["order"][fev_l]
+
+        feature_obs_shape = feature_extract["obs_shape"]
+
+        env = self.utils.get_env(env,feature_obs_shape,num_cpu)
+
         policy_kwargs = self.utils.get_fe_kwargs(env,feature_extract,feature_order,compute_opti)
         if policy_kwargs is not None:
             self.timestep_i = 0
@@ -128,23 +144,15 @@ class TrainMaster():
                 self.timestep_i = self.timestep_i+1
             
             model.learn(total_timesteps=nb_train, log_interval=100,callback = register_reward)
-
-            # model.save(
-            #     self.utils.get_model_path(
-            #         policie_name,
-            #         env_name,
-            #         feature_extract_name,
-            #         feature_extract_var=fev_l
-            #         )
-            #     )
             del policy_kwargs
             env.close()
             del register_reward
             del model
             del env
-            del rewards_tab
+            #del rewards_tab
         else:
             print("bad feature extractor")
+        return True
 
     def show_env_policie_fe(self,policie_i,env_j,fe_k,fev_l):
         policie =      self.all_policies[policie_i]["policie"]
