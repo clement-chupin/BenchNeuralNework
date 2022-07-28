@@ -6,7 +6,7 @@ from stable_baselines3.common.utils import get_device
 import gym
 
 
-from torchsummary import summary
+#from torchsummary import summary
 
 
 from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
