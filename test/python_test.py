@@ -8,3 +8,8 @@ import torch
 import gym
 print(torch.__version__)
 print(gym.__version__)
+
+
+
+with open("log_out.txt","a") as f:
+    f.write("\nend")

@@ -61,6 +61,8 @@ if args.mode == 'manual':
         fe_k=args.feature,
         index=args.index,
         )
+    with open("log_out.txt","a") as f:
+        f.write("\nend")
 
 
 if args.mode == 'plot':

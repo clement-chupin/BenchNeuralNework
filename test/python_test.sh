@@ -11,3 +11,13 @@ echo start
 python python_test.py
 python3.8 python_test.py
 echo end
+
+
+
+
+alias on_env="source activate py_conda; source ~/IA_chupin/py_env/bin/activate"
+alias off_env="deactivate;source deactivate"
+
+
+
+
