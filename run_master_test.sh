@@ -8,7 +8,8 @@ do
     do 
         for k in {0..5}
         do
-            sbatch single_run.sh $i $j $k 12
+            log_output = "./log_meso/log" + $i + "-" + $j + "-" + $k
+            sbatch --output=$log_output single_run.sh $i $j $k 12
             #./single_run.sh $i $j $k 12
             #echo "./single_run.sh $i $j $k 12"
         done

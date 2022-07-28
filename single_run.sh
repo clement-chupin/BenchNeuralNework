@@ -3,7 +3,7 @@
 #SBATCH --job-name=ia_chupin
 #SBATCH --time=1-00:00:00
 #SBATCH --ntasks=1
-#SBATCH --output=log_output.txt
+# --output=./log_meso/log_output.txt
 # --mem-per-cpu=1G
 
 
