@@ -34,22 +34,31 @@ def save_log_train(
     ):
     #print(index)
     path_data = get_path(policie_name,env_name,fe_k,fev_l,index)
+    # # data ={
+    # #     "timestep" :timestep,
+    # #     "cpu_time" :cpu_time,
+    # #     "rewards"  :rewards,
+    # #     #"index"    :index
+    # #     }
     # data ={
-    #     "timestep" :timestep,
-    #     "cpu_time" :cpu_time,
-    #     "rewards"  :rewards,
+    #     "t" :str(round(timestep, 1)), #timestep
+    #     "c" :str(round(cpu_time, 5)), #cpu_time
+    #     "r"  :str(round(rewards,  3)),#rewards
+    #     "f"  :str(round(fps,  1)),#fps
+
     #     #"index"    :index
     #     }
-    data ={
-        "t" :str(round(timestep, 1)), #timestep
-        "c" :str(round(cpu_time, 5)), #cpu_time
-        "r"  :str(round(rewards,  3)),#rewards
-        "f"  :str(round(fps,  1)),#fps
-
-        #"index"    :index
-        }
 
         
+    # with open(path_data, "a") as input_file:
+    #     json.dump(data, input_file, sort_keys=True)
+    #     input_file.write(",\n")
+
+    t =str(round(timestep, 0))
+    c = str(round(cpu_time, 5))
+    r = str(round(rewards,  3))
+    f = str(round(fps,  1))
+
     with open(path_data, "a") as input_file:
-        json.dump(data, input_file, sort_keys=True)
-        input_file.write(",\n")
+        #json.dump(data, input_file, sort_keys=True)
+        input_file.write(t + "," + c + "," + r + "," + f + ",\n")

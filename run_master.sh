@@ -2,13 +2,16 @@
 source activate py_conda
 source ~/IA_chupin/py_env/bin/activate
 
-#for i in {0..16} env 
-#for j in {0..6} policy 
-#for k in {0..30} feature 
-
-for i in {0..5}
+for i in {0..16}#env 
 do 
-    echo $i
+    for j in {0..5}#policy 
+    do 
+        for k in {0..51}#feature 
+        do
+            #sbatch single_run.sh $i $j $k 12
+            ./single_run.sh $i $j $k 12
+        done
+    done
 done
 
 

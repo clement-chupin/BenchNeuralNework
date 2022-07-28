@@ -134,7 +134,7 @@ class TrainMaster():
                         env_name,
                         fe_k,
                         fev_l,
-                        self.timestep_i,
+                        int(self.timestep_i/self.log_interval),
                         (self.new_time - self.last_time),
                         float(np.sum(self.rewards_tab[-self.log_interval:])),
                         self.log_interval/(self.new_time - self.last_time),
