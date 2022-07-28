@@ -9,6 +9,6 @@
 
 
 echo start 
-python test_all_python.py
-python3.8 test_all_python.py
+python python_test.py
+python3.8 python_test.py
 echo end

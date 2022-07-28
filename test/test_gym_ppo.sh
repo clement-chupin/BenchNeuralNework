@@ -13,5 +13,5 @@
 hostname
 sleep 10
 echo Lancement de la tache :
-python3.8 test_all.py
+python3.8 test_gym_ppo.py
 echo Fin de la tache
