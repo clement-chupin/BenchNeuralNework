@@ -60,6 +60,7 @@ if args.mode == 'manual':
         env_j=args.policy,
         fe_k=args.feature,
         index=args.index,
+        #nb_train=120
         )
     with open("multi_exe.log","a") as f:
         f.write(str(args.env) + " " + str(args.policy) + " " + str(args.feature) + " " + str(args.index))

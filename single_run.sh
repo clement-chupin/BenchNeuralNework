@@ -8,7 +8,7 @@
 
 
 echo start 
-
+echo $0
 python3.8 main.py --mode manual --env $1 --policy $2 --feature $3 --index $4
 
 echo end

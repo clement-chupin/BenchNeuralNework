@@ -14,7 +14,7 @@ from os import path
 from feature_extractor_layers import FeaturesExtractor_model
 
 from utils_lib.all_env import all_envs as All_Envs
-from utils_lib.all_env import all_feature_extract as All_Features
+from utils_lib.all_feature import all_feature_extract as All_Features
 
 class Utils():
 	def __init__(self):
@@ -133,12 +133,12 @@ class Utils():
 	
 		create_dir("result")
 		create_dir(self.log_folder)
-		create_dir(self.model_folder)
-		create_dir(self.buffer_folder)
+		# create_dir(self.model_folder)
+		# create_dir(self.buffer_folder)
 		for p in self.all_policies:
 			create_dir(self.log_folder    +p["name"])
-			create_dir(self.model_folder  +p["name"])
-			create_dir(self.buffer_folder +p["name"])
+			# create_dir(self.model_folder  +p["name"])
+			# create_dir(self.buffer_folder +p["name"])
 			for e in self.all_envs:
 				create_dir(self.log_folder +p["name"]+"/"+e["name"])
 

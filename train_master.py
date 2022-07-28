@@ -74,7 +74,7 @@ class TrainMaster():
                             index=index
                             )
                         
-    def train_and_bench(self,policie_i,env_j,fe_k,fev_l=0,index=0):
+    def train_and_bench(self,policie_i,env_j,fe_k,fev_l=0,index=0,nb_train=None):
         if (
             not(
                 self.all_policies[policie_i]["action_space"][0] and #or = and for this case
@@ -93,7 +93,8 @@ class TrainMaster():
 
         env =          self.all_envs[env_j]["env"]
         env_name =     self.all_envs[env_j]["name"]
-        nb_train =     self.all_envs[env_j]["nb_train"]
+        if nb_train is None:
+            nb_train =     self.all_envs[env_j]["nb_train"]
         num_cpu  =     self.all_envs[env_j]["num_cpu"]
         
 
