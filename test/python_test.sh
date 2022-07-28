@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #SBATCH --partition=gpu
 #SBATCH --job-name=ia_chupin
