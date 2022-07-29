@@ -34,42 +34,36 @@ class Utils():
 				"name"         : "A2C",
 				"action_space" : [True,True],
 				"compute_opti" : "cpu",
-				"memory_opti"  : False,
 			},
 			{#1
 				"policie"      : stable_baselines3.DDPG,
 				"name"         : "DDPG",
 				"action_space" : [False,True],
 				"compute_opti" : "auto",
-				"memory_opti"  : True,
 			},
 			{#2
 				"policie"      : stable_baselines3.DQN,
 				"name"         : "DQN",
 				"action_space" : [True,False],
 				"compute_opti" : "auto",
-				"memory_opti"  : True,
 			},
 			{#3
 				"policie"      : stable_baselines3.PPO,
 				"name"         : "PPO",
 				"action_space" : [True,True],
 				"compute_opti" : "auto",
-				"memory_opti"  : False,
 			},
 			{#4
 				"policie"      : stable_baselines3.SAC,
 				"name"         : "SAC",
 				"action_space" : [False,True],
 				"compute_opti" : "auto",
-				"memory_opti"  : True,
 			},
 			{#5
 				"policie"      : stable_baselines3.TD3,
 				"name"         : "TD3",
 				"action_space" : [False,True],
 				"compute_opti" : "auto",
-				"memory_opti"  : True,
 			},
 
 		]

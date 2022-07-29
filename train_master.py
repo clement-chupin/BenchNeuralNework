@@ -84,7 +84,7 @@ class TrainMaster():
         policie =      self.all_policies[policie_i]["policie"]
         policie_name = self.all_policies[policie_i]["name"]
         compute_opti = self.all_policies[policie_i]["compute_opti"]
-        memory_opti  = self.all_policies[policie_i]["memory_opti"]
+
 
         env =          self.all_envs[env_j]["env"]
         env_name =     self.all_envs[env_j]["name"]
@@ -106,17 +106,13 @@ class TrainMaster():
         policy_kwargs = self.utils.get_fe_kwargs(env,feature_extract,feature_order,compute_opti)
         if policy_kwargs is not None:
             self.timestep_i = 0
-            if memory_opti:
-                model = policie("MlpPolicy", env,
+            
+            model = policie(
+                "MlpPolicy", env,
                 policy_kwargs = policy_kwargs,
                 device=compute_opti,
-                optimize_memory_usage=True,
-                verbose=1)
-            else:
-                model = policie("MlpPolicy", env,
-                policy_kwargs = policy_kwargs,
-                device=compute_opti,
-                verbose=1)
+                verbose=1
+                )
             
             self.last_time = process_time()
             self.rewards_tab = []
