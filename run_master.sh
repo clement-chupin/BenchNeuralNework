@@ -8,7 +8,7 @@ do
     do 
         for k in {0..51}
         do
-            sbatch single_run.sh $i $j $k 12
+            sbatch -o "./log_meso/lo_$1_$2_$3" single_run.sh $i $j $k 12
             #./single_run.sh $i $j $k 12
             #echo "./single_run.sh $i $j $k 12"
         done
