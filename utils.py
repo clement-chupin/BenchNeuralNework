@@ -39,31 +39,31 @@ class Utils():
 				"policie"      : stable_baselines3.DDPG,
 				"name"         : "DDPG",
 				"action_space" : [False,True],
-				"compute_opti" : "auto",
+				"compute_opti" : "cpu",
 			},
 			{#2
 				"policie"      : stable_baselines3.DQN,
 				"name"         : "DQN",
 				"action_space" : [True,False],
-				"compute_opti" : "auto",
+				"compute_opti" : "cpu",
 			},
 			{#3
 				"policie"      : stable_baselines3.PPO,
 				"name"         : "PPO",
 				"action_space" : [True,True],
-				"compute_opti" : "auto",
+				"compute_opti" : "cpu",
 			},
 			{#4
 				"policie"      : stable_baselines3.SAC,
 				"name"         : "SAC",
 				"action_space" : [False,True],
-				"compute_opti" : "auto",
+				"compute_opti" : "cpu",
 			},
 			{#5
 				"policie"      : stable_baselines3.TD3,
 				"name"         : "TD3",
 				"action_space" : [False,True],
-				"compute_opti" : "auto",
+				"compute_opti" : "cpu",
 			},
 
 		]

@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --partition=gpu
+#SBATCH --partition=normal
 #SBATCH --job-name=ia_chupin
 #SBATCH --time=1-00:00:00
 #SBATCH --ntasks=1
 # --output=./log_meso/log_output.txt
-# --mem-per-cpu=1G
+#SBATCH --mem-per-cpu=4G
 
 
 echo start 
