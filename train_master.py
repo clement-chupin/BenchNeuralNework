@@ -55,12 +55,7 @@ class TrainMaster():
                 for fev_l in range(len(self.all_feature_extractor[fe_k]["order"])):
                     #print("{}_{}_{}".format(policie_i,fe_k,fev_l))
                 #print(str(policie_i)+"__"+str(fe_k))
-                    if (self.all_policies[policie_i]["action_space"][0] and #or = and for this case
-                        self.all_envs[env_j]["action_space"][0]
-                        or 
-                        self.all_policies[policie_i]["action_space"][1] and #or = and for this case
-                        self.all_envs[env_j]["action_space"][1]
-                        ):
+                    if self.compatible_env_policie(policie_i,env_j):
                         print("###################################################")
                         print("Train of : "+self.all_policies[policie_i]["name"]+" for problem : "+self.all_envs[env_j]["name"])
                         self.utils.progresse_bar("policie",len(self.all_policies),policie_i)
@@ -73,17 +68,17 @@ class TrainMaster():
                             fev_l,
                             index=index
                             )
-                        
+    def compatible_env_policie(self,policie_i,env_j):
+        return (
+            self.all_policies[policie_i]["action_space"][0] and #or = and for this case
+            self.all_envs[env_j]["action_space"][0]
+            or 
+            self.all_policies[policie_i]["action_space"][1] and #or = and for this case
+            self.all_envs[env_j]["action_space"][1]
+        )
+            
     def train_and_bench(self,policie_i,env_j,fe_k,fev_l=0,index=0,nb_train=None):
-        if (
-            not(
-                self.all_policies[policie_i]["action_space"][0] and #or = and for this case
-                self.all_envs[env_j]["action_space"][0]
-                or 
-                self.all_policies[policie_i]["action_space"][1] and #or = and for this case
-                self.all_envs[env_j]["action_space"][1]
-                )
-            ):
+        if not(self.compatible_env_policie(policie_i,env_j)):
             return False
 
         policie =      self.all_policies[policie_i]["policie"]
