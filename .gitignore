@@ -129,7 +129,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 =======
-result/
+
 __pycache__/
 
 >>>>>>> 8693745... first commit

@@ -56,8 +56,8 @@ if args.mode == 'manual':
     print(args)
     
     trainer.train_and_bench(
-        policie_i=args.env,
-        env_j=args.policy,
+        policie_i=args.policy,
+        env_j=args.env,
         fe_k=args.feature,
         index=args.index,
         #nb_train=120
