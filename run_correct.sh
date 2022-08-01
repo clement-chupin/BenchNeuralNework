@@ -2,916 +2,916 @@
 source activate py_conda
 source ~/IA_chupin/py_env/bin/activate
 
-./single_run.sh 0 0 0 12
-./single_run.sh 0 0 1 12
-./single_run.sh 0 0 2 12
-./single_run.sh 0 0 3 12
-./single_run.sh 0 0 4 12
-./single_run.sh 0 0 5 12
-./single_run.sh 0 0 6 12
-./single_run.sh 0 0 7 12
-./single_run.sh 0 0 8 12
-./single_run.sh 0 0 9 12
-./single_run.sh 0 0 10 12
-./single_run.sh 0 0 11 12
-./single_run.sh 0 0 12 12
-./single_run.sh 0 0 13 12
-./single_run.sh 0 0 14 12
-./single_run.sh 0 0 15 12
-./single_run.sh 0 0 16 12
-./single_run.sh 0 0 17 12
-./single_run.sh 0 0 18 12
-./single_run.sh 0 0 19 12
-./single_run.sh 0 0 20 12
-./single_run.sh 0 0 21 12
-./single_run.sh 0 0 22 12
-./single_run.sh 0 0 23 12
-./single_run.sh 0 0 24 12
-./single_run.sh 0 0 25 12
-./single_run.sh 0 0 26 12
-./single_run.sh 0 0 27 12
-./single_run.sh 0 0 28 12
-./single_run.sh 0 0 29 12
-./single_run.sh 0 0 30 12
-./single_run.sh 0 0 31 12
-./single_run.sh 0 0 32 12
-./single_run.sh 0 0 33 12
-./single_run.sh 0 0 34 12
-./single_run.sh 0 0 35 12
-./single_run.sh 0 0 36 12
-./single_run.sh 0 0 37 12
-./single_run.sh 0 0 38 12
-./single_run.sh 0 0 39 12
-./single_run.sh 0 0 40 12
-./single_run.sh 0 0 41 12
-./single_run.sh 0 0 42 12
-./single_run.sh 0 0 43 12
-./single_run.sh 0 0 44 12
-./single_run.sh 0 0 45 12
-./single_run.sh 0 0 46 12
-./single_run.sh 0 0 47 12
-./single_run.sh 0 0 48 12
-./single_run.sh 0 0 49 12
-./single_run.sh 0 0 50 12
-./single_run.sh 0 0 51 12
-./single_run.sh 0 1 1 12
-./single_run.sh 0 1 11 12
-./single_run.sh 0 1 21 12
-./single_run.sh 0 1 32 12
-./single_run.sh 0 1 42 12
-./single_run.sh 0 3 1 12
-./single_run.sh 0 3 11 12
-./single_run.sh 0 3 21 12
-./single_run.sh 0 3 32 12
-./single_run.sh 0 3 42 12
-./single_run.sh 0 4 1 12
-./single_run.sh 0 4 11 12
-./single_run.sh 0 4 21 12
-./single_run.sh 0 4 32 12
-./single_run.sh 0 4 42 12
-./single_run.sh 0 5 1 12
-./single_run.sh 0 5 11 12
-./single_run.sh 0 5 21 12
-./single_run.sh 0 5 32 12
-./single_run.sh 0 5 42 12
-./single_run.sh 1 0 0 12
-./single_run.sh 1 0 1 12
-./single_run.sh 1 0 2 12
-./single_run.sh 1 0 3 12
-./single_run.sh 1 0 4 12
-./single_run.sh 1 0 5 12
-./single_run.sh 1 0 6 12
-./single_run.sh 1 0 7 12
-./single_run.sh 1 0 8 12
-./single_run.sh 1 0 9 12
-./single_run.sh 1 0 10 12
-./single_run.sh 1 0 11 12
-./single_run.sh 1 0 12 12
-./single_run.sh 1 0 13 12
-./single_run.sh 1 0 14 12
-./single_run.sh 1 0 15 12
-./single_run.sh 1 0 16 12
-./single_run.sh 1 0 17 12
-./single_run.sh 1 0 18 12
-./single_run.sh 1 0 19 12
-./single_run.sh 1 0 20 12
-./single_run.sh 1 0 21 12
-./single_run.sh 1 0 22 12
-./single_run.sh 1 0 23 12
-./single_run.sh 1 0 24 12
-./single_run.sh 1 0 25 12
-./single_run.sh 1 0 26 12
-./single_run.sh 1 0 27 12
-./single_run.sh 1 0 28 12
-./single_run.sh 1 0 29 12
-./single_run.sh 1 0 30 12
-./single_run.sh 1 0 31 12
-./single_run.sh 1 0 32 12
-./single_run.sh 1 0 33 12
-./single_run.sh 1 0 34 12
-./single_run.sh 1 0 35 12
-./single_run.sh 1 0 36 12
-./single_run.sh 1 0 37 12
-./single_run.sh 1 0 38 12
-./single_run.sh 1 0 39 12
-./single_run.sh 1 0 40 12
-./single_run.sh 1 0 41 12
-./single_run.sh 1 0 42 12
-./single_run.sh 1 0 43 12
-./single_run.sh 1 0 44 12
-./single_run.sh 1 0 45 12
-./single_run.sh 1 0 46 12
-./single_run.sh 1 0 47 12
-./single_run.sh 1 0 48 12
-./single_run.sh 1 0 49 12
-./single_run.sh 1 0 50 12
-./single_run.sh 1 0 51 12
-./single_run.sh 1 1 1 12
-./single_run.sh 1 1 11 12
-./single_run.sh 1 1 21 12
-./single_run.sh 1 1 32 12
-./single_run.sh 1 1 42 12
-./single_run.sh 1 3 1 12
-./single_run.sh 1 3 11 12
-./single_run.sh 1 3 21 12
-./single_run.sh 1 3 32 12
-./single_run.sh 1 3 42 12
-./single_run.sh 1 4 1 12
-./single_run.sh 1 4 11 12
-./single_run.sh 1 4 21 12
-./single_run.sh 1 4 32 12
-./single_run.sh 1 4 42 12
-./single_run.sh 1 5 1 12
-./single_run.sh 1 5 11 12
-./single_run.sh 1 5 21 12
-./single_run.sh 1 5 32 12
-./single_run.sh 1 5 42 12
-./single_run.sh 2 0 0 12
-./single_run.sh 2 0 1 12
-./single_run.sh 2 0 2 12
-./single_run.sh 2 0 3 12
-./single_run.sh 2 0 4 12
-./single_run.sh 2 0 5 12
-./single_run.sh 2 0 6 12
-./single_run.sh 2 0 7 12
-./single_run.sh 2 0 8 12
-./single_run.sh 2 0 9 12
-./single_run.sh 2 0 10 12
-./single_run.sh 2 0 11 12
-./single_run.sh 2 0 12 12
-./single_run.sh 2 0 13 12
-./single_run.sh 2 0 14 12
-./single_run.sh 2 0 15 12
-./single_run.sh 2 0 16 12
-./single_run.sh 2 0 17 12
-./single_run.sh 2 0 18 12
-./single_run.sh 2 0 19 12
-./single_run.sh 2 0 20 12
-./single_run.sh 2 0 21 12
-./single_run.sh 2 0 22 12
-./single_run.sh 2 0 23 12
-./single_run.sh 2 0 24 12
-./single_run.sh 2 0 25 12
-./single_run.sh 2 0 26 12
-./single_run.sh 2 0 27 12
-./single_run.sh 2 0 28 12
-./single_run.sh 2 0 29 12
-./single_run.sh 2 0 30 12
-./single_run.sh 2 0 31 12
-./single_run.sh 2 0 32 12
-./single_run.sh 2 0 33 12
-./single_run.sh 2 0 34 12
-./single_run.sh 2 0 35 12
-./single_run.sh 2 0 36 12
-./single_run.sh 2 0 37 12
-./single_run.sh 2 0 38 12
-./single_run.sh 2 0 39 12
-./single_run.sh 2 0 40 12
-./single_run.sh 2 0 41 12
-./single_run.sh 2 0 42 12
-./single_run.sh 2 0 43 12
-./single_run.sh 2 0 44 12
-./single_run.sh 2 0 45 12
-./single_run.sh 2 0 46 12
-./single_run.sh 2 0 47 12
-./single_run.sh 2 0 48 12
-./single_run.sh 2 0 49 12
-./single_run.sh 2 0 50 12
-./single_run.sh 2 0 51 12
-./single_run.sh 2 1 1 12
-./single_run.sh 2 1 11 12
-./single_run.sh 2 1 21 12
-./single_run.sh 2 1 32 12
-./single_run.sh 2 1 42 12
-./single_run.sh 2 3 1 12
-./single_run.sh 2 3 11 12
-./single_run.sh 2 3 21 12
-./single_run.sh 2 3 32 12
-./single_run.sh 2 3 42 12
-./single_run.sh 2 4 1 12
-./single_run.sh 2 4 11 12
-./single_run.sh 2 4 21 12
-./single_run.sh 2 4 32 12
-./single_run.sh 2 4 42 12
-./single_run.sh 2 5 1 12
-./single_run.sh 2 5 11 12
-./single_run.sh 2 5 21 12
-./single_run.sh 2 5 32 12
-./single_run.sh 2 5 42 12
-./single_run.sh 3 0 0 12
-./single_run.sh 3 0 1 12
-./single_run.sh 3 0 2 12
-./single_run.sh 3 0 3 12
-./single_run.sh 3 0 4 12
-./single_run.sh 3 0 5 12
-./single_run.sh 3 0 6 12
-./single_run.sh 3 0 7 12
-./single_run.sh 3 0 8 12
-./single_run.sh 3 0 9 12
-./single_run.sh 3 0 10 12
-./single_run.sh 3 0 11 12
-./single_run.sh 3 0 12 12
-./single_run.sh 3 0 13 12
-./single_run.sh 3 0 14 12
-./single_run.sh 3 0 15 12
-./single_run.sh 3 0 16 12
-./single_run.sh 3 0 17 12
-./single_run.sh 3 0 18 12
-./single_run.sh 3 0 19 12
-./single_run.sh 3 0 20 12
-./single_run.sh 3 0 21 12
-./single_run.sh 3 0 22 12
-./single_run.sh 3 0 23 12
-./single_run.sh 3 0 24 12
-./single_run.sh 3 0 25 12
-./single_run.sh 3 0 26 12
-./single_run.sh 3 0 27 12
-./single_run.sh 3 0 28 12
-./single_run.sh 3 0 29 12
-./single_run.sh 3 0 30 12
-./single_run.sh 3 0 31 12
-./single_run.sh 3 0 32 12
-./single_run.sh 3 0 33 12
-./single_run.sh 3 0 34 12
-./single_run.sh 3 0 35 12
-./single_run.sh 3 0 36 12
-./single_run.sh 3 0 37 12
-./single_run.sh 3 0 38 12
-./single_run.sh 3 0 39 12
-./single_run.sh 3 0 40 12
-./single_run.sh 3 0 41 12
-./single_run.sh 3 0 42 12
-./single_run.sh 3 0 43 12
-./single_run.sh 3 0 44 12
-./single_run.sh 3 0 45 12
-./single_run.sh 3 0 46 12
-./single_run.sh 3 0 47 12
-./single_run.sh 3 0 48 12
-./single_run.sh 3 0 49 12
-./single_run.sh 3 0 50 12
-./single_run.sh 3 0 51 12
-./single_run.sh 3 1 1 12
-./single_run.sh 3 1 11 12
-./single_run.sh 3 1 21 12
-./single_run.sh 3 1 32 12
-./single_run.sh 3 1 42 12
-./single_run.sh 3 3 1 12
-./single_run.sh 3 3 11 12
-./single_run.sh 3 3 21 12
-./single_run.sh 3 3 32 12
-./single_run.sh 3 3 42 12
-./single_run.sh 3 4 1 12
-./single_run.sh 3 4 11 12
-./single_run.sh 3 4 21 12
-./single_run.sh 3 4 32 12
-./single_run.sh 3 4 42 12
-./single_run.sh 3 5 1 12
-./single_run.sh 3 5 11 12
-./single_run.sh 3 5 21 12
-./single_run.sh 3 5 32 12
-./single_run.sh 3 5 42 12
-./single_run.sh 4 0 0 12
-./single_run.sh 4 0 1 12
-./single_run.sh 4 0 2 12
-./single_run.sh 4 0 3 12
-./single_run.sh 4 0 4 12
-./single_run.sh 4 0 5 12
-./single_run.sh 4 0 6 12
-./single_run.sh 4 0 7 12
-./single_run.sh 4 0 8 12
-./single_run.sh 4 0 9 12
-./single_run.sh 4 0 10 12
-./single_run.sh 4 0 11 12
-./single_run.sh 4 0 12 12
-./single_run.sh 4 0 13 12
-./single_run.sh 4 0 14 12
-./single_run.sh 4 0 15 12
-./single_run.sh 4 0 16 12
-./single_run.sh 4 0 17 12
-./single_run.sh 4 0 18 12
-./single_run.sh 4 0 19 12
-./single_run.sh 4 0 20 12
-./single_run.sh 4 0 21 12
-./single_run.sh 4 0 22 12
-./single_run.sh 4 0 23 12
-./single_run.sh 4 0 24 12
-./single_run.sh 4 0 25 12
-./single_run.sh 4 0 26 12
-./single_run.sh 4 0 27 12
-./single_run.sh 4 0 28 12
-./single_run.sh 4 0 29 12
-./single_run.sh 4 0 30 12
-./single_run.sh 4 0 31 12
-./single_run.sh 4 0 32 12
-./single_run.sh 4 0 33 12
-./single_run.sh 4 0 34 12
-./single_run.sh 4 0 35 12
-./single_run.sh 4 0 36 12
-./single_run.sh 4 0 37 12
-./single_run.sh 4 0 38 12
-./single_run.sh 4 0 39 12
-./single_run.sh 4 0 40 12
-./single_run.sh 4 0 41 12
-./single_run.sh 4 0 42 12
-./single_run.sh 4 0 43 12
-./single_run.sh 4 0 44 12
-./single_run.sh 4 0 45 12
-./single_run.sh 4 0 46 12
-./single_run.sh 4 0 47 12
-./single_run.sh 4 0 48 12
-./single_run.sh 4 0 49 12
-./single_run.sh 4 0 50 12
-./single_run.sh 4 0 51 12
-./single_run.sh 4 1 1 12
-./single_run.sh 4 1 11 12
-./single_run.sh 4 1 21 12
-./single_run.sh 4 1 32 12
-./single_run.sh 4 1 42 12
-./single_run.sh 4 3 1 12
-./single_run.sh 4 3 11 12
-./single_run.sh 4 3 21 12
-./single_run.sh 4 3 32 12
-./single_run.sh 4 3 42 12
-./single_run.sh 4 4 1 12
-./single_run.sh 4 4 11 12
-./single_run.sh 4 4 21 12
-./single_run.sh 4 4 32 12
-./single_run.sh 4 4 42 12
-./single_run.sh 4 5 1 12
-./single_run.sh 4 5 11 12
-./single_run.sh 4 5 21 12
-./single_run.sh 4 5 32 12
-./single_run.sh 4 5 42 12
-./single_run.sh 5 0 0 12
-./single_run.sh 5 0 1 12
-./single_run.sh 5 0 2 12
-./single_run.sh 5 0 3 12
-./single_run.sh 5 0 4 12
-./single_run.sh 5 0 5 12
-./single_run.sh 5 0 6 12
-./single_run.sh 5 0 7 12
-./single_run.sh 5 0 8 12
-./single_run.sh 5 0 9 12
-./single_run.sh 5 0 10 12
-./single_run.sh 5 0 11 12
-./single_run.sh 5 0 12 12
-./single_run.sh 5 0 13 12
-./single_run.sh 5 0 14 12
-./single_run.sh 5 0 15 12
-./single_run.sh 5 0 16 12
-./single_run.sh 5 0 17 12
-./single_run.sh 5 0 18 12
-./single_run.sh 5 0 19 12
-./single_run.sh 5 0 20 12
-./single_run.sh 5 0 21 12
-./single_run.sh 5 0 22 12
-./single_run.sh 5 0 23 12
-./single_run.sh 5 0 24 12
-./single_run.sh 5 0 25 12
-./single_run.sh 5 0 26 12
-./single_run.sh 5 0 27 12
-./single_run.sh 5 0 28 12
-./single_run.sh 5 0 29 12
-./single_run.sh 5 0 30 12
-./single_run.sh 5 0 31 12
-./single_run.sh 5 0 32 12
-./single_run.sh 5 0 33 12
-./single_run.sh 5 0 34 12
-./single_run.sh 5 0 35 12
-./single_run.sh 5 0 36 12
-./single_run.sh 5 0 37 12
-./single_run.sh 5 0 38 12
-./single_run.sh 5 0 39 12
-./single_run.sh 5 0 40 12
-./single_run.sh 5 0 41 12
-./single_run.sh 5 0 42 12
-./single_run.sh 5 0 43 12
-./single_run.sh 5 0 44 12
-./single_run.sh 5 0 45 12
-./single_run.sh 5 0 46 12
-./single_run.sh 5 0 47 12
-./single_run.sh 5 0 48 12
-./single_run.sh 5 0 49 12
-./single_run.sh 5 0 50 12
-./single_run.sh 5 0 51 12
-./single_run.sh 5 1 1 12
-./single_run.sh 5 1 11 12
-./single_run.sh 5 1 21 12
-./single_run.sh 5 1 32 12
-./single_run.sh 5 1 42 12
-./single_run.sh 5 3 1 12
-./single_run.sh 5 3 11 12
-./single_run.sh 5 3 21 12
-./single_run.sh 5 3 32 12
-./single_run.sh 5 3 42 12
-./single_run.sh 5 4 1 12
-./single_run.sh 5 4 11 12
-./single_run.sh 5 4 21 12
-./single_run.sh 5 4 32 12
-./single_run.sh 5 4 42 12
-./single_run.sh 5 5 1 12
-./single_run.sh 5 5 11 12
-./single_run.sh 5 5 21 12
-./single_run.sh 5 5 32 12
-./single_run.sh 5 5 42 12
-./single_run.sh 7 0 1 12
-./single_run.sh 7 0 11 12
-./single_run.sh 7 0 21 12
-./single_run.sh 7 0 32 12
-./single_run.sh 7 0 42 12
-./single_run.sh 7 1 1 12
-./single_run.sh 7 1 11 12
-./single_run.sh 7 1 21 12
-./single_run.sh 7 1 32 12
-./single_run.sh 7 1 42 12
-./single_run.sh 7 3 1 12
-./single_run.sh 7 3 11 12
-./single_run.sh 7 3 21 12
-./single_run.sh 7 3 32 12
-./single_run.sh 7 3 42 12
-./single_run.sh 7 4 1 12
-./single_run.sh 7 4 11 12
-./single_run.sh 7 4 21 12
-./single_run.sh 7 4 32 12
-./single_run.sh 7 4 42 12
-./single_run.sh 7 5 1 12
-./single_run.sh 7 5 11 12
-./single_run.sh 7 5 21 12
-./single_run.sh 7 5 32 12
-./single_run.sh 7 5 42 12
-./single_run.sh 8 1 1 12
-./single_run.sh 8 1 11 12
-./single_run.sh 8 1 21 12
-./single_run.sh 8 1 32 12
-./single_run.sh 8 1 42 12
-./single_run.sh 8 4 1 12
-./single_run.sh 8 4 11 12
-./single_run.sh 8 4 21 12
-./single_run.sh 8 4 32 12
-./single_run.sh 8 4 42 12
-./single_run.sh 8 5 1 12
-./single_run.sh 8 5 11 12
-./single_run.sh 8 5 21 12
-./single_run.sh 8 5 32 12
-./single_run.sh 8 5 42 12
-./single_run.sh 9 0 1 12
-./single_run.sh 9 0 11 12
-./single_run.sh 9 0 21 12
-./single_run.sh 9 0 32 12
-./single_run.sh 9 0 42 12
-./single_run.sh 9 1 1 12
-./single_run.sh 9 1 11 12
-./single_run.sh 9 1 21 12
-./single_run.sh 9 1 32 12
-./single_run.sh 9 1 42 12
-./single_run.sh 9 3 1 12
-./single_run.sh 9 3 11 12
-./single_run.sh 9 3 21 12
-./single_run.sh 9 3 32 12
-./single_run.sh 9 3 42 12
-./single_run.sh 9 4 1 12
-./single_run.sh 9 4 11 12
-./single_run.sh 9 4 21 12
-./single_run.sh 9 4 32 12
-./single_run.sh 9 4 42 12
-./single_run.sh 9 5 1 12
-./single_run.sh 9 5 11 12
-./single_run.sh 9 5 21 12
-./single_run.sh 9 5 32 12
-./single_run.sh 9 5 42 12
-./single_run.sh 15 0 0 12
-./single_run.sh 15 0 1 12
-./single_run.sh 15 0 2 12
-./single_run.sh 15 0 3 12
-./single_run.sh 15 0 4 12
-./single_run.sh 15 0 5 12
-./single_run.sh 15 0 6 12
-./single_run.sh 15 0 7 12
-./single_run.sh 15 0 8 12
-./single_run.sh 15 0 9 12
-./single_run.sh 15 0 10 12
-./single_run.sh 15 0 11 12
-./single_run.sh 15 0 12 12
-./single_run.sh 15 0 13 12
-./single_run.sh 15 0 14 12
-./single_run.sh 15 0 15 12
-./single_run.sh 15 0 16 12
-./single_run.sh 15 0 17 12
-./single_run.sh 15 0 18 12
-./single_run.sh 15 0 19 12
-./single_run.sh 15 0 20 12
-./single_run.sh 15 0 21 12
-./single_run.sh 15 0 22 12
-./single_run.sh 15 0 23 12
-./single_run.sh 15 0 24 12
-./single_run.sh 15 0 25 12
-./single_run.sh 15 0 26 12
-./single_run.sh 15 0 27 12
-./single_run.sh 15 0 28 12
-./single_run.sh 15 0 29 12
-./single_run.sh 15 0 30 12
-./single_run.sh 15 0 31 12
-./single_run.sh 15 0 32 12
-./single_run.sh 15 0 33 12
-./single_run.sh 15 0 34 12
-./single_run.sh 15 0 35 12
-./single_run.sh 15 0 36 12
-./single_run.sh 15 0 37 12
-./single_run.sh 15 0 38 12
-./single_run.sh 15 0 39 12
-./single_run.sh 15 0 40 12
-./single_run.sh 15 0 41 12
-./single_run.sh 15 0 42 12
-./single_run.sh 15 0 43 12
-./single_run.sh 15 0 44 12
-./single_run.sh 15 0 45 12
-./single_run.sh 15 0 46 12
-./single_run.sh 15 0 47 12
-./single_run.sh 15 0 48 12
-./single_run.sh 15 0 49 12
-./single_run.sh 15 0 50 12
-./single_run.sh 15 0 51 12
-./single_run.sh 15 1 0 12
-./single_run.sh 15 1 1 12
-./single_run.sh 15 1 2 12
-./single_run.sh 15 1 3 12
-./single_run.sh 15 1 4 12
-./single_run.sh 15 1 5 12
-./single_run.sh 15 1 6 12
-./single_run.sh 15 1 7 12
-./single_run.sh 15 1 8 12
-./single_run.sh 15 1 9 12
-./single_run.sh 15 1 10 12
-./single_run.sh 15 1 11 12
-./single_run.sh 15 1 12 12
-./single_run.sh 15 1 13 12
-./single_run.sh 15 1 14 12
-./single_run.sh 15 1 15 12
-./single_run.sh 15 1 16 12
-./single_run.sh 15 1 17 12
-./single_run.sh 15 1 18 12
-./single_run.sh 15 1 19 12
-./single_run.sh 15 1 20 12
-./single_run.sh 15 1 21 12
-./single_run.sh 15 1 22 12
-./single_run.sh 15 1 23 12
-./single_run.sh 15 1 24 12
-./single_run.sh 15 1 25 12
-./single_run.sh 15 1 26 12
-./single_run.sh 15 1 27 12
-./single_run.sh 15 1 28 12
-./single_run.sh 15 1 29 12
-./single_run.sh 15 1 30 12
-./single_run.sh 15 1 31 12
-./single_run.sh 15 1 32 12
-./single_run.sh 15 1 33 12
-./single_run.sh 15 1 34 12
-./single_run.sh 15 1 35 12
-./single_run.sh 15 1 36 12
-./single_run.sh 15 1 37 12
-./single_run.sh 15 1 38 12
-./single_run.sh 15 1 39 12
-./single_run.sh 15 1 40 12
-./single_run.sh 15 1 41 12
-./single_run.sh 15 1 42 12
-./single_run.sh 15 1 43 12
-./single_run.sh 15 1 44 12
-./single_run.sh 15 1 45 12
-./single_run.sh 15 1 46 12
-./single_run.sh 15 1 47 12
-./single_run.sh 15 1 48 12
-./single_run.sh 15 1 49 12
-./single_run.sh 15 1 50 12
-./single_run.sh 15 1 51 12
-./single_run.sh 15 3 0 12
-./single_run.sh 15 3 1 12
-./single_run.sh 15 3 2 12
-./single_run.sh 15 3 3 12
-./single_run.sh 15 3 4 12
-./single_run.sh 15 3 5 12
-./single_run.sh 15 3 6 12
-./single_run.sh 15 3 7 12
-./single_run.sh 15 3 8 12
-./single_run.sh 15 3 9 12
-./single_run.sh 15 3 10 12
-./single_run.sh 15 3 11 12
-./single_run.sh 15 3 12 12
-./single_run.sh 15 3 13 12
-./single_run.sh 15 3 14 12
-./single_run.sh 15 3 15 12
-./single_run.sh 15 3 16 12
-./single_run.sh 15 3 17 12
-./single_run.sh 15 3 18 12
-./single_run.sh 15 3 19 12
-./single_run.sh 15 3 20 12
-./single_run.sh 15 3 21 12
-./single_run.sh 15 3 22 12
-./single_run.sh 15 3 23 12
-./single_run.sh 15 3 24 12
-./single_run.sh 15 3 25 12
-./single_run.sh 15 3 26 12
-./single_run.sh 15 3 27 12
-./single_run.sh 15 3 28 12
-./single_run.sh 15 3 29 12
-./single_run.sh 15 3 30 12
-./single_run.sh 15 3 31 12
-./single_run.sh 15 3 32 12
-./single_run.sh 15 3 33 12
-./single_run.sh 15 3 34 12
-./single_run.sh 15 3 35 12
-./single_run.sh 15 3 36 12
-./single_run.sh 15 3 37 12
-./single_run.sh 15 3 38 12
-./single_run.sh 15 3 39 12
-./single_run.sh 15 3 40 12
-./single_run.sh 15 3 41 12
-./single_run.sh 15 3 42 12
-./single_run.sh 15 3 43 12
-./single_run.sh 15 3 44 12
-./single_run.sh 15 3 45 12
-./single_run.sh 15 3 46 12
-./single_run.sh 15 3 47 12
-./single_run.sh 15 3 48 12
-./single_run.sh 15 3 49 12
-./single_run.sh 15 3 50 12
-./single_run.sh 15 3 51 12
-./single_run.sh 15 4 0 12
-./single_run.sh 15 4 1 12
-./single_run.sh 15 4 2 12
-./single_run.sh 15 4 3 12
-./single_run.sh 15 4 4 12
-./single_run.sh 15 4 5 12
-./single_run.sh 15 4 6 12
-./single_run.sh 15 4 7 12
-./single_run.sh 15 4 8 12
-./single_run.sh 15 4 9 12
-./single_run.sh 15 4 10 12
-./single_run.sh 15 4 11 12
-./single_run.sh 15 4 12 12
-./single_run.sh 15 4 13 12
-./single_run.sh 15 4 14 12
-./single_run.sh 15 4 15 12
-./single_run.sh 15 4 16 12
-./single_run.sh 15 4 17 12
-./single_run.sh 15 4 18 12
-./single_run.sh 15 4 19 12
-./single_run.sh 15 4 20 12
-./single_run.sh 15 4 21 12
-./single_run.sh 15 4 22 12
-./single_run.sh 15 4 23 12
-./single_run.sh 15 4 24 12
-./single_run.sh 15 4 25 12
-./single_run.sh 15 4 26 12
-./single_run.sh 15 4 27 12
-./single_run.sh 15 4 28 12
-./single_run.sh 15 4 29 12
-./single_run.sh 15 4 30 12
-./single_run.sh 15 4 31 12
-./single_run.sh 15 4 32 12
-./single_run.sh 15 4 33 12
-./single_run.sh 15 4 34 12
-./single_run.sh 15 4 35 12
-./single_run.sh 15 4 36 12
-./single_run.sh 15 4 37 12
-./single_run.sh 15 4 38 12
-./single_run.sh 15 4 39 12
-./single_run.sh 15 4 40 12
-./single_run.sh 15 4 41 12
-./single_run.sh 15 4 42 12
-./single_run.sh 15 4 43 12
-./single_run.sh 15 4 44 12
-./single_run.sh 15 4 45 12
-./single_run.sh 15 4 46 12
-./single_run.sh 15 4 47 12
-./single_run.sh 15 4 48 12
-./single_run.sh 15 4 49 12
-./single_run.sh 15 4 50 12
-./single_run.sh 15 4 51 12
-./single_run.sh 15 5 0 12
-./single_run.sh 15 5 1 12
-./single_run.sh 15 5 2 12
-./single_run.sh 15 5 3 12
-./single_run.sh 15 5 4 12
-./single_run.sh 15 5 5 12
-./single_run.sh 15 5 6 12
-./single_run.sh 15 5 7 12
-./single_run.sh 15 5 8 12
-./single_run.sh 15 5 9 12
-./single_run.sh 15 5 10 12
-./single_run.sh 15 5 11 12
-./single_run.sh 15 5 12 12
-./single_run.sh 15 5 13 12
-./single_run.sh 15 5 14 12
-./single_run.sh 15 5 15 12
-./single_run.sh 15 5 16 12
-./single_run.sh 15 5 17 12
-./single_run.sh 15 5 18 12
-./single_run.sh 15 5 19 12
-./single_run.sh 15 5 20 12
-./single_run.sh 15 5 21 12
-./single_run.sh 15 5 22 12
-./single_run.sh 15 5 23 12
-./single_run.sh 15 5 24 12
-./single_run.sh 15 5 25 12
-./single_run.sh 15 5 26 12
-./single_run.sh 15 5 27 12
-./single_run.sh 15 5 28 12
-./single_run.sh 15 5 29 12
-./single_run.sh 15 5 30 12
-./single_run.sh 15 5 31 12
-./single_run.sh 15 5 32 12
-./single_run.sh 15 5 33 12
-./single_run.sh 15 5 34 12
-./single_run.sh 15 5 35 12
-./single_run.sh 15 5 36 12
-./single_run.sh 15 5 37 12
-./single_run.sh 15 5 38 12
-./single_run.sh 15 5 39 12
-./single_run.sh 15 5 40 12
-./single_run.sh 15 5 41 12
-./single_run.sh 15 5 42 12
-./single_run.sh 15 5 43 12
-./single_run.sh 15 5 44 12
-./single_run.sh 15 5 45 12
-./single_run.sh 15 5 46 12
-./single_run.sh 15 5 47 12
-./single_run.sh 15 5 48 12
-./single_run.sh 15 5 49 12
-./single_run.sh 15 5 50 12
-./single_run.sh 15 5 51 12
-./single_run.sh 16 0 0 12
-./single_run.sh 16 0 1 12
-./single_run.sh 16 0 2 12
-./single_run.sh 16 0 3 12
-./single_run.sh 16 0 4 12
-./single_run.sh 16 0 5 12
-./single_run.sh 16 0 6 12
-./single_run.sh 16 0 7 12
-./single_run.sh 16 0 8 12
-./single_run.sh 16 0 9 12
-./single_run.sh 16 0 10 12
-./single_run.sh 16 0 11 12
-./single_run.sh 16 0 12 12
-./single_run.sh 16 0 13 12
-./single_run.sh 16 0 14 12
-./single_run.sh 16 0 15 12
-./single_run.sh 16 0 16 12
-./single_run.sh 16 0 17 12
-./single_run.sh 16 0 18 12
-./single_run.sh 16 0 19 12
-./single_run.sh 16 0 20 12
-./single_run.sh 16 0 21 12
-./single_run.sh 16 0 22 12
-./single_run.sh 16 0 23 12
-./single_run.sh 16 0 24 12
-./single_run.sh 16 0 25 12
-./single_run.sh 16 0 26 12
-./single_run.sh 16 0 27 12
-./single_run.sh 16 0 28 12
-./single_run.sh 16 0 29 12
-./single_run.sh 16 0 30 12
-./single_run.sh 16 0 31 12
-./single_run.sh 16 0 32 12
-./single_run.sh 16 0 33 12
-./single_run.sh 16 0 34 12
-./single_run.sh 16 0 35 12
-./single_run.sh 16 0 36 12
-./single_run.sh 16 0 37 12
-./single_run.sh 16 0 38 12
-./single_run.sh 16 0 39 12
-./single_run.sh 16 0 40 12
-./single_run.sh 16 0 41 12
-./single_run.sh 16 0 42 12
-./single_run.sh 16 0 43 12
-./single_run.sh 16 0 44 12
-./single_run.sh 16 0 45 12
-./single_run.sh 16 0 46 12
-./single_run.sh 16 0 47 12
-./single_run.sh 16 0 48 12
-./single_run.sh 16 0 49 12
-./single_run.sh 16 0 50 12
-./single_run.sh 16 0 51 12
-./single_run.sh 16 2 0 12
-./single_run.sh 16 2 1 12
-./single_run.sh 16 2 2 12
-./single_run.sh 16 2 3 12
-./single_run.sh 16 2 4 12
-./single_run.sh 16 2 5 12
-./single_run.sh 16 2 6 12
-./single_run.sh 16 2 7 12
-./single_run.sh 16 2 8 12
-./single_run.sh 16 2 9 12
-./single_run.sh 16 2 10 12
-./single_run.sh 16 2 11 12
-./single_run.sh 16 2 12 12
-./single_run.sh 16 2 13 12
-./single_run.sh 16 2 14 12
-./single_run.sh 16 2 15 12
-./single_run.sh 16 2 16 12
-./single_run.sh 16 2 17 12
-./single_run.sh 16 2 18 12
-./single_run.sh 16 2 19 12
-./single_run.sh 16 2 20 12
-./single_run.sh 16 2 21 12
-./single_run.sh 16 2 22 12
-./single_run.sh 16 2 23 12
-./single_run.sh 16 2 24 12
-./single_run.sh 16 2 25 12
-./single_run.sh 16 2 26 12
-./single_run.sh 16 2 27 12
-./single_run.sh 16 2 28 12
-./single_run.sh 16 2 29 12
-./single_run.sh 16 2 30 12
-./single_run.sh 16 2 31 12
-./single_run.sh 16 2 32 12
-./single_run.sh 16 2 33 12
-./single_run.sh 16 2 34 12
-./single_run.sh 16 2 35 12
-./single_run.sh 16 2 36 12
-./single_run.sh 16 2 37 12
-./single_run.sh 16 2 38 12
-./single_run.sh 16 2 39 12
-./single_run.sh 16 2 40 12
-./single_run.sh 16 2 41 12
-./single_run.sh 16 2 42 12
-./single_run.sh 16 2 43 12
-./single_run.sh 16 2 44 12
-./single_run.sh 16 2 45 12
-./single_run.sh 16 2 46 12
-./single_run.sh 16 2 47 12
-./single_run.sh 16 2 48 12
-./single_run.sh 16 2 49 12
-./single_run.sh 16 2 50 12
-./single_run.sh 16 2 51 12
-./single_run.sh 16 3 0 12
-./single_run.sh 16 3 1 12
-./single_run.sh 16 3 2 12
-./single_run.sh 16 3 3 12
-./single_run.sh 16 3 4 12
-./single_run.sh 16 3 5 12
-./single_run.sh 16 3 6 12
-./single_run.sh 16 3 7 12
-./single_run.sh 16 3 8 12
-./single_run.sh 16 3 9 12
-./single_run.sh 16 3 10 12
-./single_run.sh 16 3 11 12
-./single_run.sh 16 3 12 12
-./single_run.sh 16 3 13 12
-./single_run.sh 16 3 14 12
-./single_run.sh 16 3 15 12
-./single_run.sh 16 3 16 12
-./single_run.sh 16 3 17 12
-./single_run.sh 16 3 18 12
-./single_run.sh 16 3 19 12
-./single_run.sh 16 3 20 12
-./single_run.sh 16 3 21 12
-./single_run.sh 16 3 22 12
-./single_run.sh 16 3 23 12
-./single_run.sh 16 3 24 12
-./single_run.sh 16 3 25 12
-./single_run.sh 16 3 26 12
-./single_run.sh 16 3 27 12
-./single_run.sh 16 3 28 12
-./single_run.sh 16 3 29 12
-./single_run.sh 16 3 30 12
-./single_run.sh 16 3 31 12
-./single_run.sh 16 3 32 12
-./single_run.sh 16 3 33 12
-./single_run.sh 16 3 34 12
-./single_run.sh 16 3 35 12
-./single_run.sh 16 3 36 12
-./single_run.sh 16 3 37 12
-./single_run.sh 16 3 38 12
-./single_run.sh 16 3 39 12
-./single_run.sh 16 3 40 12
-./single_run.sh 16 3 41 12
-./single_run.sh 16 3 42 12
-./single_run.sh 16 3 43 12
-./single_run.sh 16 3 44 12
-./single_run.sh 16 3 45 12
-./single_run.sh 16 3 46 12
-./single_run.sh 16 3 47 12
-./single_run.sh 16 3 48 12
-./single_run.sh 16 3 49 12
-./single_run.sh 16 3 50 12
-./single_run.sh 16 3 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 0 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 1 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 1 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 1 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 1 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 1 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 3 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 3 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 3 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 3 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 3 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 4 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 4 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 4 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 4 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 4 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 5 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 5 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 5 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 5 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 0 5 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 0 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 1 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 1 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 1 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 1 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 1 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 3 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 3 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 3 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 3 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 3 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 4 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 4 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 4 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 4 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 4 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 5 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 5 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 5 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 5 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 1 5 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 0 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 1 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 1 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 1 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 1 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 1 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 3 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 3 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 3 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 3 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 3 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 4 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 4 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 4 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 4 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 4 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 5 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 5 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 5 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 5 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 2 5 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 0 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 1 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 1 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 1 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 1 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 1 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 3 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 3 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 3 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 3 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 3 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 4 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 4 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 4 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 4 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 4 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 5 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 5 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 5 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 5 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 3 5 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 0 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 1 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 1 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 1 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 1 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 1 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 3 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 3 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 3 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 3 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 3 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 4 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 4 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 4 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 4 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 4 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 5 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 5 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 5 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 5 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 4 5 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 0 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 1 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 1 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 1 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 1 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 1 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 3 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 3 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 3 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 3 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 3 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 4 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 4 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 4 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 4 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 4 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 5 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 5 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 5 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 5 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 5 5 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 0 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 0 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 0 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 0 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 0 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 1 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 1 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 1 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 1 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 1 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 3 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 3 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 3 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 3 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 3 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 4 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 4 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 4 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 4 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 4 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 5 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 5 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 5 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 5 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 7 5 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 1 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 1 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 1 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 1 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 1 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 4 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 4 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 4 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 4 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 4 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 5 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 5 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 5 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 5 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 8 5 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 0 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 0 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 0 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 0 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 0 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 1 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 1 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 1 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 1 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 1 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 3 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 3 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 3 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 3 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 3 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 4 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 4 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 4 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 4 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 4 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 5 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 5 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 5 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 5 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 9 5 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 0 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 1 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 3 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 4 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 15 5 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 0 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 2 51 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 0 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 1 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 2 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 3 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 4 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 5 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 6 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 7 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 8 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 9 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 10 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 11 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 12 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 13 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 14 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 15 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 16 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 17 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 18 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 19 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 20 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 21 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 22 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 23 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 24 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 25 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 26 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 27 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 28 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 29 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 30 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 31 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 32 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 33 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 34 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 35 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 36 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 37 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 38 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 39 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 40 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 41 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 42 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 43 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 44 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 45 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 46 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 47 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 48 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 49 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 50 12
+sbatch -o "./log_meso/log_propre" single_run.sh 16 3 51 12
