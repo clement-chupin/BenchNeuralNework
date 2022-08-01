@@ -1,11 +1,20 @@
 import json
-from ..utils_lib.utils import Utils
+
+import sys
+import os
+  
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
+
+
+from utils_lib.utils import Utils
 util = Utils()
 
 def get_path(policie_name,env_name,fe_k,fev_l,index=0):
     global util
     #util.all_feature_extractor[]
-    return ("./result/log_json/" + 
+    return ("../result/log_json/" + 
     policie_name+ "/" +
     env_name+"/"+
     util.all_feature_extractor[fe_k]["name"] + "_v" + 
@@ -15,7 +24,7 @@ def get_path(policie_name,env_name,fe_k,fev_l,index=0):
 def get_folder_path(policie_name,env_name,fe_k,index=0):
     global util
     #util.all_feature_extractor[]
-    return (("./result/log_json/" + 
+    return (("../result/log_json/" + 
     policie_name+ "/" +
     env_name+"/"
     ),util.all_feature_extractor[fe_k]["name"])

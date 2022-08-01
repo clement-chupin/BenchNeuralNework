@@ -11,10 +11,18 @@
 # from os import path
 # import json
 
+import sys
+import os
+  
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
+
+
 
 import numpy as np
 from log_lib import log_utils
-from bench_all_final.utils_lib.utils import Utils
+from utils_lib.utils import Utils
 
 from time import process_time
 

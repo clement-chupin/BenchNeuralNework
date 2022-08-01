@@ -1,7 +1,16 @@
 import matplotlib.pyplot as plt
 import json
-from bench_all_final.utils_lib.utils import Utils
-import log_utils
+
+import sys
+import os
+  
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
+
+
+from utils_lib.utils import Utils
+from log_lib import log_utils
 import numpy as np
 import os
 from os import path

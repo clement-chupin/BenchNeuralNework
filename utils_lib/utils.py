@@ -10,6 +10,9 @@ import stable_baselines3
 import os
 from os import path
 
+import sys
+sys.path.append('../utils_lib')
+
 
 from utils_lib.custom_vecenv_normalize import VecNormalize
 from utils_lib.feature_extractor_layers import FeaturesExtractor_model
@@ -19,9 +22,10 @@ from utils_lib.all_feature import all_feature_extract as All_Features
 
 class Utils():
 	def __init__(self):
-		self.log_folder = "./result/log_json/"
-		self.model_folder = "./result/best_model/"
-		self.buffer_folder = "./result/buffer_model/"
+		self.result_folder = "../result"
+		self.log_folder = "../result/log_json/"
+		self.model_folder = "../result/best_model/"
+		self.buffer_folder = "../result/buffer_model/"
 		self.num_cpu = 1
 		self.log_interval = 1000
 
@@ -144,7 +148,7 @@ class Utils():
 			if not path.exists(path_dir):
 				os.makedirs(path_dir)
 	
-		create_dir("result")
+		create_dir(self.result_folder)
 		create_dir(self.log_folder)
 		# create_dir(self.model_folder)
 		# create_dir(self.buffer_folder)

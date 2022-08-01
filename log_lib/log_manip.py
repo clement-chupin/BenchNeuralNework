@@ -1,4 +1,12 @@
-from ..utils_lib.utils import Utils 
+import sys
+import os
+  
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
+
+
+from utils_lib.utils import Utils 
 import os
 from os import path
 u = Utils()
@@ -32,14 +40,15 @@ def list_all_folder(index=0):
                             if not path.exists(path_log):
                                 cmpt=cmpt+1
                                 #print(path_log)
-                                input_file.write("\nsbatch -o './log_meso/log_propre' single_run.sh "+str(env_i) + " " +str(po_j) + " " +str(fe_k))
+                                input_file.write("./single_run_master.sh "+str(env_i) + " " +str(po_j) + " " +str(fe_k))
                             else:
                                 
                                 with open(path_log, 'r') as fp:
                                     for count, line in enumerate(fp):
                                         pass
                                 if count not in range(490,510) and count not in range(990,1010):
-                                    os.remove(path_log)
+                                    print(count)
+                                    #os.remove(path_log)
 
 
                                 if False:

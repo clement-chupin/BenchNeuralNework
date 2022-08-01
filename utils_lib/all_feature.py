@@ -1,5 +1,7 @@
+import sys
+sys.path.append('../utils_lib')
 
-import bench_all_final.utils_lib.feature_extractor_layers as FeatureExtractorLayer
+import utils_lib.feature_extractor_layers as FeatureExtractorLayer #a little useless but better for refactor
 
 all_feature_extract = [
     {#0
