@@ -33,7 +33,26 @@ def list_all_folder(index=0):
                             if not path.exists(path_log):
                                 cmpt=cmpt+1
                                 #print(path_log)
-                                input_file.write("\n./single_run.sh "+str(env_i) + " " +str(po_j) + " " +str(fe_k))
+                                input_file.write("\nsbatch -o './log_meso/log_propre' single_run.sh "+str(env_i) + " " +str(po_j) + " " +str(fe_k))
+                            else:
+                                
+                                with open(path_log, 'r') as fp:
+                                    for count, line in enumerate(fp):
+                                        pass
+                                if count not in range(490,510) and count not in range(990,1010):
+                                    os.remove(path_log)
+
+
+                                if False:
+                                    with open(path_log, 'r+') as fp:
+                                        lines = fp.readlines()
+                                        fp.seek(0)
+                                        fp.truncate()
+                                        fp.writelines(lines[1:])
+                                if False:
+                                    print("nop")
+                                    
+
     print(cmpt)
 
 

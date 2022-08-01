@@ -8,7 +8,7 @@ all_envs = [
         "action_space"     :  [False,True],
         "nb_train"         :  500000,
         "enable_ff"        :  True,
-        "num_cpu"          :  1,
+        "num_cpu"          :  8,
     },
     {#1
         "env"              :  "HalfCheetah-v4",
@@ -16,7 +16,7 @@ all_envs = [
         "action_space"     :  [False,True],
         "nb_train"         :  500000,
         "enable_ff"        :  True,
-        "num_cpu"          :  1,
+        "num_cpu"          :  8,
     },
     {#2
         "env"              :  "Hopper-v4",
@@ -24,7 +24,7 @@ all_envs = [
         "action_space"     :  [False,True],
         "nb_train"         :  500000,
         "enable_ff"        :  True,
-        "num_cpu"          :  1,
+        "num_cpu"          :  8,
     },
     {#3
         "env"              :  "HumanoidStandup-v4",
@@ -32,7 +32,7 @@ all_envs = [
         "action_space"     :  [False,True],
         "nb_train"         :  1000000,
         "enable_ff"        :  True,
-        "num_cpu"          :  1,
+        "num_cpu"          :  8,
     },
     {#4
         "env"              :  "Humanoid-v4",
@@ -40,7 +40,7 @@ all_envs = [
         "action_space"     :  [False,True],
         "nb_train"         :  1000000,
         "enable_ff"        :  True,
-        "num_cpu"          :  1,
+        "num_cpu"          :  8,
     },
     {#5
         "env"              :  "InvertedDoublePendulum-v4",
@@ -48,7 +48,7 @@ all_envs = [
         "action_space"     :  [False,True],
         "nb_train"         :  500000,
         "enable_ff"        :  True,
-        "num_cpu"          :  1,
+        "num_cpu"          :  8,
     },
     {#6
         "env"              :  "InvertedPendulum-v4",
@@ -56,7 +56,7 @@ all_envs = [
         "action_space"     :  [False,True],
         "nb_train"         :  500000,
         "enable_ff"        :  True,
-        "num_cpu"          :  1,
+        "num_cpu"          :  8,
     },
     {#7
         "env"              :  "Reacher-v4",
@@ -64,7 +64,7 @@ all_envs = [
         "action_space"     :  [False,True],
         "nb_train"         :  500000,
         "enable_ff"        :  True,
-        "num_cpu"          :  1,
+        "num_cpu"          :  8,
     },
     {#8
         "env"              :  "Swimmer-v4",
@@ -72,7 +72,7 @@ all_envs = [
         "action_space"     :  [False,True],
         "nb_train"         :  500000,
         "enable_ff"        :  True,
-        "num_cpu"          :  1,
+        "num_cpu"          :  8,
     },
     {#9
         "env"              :  "Walker2d-v4",
@@ -80,7 +80,7 @@ all_envs = [
         "action_space"     :  [False,True],
         "nb_train"         :  500000,
         "enable_ff"        :  True,
-        "num_cpu"          :  1,
+        "num_cpu"          :  8,
     },
     ######### Classic Control ########
     {#10

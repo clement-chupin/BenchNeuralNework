@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:1
+#SBATCH --job-name=ia_chupin
+#SBATCH --time=10-00:00:00
+#SBATCH --ntasks=1
+#SBATCH --mem-per-cpu=4G
+
+echo start 
+echo $0
+python3.8 main.py --mode manual --env $1 --policy $2 --feature $3 --index $4
+
+echo end
+
+
+
+
+
+
+
