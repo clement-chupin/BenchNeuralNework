@@ -4,16 +4,15 @@ import torch.nn.functional as F
 from stable_baselines3.common.utils import get_device
 torch.device(get_device())
 from stable_baselines3.common.vec_env import DummyVecEnv
-from custom_vecenv_normalize import VecNormalize
+
 import gym
 import stable_baselines3
 import os
 from os import path
 
 
-
-from feature_extractor_layers import FeaturesExtractor_model
-
+from utils_lib.custom_vecenv_normalize import VecNormalize
+from utils_lib.feature_extractor_layers import FeaturesExtractor_model
 from utils_lib.all_env import all_envs as All_Envs
 from utils_lib.all_env_norm_windows import all_input_norm as All_Norms
 from utils_lib.all_feature import all_feature_extract as All_Features
@@ -127,15 +126,15 @@ class Utils():
 		env = gym.make(env_name)
 		#env = DummyVecEnv([(lambda: env)])
 		env = DummyVecEnv([(lambda: env) for i in range(num_cpu)])
-		# env = VecNormalize(env,clip_obs=obs_shape["range"],offset_obs=obs_shape["offset"],)
-		env = VecNormalize(
+		env = VecNormalize(env,clip_obs=obs_shape["range"],offset_obs=obs_shape["offset"],)
+		# env = VecNormalize(
 
-			env,clip_obs=obs_shape["range"],
-			offset_obs=obs_shape["offset"],
-			norm_window_defined = True,
-			norm_mean = self.all_input_normalizer[0][env_i][0],
-			norm_var = self.all_input_normalizer[0][env_i][1]
-		)
+		# 	env,clip_obs=obs_shape["range"],
+		# 	offset_obs=obs_shape["offset"],
+		# 	norm_window_defined = True,
+		# 	norm_mean = self.all_input_normalizer[0][env_i][0],
+		# 	norm_var = self.all_input_normalizer[0][env_i][1]
+		# )
 			
 		
 		return env

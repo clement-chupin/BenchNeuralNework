@@ -7,10 +7,8 @@ import gym
 
 
 #from torchsummary import summary
-
-
 from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
-import feature_extractor_layers as FeatureExtractorLayer
+
 
 class FeaturesExtractor_model(BaseFeaturesExtractor):
     def __init__(self, 

@@ -10,11 +10,11 @@ do
         do 
             if [$i -lt 10 ]
             then
-                sbatch -o "./log_meso/log_propre_gpu" single_run_gpu.sh $i $j $k 12;
+                sbatch single_run_gpu.sh $i $j $k 12;
             else
-                sbatch -o "./log_meso/log_propre_cpu" single_run_cpu.sh $i $j $k 12;
+                sbatch single_run_cpu.sh $i $j $k 12;
             fi
-            
+            sleep 1
             #./single_run.sh $i $j $k 12
             #echo "./single_run.sh $i $j $k 12"
         done

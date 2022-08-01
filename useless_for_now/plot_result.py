@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import json
-from utils import Utils
+from bench_all_final.utils_lib.utils import Utils
 import log_utils
 import numpy as np
 import os

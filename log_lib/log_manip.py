@@ -1,7 +1,6 @@
-from utils import Utils 
+from ..utils_lib.utils import Utils 
 import os
 from os import path
-
 u = Utils()
 
 util = u

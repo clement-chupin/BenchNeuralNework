@@ -1,8 +1,8 @@
-from utils import Utils
-from plot_result import PlotAll
+from utils_lib.utils import Utils
+
 from time import process_time
 import argparse
-from train_master import TrainMaster
+from utils_lib.train_master import TrainMaster
 
 parser = argparse.ArgumentParser(description='Benchmark all params')
 
@@ -33,7 +33,7 @@ parser.add_argument('--index', type=int, default=0, metavar='N',
 
 args = parser.parse_args()
 trainer = TrainMaster()
-plotter = PlotAll(utils=Utils())
+
 
 
 
@@ -69,18 +69,7 @@ if args.mode == 'manual':
 
 
 
-if args.mode == 'plot':
-    if args.multi:
-        plotter.plot_env(
-            env_j=args.env,
-            element_to_plot=args.etp)
-    else:
-        plotter.plot_policie_env(
-            policie_i = args.policy,
-            env_j = args.env,
-            #fe_k = 0,
-            element_to_plot="r",
-            index=0)
+
 
 if args.mode == 'show':
     

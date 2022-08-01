@@ -13,9 +13,9 @@
 
 
 import numpy as np
-import log_utils
-from utils import Utils
-from plot_result import PlotAll
+from log_lib import log_utils
+from bench_all_final.utils_lib.utils import Utils
+
 from time import process_time
 
 
@@ -25,7 +25,7 @@ from time import process_time
 class TrainMaster():
     def __init__(self,device="auto"):
         self.utils =    Utils()
-        self.plotter = PlotAll(utils=self.utils,lissage_coef=15)
+        #self.plotter = PlotAll(utils=self.utils,lissage_coef=15)
         self.log_folder =    self.utils.log_folder
         self.model_folder =  self.utils.model_folder
         self.buffer_folder = self.utils.buffer_folder
