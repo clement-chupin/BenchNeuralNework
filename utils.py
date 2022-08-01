@@ -11,9 +11,11 @@ import os
 from os import path
 
 
+
 from feature_extractor_layers import FeaturesExtractor_model
 
 from utils_lib.all_env import all_envs as All_Envs
+from utils_lib.all_env_norm_windows import all_input_norm as All_Norms
 from utils_lib.all_feature import all_feature_extract as All_Features
 
 class Utils():
@@ -24,6 +26,7 @@ class Utils():
 		self.num_cpu = 1
 		self.log_interval = 1000
 
+		self.all_input_normalizer = All_Norms
 		self.all_feature_extractor = All_Features
 		self.all_envs = All_Envs
 		
@@ -33,42 +36,49 @@ class Utils():
 				"policie"      : stable_baselines3.A2C,  #disc, conti
 				"name"         : "A2C",
 				"action_space" : [True,True],
-				"compute_opti" : "cpu",
+				"compute_opti" : "auto",
 			},
 			{#1
 				"policie"      : stable_baselines3.DDPG,
 				"name"         : "DDPG",
 				"action_space" : [False,True],
-				"compute_opti" : "cpu",
+				"compute_opti" : "auto",
 			},
 			{#2
 				"policie"      : stable_baselines3.DQN,
 				"name"         : "DQN",
 				"action_space" : [True,False],
-				"compute_opti" : "cpu",
+				"compute_opti" : "auto",
 			},
 			{#3
 				"policie"      : stable_baselines3.PPO,
 				"name"         : "PPO",
 				"action_space" : [True,True],
-				"compute_opti" : "cpu",
+				"compute_opti" : "auto",
 			},
 			{#4
 				"policie"      : stable_baselines3.SAC,
 				"name"         : "SAC",
 				"action_space" : [False,True],
-				"compute_opti" : "cpu",
+				"compute_opti" : "auto",
 			},
 			{#5
 				"policie"      : stable_baselines3.TD3,
 				"name"         : "TD3",
 				"action_space" : [False,True],
-				"compute_opti" : "cpu",
+				"compute_opti" : "auto",
 			},
 
 		]
 
-		
+	def compatible_env_policie(self,policie_i,env_j):
+		return (
+			self.all_policies[policie_i]["action_space"][0] and #or = and for this case
+			self.all_envs[env_j]["action_space"][0]
+			or 
+			self.all_policies[policie_i]["action_space"][1] and #or = and for this case
+			self.all_envs[env_j]["action_space"][1]
+		)	
 		
 			
 	def get_fe_kwargs(self,env,feature_extract,feature_order,device="auto"):
@@ -111,13 +121,23 @@ class Utils():
 			str(feature_extract_var)
 		)
 		
-	def get_env(self,env_name,obs_shape,num_cpu=1):
+	def get_env(self,env_name,env_i,obs_shape,num_cpu=1):
 		from stable_baselines3.common.env_util import make_vec_env
 
 		env = gym.make(env_name)
 		#env = DummyVecEnv([(lambda: env)])
 		env = DummyVecEnv([(lambda: env) for i in range(num_cpu)])
-		env = VecNormalize(env,clip_obs=obs_shape["range"],offset_obs=obs_shape["offset"],)
+		# env = VecNormalize(env,clip_obs=obs_shape["range"],offset_obs=obs_shape["offset"],)
+		env = VecNormalize(
+
+			env,clip_obs=obs_shape["range"],
+			offset_obs=obs_shape["offset"],
+			norm_window_defined = True,
+			norm_mean = self.all_input_normalizer[0][env_i][0],
+			norm_var = self.all_input_normalizer[0][env_i][1]
+		)
+			
+		
 		return env
 
 	def init_folder(self):

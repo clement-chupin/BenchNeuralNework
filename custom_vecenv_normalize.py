@@ -40,6 +40,10 @@ class VecNormalize(VecEnvWrapper):
         epsilon: float = 1e-8,
         norm_obs_keys: Optional[List[str]] = None,
         offset_obs=0.5,
+
+        norm_window_defined=False,
+        norm_var = np.array([]),
+        norm_mean = np.array([]),
     ):
         VecEnvWrapper.__init__(self, venv)
 
@@ -69,6 +73,10 @@ class VecNormalize(VecEnvWrapper):
         self.old_obs = np.array([])
         self.old_reward = np.array([])
         self.offset_obs = offset_obs
+
+        self.norm_window_defined = norm_window_defined,
+        self.norm_var = norm_var,
+        self.norm_mean = norm_mean,
 
     def _sanity_checks(self) -> None:
         """
@@ -187,31 +195,23 @@ class VecNormalize(VecEnvWrapper):
         :param obs_rms: associated statistics
         :return: normalized observation
         """
-        norm_obs = self.offset_obs+(self.clip_obs*0.5*(obs - obs_rms.mean) / np.sqrt(obs_rms.var + self.epsilon)) 
+        #print(obs_rms.var.shape)
+        norm_var = obs_rms.var
+        norm_mean = obs_rms.mean
+        #print(self.norm_window_defined)
+        if self.norm_window_defined==True:
+            print("wtf")
+            print(self.norm_window_defined)
+            norm_var=self.norm_var
+            norm_mean=self.norm_mean
+
+        norm_obs = self.offset_obs+(self.clip_obs*0.5*(obs - norm_mean) / np.sqrt(norm_var + self.epsilon)) 
         output = np.clip(
             norm_obs, 
             self.offset_obs-self.clip_obs, 
             self.offset_obs+self.clip_obs
             )
-        # if np.max(np.absolute(norm_obs - output)) > 0.0 or True: 
-        #     #print("#")
-        #     print(
-        #         max(
-        #             float(np.absolute(np.max(norm_obs)-np.max(output))),
-        #             float(np.absolute(np.min(norm_obs)-np.min(output)))
-        #             )
-        #         )
 
-            
-            # print("{} vs {}".format(np.max(norm_obs),np.max(output)))
-            # print("{} vs {}".format(np.min(norm_obs),np.min(output)))
-
-        # output = np.clip(
-        #     self.offset_obs+(self.clip_obs*(obs - obs_rms.mean) / np.sqrt(obs_rms.var + self.epsilon)), 
-        #     self.offset_obs-self.clip_obs, 
-        #     self.offset_obs+self.clip_obs
-        #     )
-        #print(output)
         return output
 
     def _unnormalize_obs(self, obs: np.ndarray, obs_rms: RunningMeanStd) -> np.ndarray:
