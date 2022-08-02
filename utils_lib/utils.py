@@ -6,7 +6,7 @@ torch.device(get_device())
 from stable_baselines3.common.vec_env import DummyVecEnv
 
 import gym
-import stable_baselines3
+
 import os
 from os import path
 
@@ -16,9 +16,11 @@ sys.path.append('../utils_lib')
 
 from utils_lib.custom_vecenv_normalize import VecNormalize
 from utils_lib.feature_extractor_layers import FeaturesExtractor_model
+
 from utils_lib.all_env import all_envs as All_Envs
-from utils_lib.all_env_norm_windows import all_input_norm as All_Norms
+# from utils_lib.all_env_norm_windows import all_input_norm as All_Norms
 from utils_lib.all_feature import all_feature_extract as All_Features
+from utils_lib.all_policies import all_policies as All_Policies
 
 class Utils():
 	def __init__(self):
@@ -29,50 +31,12 @@ class Utils():
 		self.num_cpu = 1
 		self.log_interval = 1000
 
-		self.all_input_normalizer = All_Norms
-		self.all_feature_extractor = All_Features
-		self.all_envs = All_Envs
+		# self.all_input_normalizer = All_Norms
 		
-		self.all_policies=[#HER to add
-
-			{#0
-				"policie"      : stable_baselines3.A2C,  #disc, conti
-				"name"         : "A2C",
-				"action_space" : [True,True],
-				"compute_opti" : "auto",
-			},
-			{#1
-				"policie"      : stable_baselines3.DDPG,
-				"name"         : "DDPG",
-				"action_space" : [False,True],
-				"compute_opti" : "auto",
-			},
-			{#2
-				"policie"      : stable_baselines3.DQN,
-				"name"         : "DQN",
-				"action_space" : [True,False],
-				"compute_opti" : "auto",
-			},
-			{#3
-				"policie"      : stable_baselines3.PPO,
-				"name"         : "PPO",
-				"action_space" : [True,True],
-				"compute_opti" : "auto",
-			},
-			{#4
-				"policie"      : stable_baselines3.SAC,
-				"name"         : "SAC",
-				"action_space" : [False,True],
-				"compute_opti" : "auto",
-			},
-			{#5
-				"policie"      : stable_baselines3.TD3,
-				"name"         : "TD3",
-				"action_space" : [False,True],
-				"compute_opti" : "auto",
-			},
-
-		]
+		self.all_envs = All_Envs
+		self.all_policies = All_Policies
+		self.all_feature_extractor = All_Features
+		
 
 	def compatible_env_policie(self,policie_i,env_j):
 		return (

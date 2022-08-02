@@ -106,15 +106,13 @@ class TrainMaster():
         num_cpu  =     self.all_envs[env_j]["num_cpu"]
         
 
-        
-
         feature_extract = self.all_feature_extractor[fe_k]
         feature_extract_name = feature_extract["name"]
         feature_order = feature_extract["order"][fev_l]
 
         feature_obs_shape = feature_extract["obs_shape"]
 
-        if policie_i in [1]:
+        if policie_i in [1,5]:
             num_cpu=1
 
         env = self.utils.get_env(env,env_j,feature_obs_shape,num_cpu)
@@ -171,8 +169,6 @@ class TrainMaster():
     #     env =          self.all_envs[env_j]["env"]
     #     env_name =     self.all_envs[env_j]["name"]
     #     nb_train =     self.all_envs[env_j]["nb_train"]
-
-        
     #     env = self.utils.get_env(env)
 
     #     #feature_extract = self.all_feature_extractor[fe_k]["features_extractor"]

@@ -9,6 +9,10 @@ parser = argparse.ArgumentParser(description='Benchmark all params')
 parser.add_argument('--mode', default="train",
                     help='Mode train/manual/plot/show (default: train)')
 
+parser.add_argument('--compute', default="auto",
+                    help='Mode cpu/auto (default: auto)')
+
+
 parser.add_argument('--multi', action='store_true')
 parser.add_argument('--no-multi', dest='multi', action='store_false')
 parser.set_defaults(multi=False)
@@ -32,7 +36,7 @@ parser.add_argument('--index', type=int, default=0, metavar='N',
 #                     help='target smoothing coefficient(τ) (default: 0.005)')
 
 args = parser.parse_args()
-trainer = TrainMaster()
+trainer = TrainMaster(device=args.compute)
 
 
 
@@ -69,25 +73,25 @@ if args.mode == 'manual':
         index=args.index,
         #nb_train=120
         )
-    with open("multi_exe.log","a") as f:
-        f.write(str(args.env) + " " + str(args.policy) + " " + str(args.feature) + " " + str(args.index))
-        f.write("\n")
-        f.close()
+    # with open("multi_exe.log","a") as f:
+    #     f.write(str(args.env) + " " + str(args.policy) + " " + str(args.feature) + " " + str(args.index))
+    #     f.write("\n")
+    #     f.close()
 
 
 
 
 
-# if args.mode == 'show':
+if args.mode == 'show':
     
-#     trainer.show_env_policie_fe(
-#         policie_i=args.policy,
-#         env_j=args.env,
-#         fe_k=0,
-#         fev_l=0
-#         )
+    trainer.show_env_policie_fe(
+        policie_i=args.policy,
+        env_j=args.env,
+        fe_k=0,
+        fev_l=0
+        )
 # trainer.train_env_with_all_tunning(
 #         env_j=0,
-#         offset_policie=1,
+#         offset_policie=5,
 #         index=666,
 #     )
