@@ -1,6 +1,6 @@
 import sys
 import os
-  
+from scipy.signal import savgol_filter
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
@@ -29,14 +29,14 @@ def get_path(policie_name,env_name,fe_k,fev_l,index=0):
 
 
 
-def plot_one_file(plot_target,policy=None,env=None,fe_k=None,fe_v_k=None,index=0):
+def plot_one_file(plot_target,policy=None,env=None,fe_k=None,fe_v_k=None,label_plot="",index=0):
     # path_log = get_path(
     #     policie_name=policy["name"],
     #     env_name=env["name"],
     #     fe_k=fe_k,
     #     fev_l=fe_v_k,
     #     index=index)
-    path_log="./test.json"
+    path_log="../test.json"
 
     data = []
     time = []
@@ -53,7 +53,13 @@ def plot_one_file(plot_target,policy=None,env=None,fe_k=None,fe_v_k=None,index=0
     data = np.array(data)
     time = np.array(time)
     #print(data)
-    plot_target.plot(time,data)
+
+    ti_li = savgol_filter(time, 10, 3)
+    data_li = savgol_filter(data, 10, 3)
+    plt.legend()
+    plot_target.plot(ti_li,data_li,label=label_plot)
+
+    #plot_target.plot(time,data)
 
 
    
@@ -94,17 +100,15 @@ def init_plot():
 
     return (fig, axs)
 
+def fake_plot(axs):
+    for i in range(6):
+
+        plot_one_file(axs[index_to_tuple(i)])
+
+
+
 fig, axs = init_plot()
-
-
-plot_one_file(axs[0, 0])
-plot_one_file(axs[0, 1])
-plot_one_file(axs[1, 0])
-plot_one_file(axs[1, 1])
-
-
-
-
+fake_plot(axs)
 plt.show()
 
 

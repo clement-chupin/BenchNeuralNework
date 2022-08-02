@@ -88,7 +88,7 @@ class Utils():
 		#print(feature_extract["output_feature_nb"](feature_order,env.observation_space.shape[0]))
 		print(feature_extract["name"])
 		print(device)
-		if feature_extract["output_feature_nb"](feature_order,env.observation_space.shape[0]) > 10000000:
+		if feature_extract["output_feature_nb"](feature_order,env.observation_space.shape[0]) > 100000:
 			print("unable to bench : "+feature_extract["name"] +" for : "+str(env))
 			print(feature_extract["output_feature_nb"](feature_order,env.observation_space.shape[0]))
 			return None

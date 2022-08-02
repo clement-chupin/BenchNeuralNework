@@ -55,7 +55,14 @@ if args.mode == 'train':
 if args.mode == 'manual':
     print(args)
     
-    trainer.train_and_bench(
+    # trainer.train_and_bench(
+    #     policie_i=args.policy,
+    #     env_j=args.env,
+    #     fe_k=args.feature,
+    #     index=args.index,
+    #     #nb_train=120
+    #     )
+    trainer.train_and_bench_all_fev(
         policie_i=args.policy,
         env_j=args.env,
         fe_k=args.feature,
@@ -71,12 +78,16 @@ if args.mode == 'manual':
 
 
 
-if args.mode == 'show':
+# if args.mode == 'show':
     
-    trainer.show_env_policie_fe(
-        policie_i=args.policy,
-        env_j=args.env,
-        fe_k=0,
-        fev_l=0
-        )
- 
+#     trainer.show_env_policie_fe(
+#         policie_i=args.policy,
+#         env_j=args.env,
+#         fe_k=0,
+#         fev_l=0
+#         )
+# trainer.train_env_with_all_tunning(
+#         env_j=0,
+#         offset_policie=1,
+#         index=666,
+#     )

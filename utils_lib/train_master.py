@@ -47,37 +47,49 @@ class TrainMaster():
         self.utils.init_folder()
     
 
-    def train_all_envs(self,offset_env=0,offset_policie=0,index=0): #train all
-        for env_j in range(offset_env,len(self.all_envs)):
-            if env_j == offset_env:
-                self.train_env_with_all_tunning(env_j,index,offset_policie)
-            else:
-                self.train_env_with_all_tunning(env_j,index)
+    # def train_all_envs(self,offset_env=0,offset_policie=0,index=0): #train all
+    #     for env_j in range(offset_env,len(self.all_envs)):
+    #         if env_j == offset_env:
+    #             self.train_env_with_all_tunning(env_j,index,offset_policie)
+    #         else:
+    #             self.train_env_with_all_tunning(env_j,index)
     
     
-    def train_env_with_all_tunning(self,env_j,offset_policie=0,index=0): #train anly one env but with all params
+    # def train_env_with_all_tunning(self,env_j,offset_policie=0,index=0): #train anly one env but with all params
 
-        for policie_i in range(offset_policie,len(self.all_policies)):
-            #self.device = self.all_policies[policie_i]["compute_opti"]
-            for fe_k in range(len(self.all_feature_extractor)):
-                for fev_l in range(len(self.all_feature_extractor[fe_k]["order"])):
-                    #print("{}_{}_{}".format(policie_i,fe_k,fev_l))
-                #print(str(policie_i)+"__"+str(fe_k))
-                    if self.utils.compatible_env_policie(policie_i,env_j):
-                        print("###################################################")
-                        print("Train of : "+self.all_policies[policie_i]["name"]+" for problem : "+self.all_envs[env_j]["name"])
-                        self.utils.progresse_bar("policie",len(self.all_policies),policie_i)
-                        self.utils.progresse_bar("f_extract",len(self.all_feature_extractor),fe_k)
-                        self.utils.progresse_bar("fe_version",len(self.all_feature_extractor[fe_k]["order"]),fev_l)
-                        self.train_and_bench(
-                            policie_i,
-                            env_j,
-                            fe_k,
-                            fev_l,
-                            index=index
-                            )
+    #     for policie_i in range(offset_policie,len(self.all_policies)):
+    #         #self.device = self.all_policies[policie_i]["compute_opti"]
+    #         for fe_k in range(len(self.all_feature_extractor)):
+    #             for fev_l in range(len(self.all_feature_extractor[fe_k]["order"])):
+    #                 #print("{}_{}_{}".format(policie_i,fe_k,fev_l))
+    #             #print(str(policie_i)+"__"+str(fe_k))
+    #                 if self.utils.compatible_env_policie(policie_i,env_j):
+    #                     print("###################################################")
+    #                     print("Train of : "+self.all_policies[policie_i]["name"]+" for problem : "+self.all_envs[env_j]["name"])
+    #                     self.utils.progresse_bar("policie",len(self.all_policies),policie_i)
+    #                     self.utils.progresse_bar("f_extract",len(self.all_feature_extractor),fe_k)
+    #                     self.utils.progresse_bar("fe_version",len(self.all_feature_extractor[fe_k]["order"]),fev_l)
+    #                     self.train_and_bench(
+    #                         policie_i,
+    #                         env_j,
+    #                         fe_k,
+    #                         fev_l,
+    #                         index=index
+    #                         )
     
-            
+    def train_and_bench_all_fev(self,policie_i,env_j,fe_k,index=0,nb_train=None):
+        for fev_l in self.utils.all_feature_extractor[fe_k]["order"]:
+            self.train_and_bench(
+                self,
+                policie_i,
+                env_j,
+                fe_k,
+                fev_l,
+                index,
+                nb_train
+            )
+
+
     def train_and_bench(self,policie_i,env_j,fe_k,fev_l=0,index=0,nb_train=None):
         if not(self.utils.compatible_env_policie(policie_i,env_j)):
             return False
@@ -101,6 +113,9 @@ class TrainMaster():
         feature_order = feature_extract["order"][fev_l]
 
         feature_obs_shape = feature_extract["obs_shape"]
+
+        if policie_i in [1]:
+            num_cpu=1
 
         env = self.utils.get_env(env,env_j,feature_obs_shape,num_cpu)
 
@@ -129,14 +144,15 @@ class TrainMaster():
                         fev_l,
                         int(self.timestep_i/self.log_interval),
                         (self.new_time - self.last_time),
-                        float(np.sum(self.rewards_tab[-self.log_interval:])),
+                        float(np.sum(self.rewards_tab)),
                         self.log_interval/(self.new_time - self.last_time),
                         index=index
                         )
+                    self.rewards_tab = []
                     self.last_time = self.new_time
                 self.timestep_i = self.timestep_i+1
             
-            model.learn(total_timesteps=nb_train, log_interval=100,callback = register_reward)
+            model.learn(total_timesteps=nb_train, log_interval=100000,callback = register_reward)
             del policy_kwargs
             env.close()
             del register_reward
@@ -145,34 +161,37 @@ class TrainMaster():
             #del rewards_tab
         else:
             print("bad feature extractor")
+            return False
         return True
 
-    def show_env_policie_fe(self,policie_i,env_j,fe_k,fev_l):
-        policie =      self.all_policies[policie_i]["policie"]
-        policie_name = self.all_policies[policie_i]["name"]
+    # def show_env_policie_fe(self,policie_i,env_j,fe_k,fev_l):
+    #     policie =      self.all_policies[policie_i]["policie"]
+    #     policie_name = self.all_policies[policie_i]["name"]
 
-        env =          self.all_envs[env_j]["env"]
-        env_name =     self.all_envs[env_j]["name"]
-        nb_train =     self.all_envs[env_j]["nb_train"]
-        env = self.utils.get_env(env)
+    #     env =          self.all_envs[env_j]["env"]
+    #     env_name =     self.all_envs[env_j]["name"]
+    #     nb_train =     self.all_envs[env_j]["nb_train"]
 
-        #feature_extract = self.all_feature_extractor[fe_k]["features_extractor"]
-        feature_extract_name = self.all_feature_extractor[fe_k]["name"]
+        
+    #     env = self.utils.get_env(env)
 
-        model_path = self.utils.get_model_path(
-            policie_name,
-            env_name,
-            feature_extract_name,
-            feature_extract_var=fev_l)
-        model = policie.load(model_path)
-        #model = policie("MlpPolicy", env,policy_kwargs = feature_extract(device=self.device), device=self.device, verbose=1)
-        obs = env.reset()
-        for i in range(1000):
-            action, _states = model.predict(obs, deterministic=True)
-            obs, reward, done, info = env.step(action)
-            env.render()
-            #time.sleep(0.1)
-            if done:
-                obs = env.reset()
-        env.close()
+    #     #feature_extract = self.all_feature_extractor[fe_k]["features_extractor"]
+    #     feature_extract_name = self.all_feature_extractor[fe_k]["name"]
+
+    #     model_path = self.utils.get_model_path(
+    #         policie_name,
+    #         env_name,
+    #         feature_extract_name,
+    #         feature_extract_var=fev_l)
+    #     model = policie.load(model_path)
+    #     #model = policie("MlpPolicy", env,policy_kwargs = feature_extract(device=self.device), device=self.device, verbose=1)
+    #     obs = env.reset()
+    #     for i in range(1000):
+    #         action, _states = model.predict(obs, deterministic=True)
+    #         obs, reward, done, info = env.step(action)
+    #         env.render()
+    #         #time.sleep(0.1)
+    #         if done:
+    #             obs = env.reset()
+    #     env.close()
 

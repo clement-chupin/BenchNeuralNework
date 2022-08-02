@@ -61,8 +61,8 @@ class D_FF_LinLayer(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
         self.in_features = in_features
-        if order > 0 and in_features > 70:
-            self.order=0
+        # if order > 0 and in_features > 70:
+        #     self.order=0
 
         super().__init__(in_features, (order+1)**in_features, bias=False)
         c=np.array(list(product(range(order + 1), repeat=in_features)))
@@ -102,7 +102,7 @@ class D_FLF_LinLayer(nn.Linear):
         x = np.pi*super().forward(x)
         return torch.cat((torch.sin(x), torch.cos(x)), 1) #cos originel
 
-class R_FLF_Base(nn.Module): ##############################################################
+class R_FLF_Base(nn.Module): ##########--------------##################---------## 1*1 <1
     def __init__(self, in_features, order,device="auto"):
         self.order = order
         self.in_features = in_features
@@ -110,7 +110,7 @@ class R_FLF_Base(nn.Module): ###################################################
         self.device = get_device(device)
         super().__init__()
         kern_array = torch.rand((1,order)).to(self.device)
-        self.kern = kern_array
+        self.kern = kern_array*self.order*np.pi
     def get_output_size(self,):
         return self.in_features*self.order*2
 
@@ -120,7 +120,7 @@ class R_FLF_Base(nn.Module): ###################################################
         output = torch.cat((torch.sin(coeff_four), torch.cos(coeff_four)), 1)#.numpy()
         return output
 
-class D_FLF_Base(nn.Module): ###############################################################
+class D_FLF_Base(nn.Module): ##########--------------##################---------## 1*1 <1
     def __init__(self, in_features, order,device="auto"):
 
         self.order = order
@@ -128,7 +128,7 @@ class D_FLF_Base(nn.Module): ###################################################
 
         self.device = get_device(device)
         super().__init__()
-        kern_array = torch.arange(0,order,dtype=torch.float32).to(self.device)
+        kern_array = torch.arange(1,order+1,dtype=torch.float32).to(self.device)*np.pi
         #kern_array = torch.arange(1,order+1).to(self.device)
 
         self.kern = torch.reshape(kern_array,(1,-1,)).to(self.device)
@@ -160,7 +160,7 @@ class D_FLF(nn.Module):
         output = self.flatten(output)
         return output
 
-class R_FF(nn.Module): #useless out = (1,order*2) or (2,order)
+class R_FF(nn.Module):
     def __init__(self, in_features, order,device="auto"):
         self.order = order
         self.in_features = in_features
@@ -168,7 +168,7 @@ class R_FF(nn.Module): #useless out = (1,order*2) or (2,order)
         #device = torch.device(get_device(device))
         self.device = get_device(device)
         super().__init__()
-        kern_array = torch.rand((in_features,order))
+        kern_array = torch.rand((in_features,order))*4*np.pi
         self.kern = torch.FloatTensor(np.array(kern_array)).to(self.device)
         self.flatten = torch.nn.Flatten()
 
@@ -182,7 +182,7 @@ class R_FF(nn.Module): #useless out = (1,order*2) or (2,order)
         output = self.flatten(output)
         return output
 
-class R_FLF(nn.Module): #the best
+class R_FLF(nn.Module): 
     def __init__(self, in_features, order,device="auto"):
         self.order = order
         self.in_features = in_features
@@ -199,7 +199,7 @@ class R_FLF(nn.Module): #the best
         output = self.flatten(output)
         return output
 
-class L_FF(nn.Module):
+class L_FF(nn.Module):#-#
     def __init__(self, in_features, order,device="auto"):
         self.order = order
         self.in_features = in_features
@@ -209,14 +209,14 @@ class L_FF(nn.Module):
         self.linear_1 = torch.nn.Linear(in_features,order).to(self.device)
         self.activation_1 = torch.sin
         self.activation_2 = torch.cos
-        self.linear_1_bis = torch.nn.Linear(4,4).to(self.device)
-        self.linear_2 = torch.nn.Linear(4,1).to(self.device)
+        # self.linear_1_bis = torch.nn.Linear(4,4).to(self.device)
+        # self.linear_2 = torch.nn.Linear(4,1).to(self.device)
         self.flatten = torch.nn.Flatten()
     def get_output_size(self,):
         return self.order*2    
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
-        output = self.linear_1(x)
+        output = self.linear_1(x*np.pi)
         output_1 = self.activation_1(output)
         output_2 = self.activation_2(output)
         output = torch.cat((output_1, output_2), 1)
@@ -224,7 +224,7 @@ class L_FF(nn.Module):
         return output
 
 
-class L_FLF_Base(nn.Module):
+class L_FLF_Base(nn.Module): #-#
     def __init__(self, in_features, order,device="auto"):
         self.order = order
         self.in_features = in_features
@@ -232,17 +232,15 @@ class L_FLF_Base(nn.Module):
         super().__init__()
         
         self.conv_1 = torch.nn.ConvTranspose1d(1, order, 1,bias=False)
-        self.linear_1 = torch.nn.Linear(in_features,order).to(self.device)
         self.activation_1 = torch.sin
         self.activation_2 = torch.cos
-        self.linear_1_bis = torch.nn.Linear(4,4).to(self.device)
-        self.linear_2 = torch.nn.Linear(4,1).to(self.device)
+
     def get_output_size(self,):
         return self.in_features*self.order*2   
         
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
-        x = torch.reshape(x,(x.size()[0],1,-1))
+        x = torch.reshape(x,(x.size()[0],1,-1))*np.pi
         # print(self.order)
         # print(x.size())
         output = self.conv_1(x)
@@ -362,8 +360,8 @@ class D_FF_LinLayer_cos(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
         self.in_features = in_features
-        if order > 0 and in_features > 70:
-            self.order=0
+        # if order > 0 and in_features > 70:
+        #    self.order=0
 
         super().__init__(in_features, (order+1)**in_features, bias=False)
         c=np.array(list(product(range(order + 1), repeat=in_features)))
@@ -411,7 +409,7 @@ class R_FLF_Base_cos(nn.Module): ###############################################
         self.device = get_device(device)
         super().__init__()
         kern_array = torch.rand((1,order)).to(self.device)
-        self.kern = kern_array
+        self.kern = kern_array*self.order*np.pi
     def get_output_size(self,):
         return self.in_features*self.order
 
@@ -429,7 +427,7 @@ class D_FLF_Base_cos(nn.Module): ###############################################
 
         self.device = get_device(device)
         super().__init__()
-        kern_array = torch.arange(0,order,dtype=torch.float32).to(self.device)
+        kern_array = torch.arange(0,order,dtype=torch.float32).to(self.device)*np.pi
         #kern_array = torch.arange(1,order+1).to(self.device)
 
         self.kern = torch.reshape(kern_array,(1,-1,)).to(self.device)
@@ -469,7 +467,7 @@ class R_FF_cos(nn.Module): #useless out = (1,order*2) or (2,order)
         #device = torch.device(get_device(device))
         self.device = get_device(device)
         super().__init__()
-        kern_array = torch.rand((in_features,order))
+        kern_array = torch.rand((in_features,order))*4*np.pi
         self.kern = torch.FloatTensor(np.array(kern_array)).to(self.device)
         self.flatten = torch.nn.Flatten()
 
@@ -517,7 +515,7 @@ class L_FF_cos(nn.Module):
         return self.order 
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
-        output = self.linear_1(x)
+        output = self.linear_1(x*np.pi)
         output = self.activation_1(output)
 
         output = self.flatten(output)
@@ -542,7 +540,7 @@ class L_FLF_Base_cos(nn.Module):
         
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
-        x = torch.reshape(x,(x.size()[0],1,-1))
+        x = torch.reshape(x,(x.size()[0],1,-1))*np.pi
         # print(self.order)
         # print(x.size())
         output = self.conv_1(x)
@@ -662,8 +660,8 @@ class D_FF_LinLayer_sin(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
         self.in_features = in_features
-        if order > 0 and in_features > 70:
-            self.order=0
+        # if order > 0 and in_features > 70:
+        #     self.order=0
 
         super().__init__(in_features, (order+1)**in_features, bias=False)
         c=np.array(list(product(range(order + 1), repeat=in_features)))
@@ -711,7 +709,7 @@ class R_FLF_Base_sin(nn.Module): ###############################################
         self.device = get_device(device)
         super().__init__()
         kern_array = torch.rand((1,order)).to(self.device)
-        self.kern = kern_array
+        self.kern = kern_array*self.order*np.pi
     def get_output_size(self,):
         return self.in_features*self.order
 
@@ -729,7 +727,7 @@ class D_FLF_Base_sin(nn.Module): ###############################################
 
         self.device = get_device(device)
         super().__init__()
-        kern_array = torch.arange(0,order,dtype=torch.float32).to(self.device)
+        kern_array = torch.arange(0,order,dtype=torch.float32).to(self.device)*np.pi
         #kern_array = torch.arange(1,order+1).to(self.device)
 
         self.kern = torch.reshape(kern_array,(1,-1,)).to(self.device)
@@ -769,7 +767,7 @@ class R_FF_sin(nn.Module): #useless out = (1,order*2) or (2,order)
         #device = torch.device(get_device(device))
         self.device = get_device(device)
         super().__init__()
-        kern_array = torch.rand((in_features,order))
+        kern_array = torch.rand((in_features,order))*4*np.pi
         self.kern = torch.FloatTensor(np.array(kern_array)).to(self.device)
         self.flatten = torch.nn.Flatten()
 
@@ -817,7 +815,7 @@ class L_FF_sin(nn.Module):
         return self.order 
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
-        output = self.linear_1(x)
+        output = self.linear_1(x*np.pi)
         output = self.activation_1(output)
 
         output = self.flatten(output)
@@ -842,7 +840,7 @@ class L_FLF_Base_sin(nn.Module):
         
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
-        x = torch.reshape(x,(x.size()[0],1,-1))
+        x = torch.reshape(x,(x.size()[0],1,-1))*np.pi
         # print(self.order)
         # print(x.size())
         output = self.conv_1(x)
