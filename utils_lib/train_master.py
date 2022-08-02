@@ -78,7 +78,7 @@ class TrainMaster():
     #                         )
     
     def train_and_bench_all_fev(self,policie_i,env_j,fe_k,index=0,nb_train=None):
-        for fev_l in self.utils.all_feature_extractor[fe_k]["order"]:
+        for fev_l in range(len(self.utils.all_feature_extractor[fe_k]["order"])):
             self.train_and_bench(
                 policie_i,
                 env_j,
