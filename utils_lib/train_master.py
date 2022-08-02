@@ -80,7 +80,6 @@ class TrainMaster():
     def train_and_bench_all_fev(self,policie_i,env_j,fe_k,index=0,nb_train=None):
         for fev_l in self.utils.all_feature_extractor[fe_k]["order"]:
             self.train_and_bench(
-                self,
                 policie_i,
                 env_j,
                 fe_k,
@@ -97,6 +96,7 @@ class TrainMaster():
         policie =      self.all_policies[policie_i]["policie"]
         policie_name = self.all_policies[policie_i]["name"]
         compute_opti = self.all_policies[policie_i]["compute_opti"]
+        compute_opti = self.device
 
 
         env =          self.all_envs[env_j]["env"]
