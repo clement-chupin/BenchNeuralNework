@@ -12,7 +12,7 @@ do
     do 
         for k in {0..51}
         do 
-            sbatch single_run_cpu.sh $i $j $k 88;
+            sbatch single_run_cpu.sh $i $j $k 99;
             sleep 1
         done
     done
