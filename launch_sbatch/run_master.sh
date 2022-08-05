@@ -6,7 +6,7 @@ source ~/IA_chupin/py_env/bin/activate
 
 
 
-for i in {0..0} 
+for i in {9..9} 
 do 
     for j in {0..5} 
     do 

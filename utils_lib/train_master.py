@@ -150,7 +150,7 @@ class TrainMaster():
                     self.last_time = self.new_time
                 self.timestep_i = self.timestep_i+1
             
-            model.learn(total_timesteps=nb_train, log_interval=100000,callback = register_reward)
+            model.learn(total_timesteps=nb_train, log_interval=1,callback = register_reward)
             del policy_kwargs
             env.close()
             del register_reward
