@@ -27,6 +27,8 @@ parser.add_argument('--etp', default="r",
                     help='Element to plot, c,r,t (default: r)')
 parser.add_argument('--feature', type=int, default=0, metavar='N',
                     help='')
+parser.add_argument('--feature_var', type=int, default=0, metavar='N',
+                    help='')
 
 parser.add_argument('--index', type=int, default=0, metavar='N',
                     help='')
@@ -78,6 +80,18 @@ if args.mode == 'manual':
     #     f.write("\n")
     #     f.close()
 
+
+
+
+if args.mode == 'manual_all':
+    trainer.train_and_bench(
+        policie_i=args.policy,
+        env_j=args.env,
+        fe_k = args.feature,
+        fev_l=args.feature_var,
+        index=args.index,
+
+    )
 
 
 

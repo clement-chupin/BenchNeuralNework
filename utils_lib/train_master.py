@@ -106,7 +106,16 @@ class TrainMaster():
         num_cpu  =     self.all_envs[env_j]["num_cpu"]
         
 
+        if len(self.all_feature_extractor) <= fe_k:
+            return False
+
+
         feature_extract = self.all_feature_extractor[fe_k]
+
+
+        if len(feature_extract["order"]) <= fev_l:
+            return False
+
         feature_extract_name = feature_extract["name"]
         feature_order = feature_extract["order"][fev_l]
 
