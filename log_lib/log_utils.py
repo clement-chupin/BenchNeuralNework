@@ -2,7 +2,6 @@ import json
 
 import sys
 import os
-  
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
@@ -14,20 +13,20 @@ util = Utils()
 def get_path(policie_name,env_name,fe_k,fev_l,index=0):
     global util
     #util.all_feature_extractor[]
-    return ("../result/log_json/" + 
+    return os.path.join(os.path.dirname(__file__),("../result/log_json/" + 
     policie_name+ "/" +
     env_name+"/"+
     util.all_feature_extractor[fe_k]["name"] + "_v" + 
     str(util.all_feature_extractor[fe_k]["order"][fev_l]) + "_i" +
     str(index) +".json"
-    )
+    ))
 def get_folder_path(policie_name,env_name,fe_k,index=0):
     global util
     #util.all_feature_extractor[]
-    return (("../result/log_json/" + 
+    return (os.path.join(os.path.dirname(__file__),("../result/log_json/" + 
     policie_name+ "/" +
     env_name+"/"
-    ),util.all_feature_extractor[fe_k]["name"])
+    )),util.all_feature_extractor[fe_k]["name"])
 
 
 def save_log_train(

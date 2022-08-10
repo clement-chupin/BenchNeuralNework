@@ -12,10 +12,10 @@ do
     do 
         for k in {0..9}
         do 
-            for l in {0..10}
+            for l in {0..8}
             do 
                 sbatch single_run_cpu_experiment.sh $i $j $k $l 101;
-                sleep 1
+                sleep 0.1
             done
         done
     done

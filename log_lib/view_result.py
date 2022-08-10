@@ -1,14 +1,14 @@
 from ctypes import util
+from scipy.signal import savgol_filter
 import sys
 import os
-from scipy.signal import savgol_filter
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
 from utils_lib.utils import Utils 
-import os
-from os import path
+
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -99,14 +99,7 @@ def init_plot():
 
 
 
-# def plot_all(index=12):
-#     for env_i,env in enumerate(u.all_envs):
-#         for po_j,policy in enumerate(u.all_policies):
-#             if u.compatible_env_policie(po_j,env_i):
-#                 for fe_k,feature in enumerate(u.all_feature_extractor):
-#                     for fe_v_k,fe_v in enumerate(feature["order"]):
-#                         plot_one_file()
-#                         #plt.plot()
+
 
 def plot_env_fe_by_fe(env_j=0,index=88):
 
@@ -263,14 +256,33 @@ def plot_env_fe_by_fight_index(env_j=0,index=88):
     for ax in axs.flat:
         ax.label_outer()
 
-plot_env_fe_by_fight_index()
+plot_env_fe_by_fight_index(index=88)
 
 # axs[0, 0].set_title('DQN')
 # axs[0, 1].set_title('SAC')
 # axs[1, 0].set_title('DDPG')
 # axs[1, 1].set_title('PPO')
 
-
+def plot_and_save_all(index=101):
+    for env_i in len(utils.all_envs):
+        for po_j in len(utils.all_policies):
+            fig = plt.figure(4)
+            for fe_k in len(utils.all_feature_extractor):
+                for fev_l in len(utils.all_feature_extractor[fe_k]):
+                    plot_one_file_by_index(
+                        plot_target=fig,
+                        policy_i=po_j,
+                        env_j=env_i,
+                        fe_k=fe_k,
+                        fe_v_k=fev_l,
+                        label_plot="",
+                        color=None,
+                        index=index
+                    )
+            plt.savefig("./figures/"+str(env_i)+"_"+str(po_j)+'.pdf')  
+            plt.show()
+            plt.close()
+    
 
 def fake_plot(axs):
     for i in range(6):

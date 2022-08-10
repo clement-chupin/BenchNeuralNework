@@ -7,11 +7,14 @@ from stable_baselines3.common.vec_env import DummyVecEnv
 
 import gym
 
-import os
-from os import path
-
 import sys
-sys.path.append('../utils_lib')
+import os
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
+
+
+sys.path.append(os.path.join(os.path.dirname(__file__),'../utils_lib'))
 
 
 from utils_lib.custom_vecenv_normalize import VecNormalize
@@ -109,18 +112,23 @@ class Utils():
 
 	def init_folder(self):
 		def create_dir(path_dir):
-			if not path.exists(path_dir):
+			if not os.path.exists(path_dir):
 				os.makedirs(path_dir)
 	
-		create_dir(self.result_folder)
-		create_dir(self.log_folder)
+		create_dir(os.path.join(os.path.dirname(__file__),self.result_folder))
+		create_dir(os.path.join(os.path.dirname(__file__),self.log_folder))
+
 		# create_dir(self.model_folder)
 		# create_dir(self.buffer_folder)
 		for p in self.all_policies:
-			create_dir(self.log_folder    +p["name"])
+			create_dir(os.path.join(os.path.dirname(__file__),self.log_folder+p["name"]))
 			# create_dir(self.model_folder  +p["name"])
 			# create_dir(self.buffer_folder +p["name"])
 			for e in self.all_envs:
-				create_dir(self.log_folder +p["name"]+"/"+e["name"])
+				create_dir(os.path.join(os.path.dirname(__file__),self.log_folder +p["name"]+"/"+e["name"]))
 
 			
+def test(a):
+	return
+
+test(test(test(test(test(test(test()))))))

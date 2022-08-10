@@ -1,5 +1,11 @@
 import sys
-sys.path.append('../utils_lib')
+import os
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
+
+
+sys.path.append(os.path.join(os.path.dirname(__file__),'../utils_lib'))
 
 import utils_lib.feature_extractor_layers as FeatureExtractorLayer #a little useless but better for refactor
 
