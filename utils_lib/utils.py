@@ -128,7 +128,3 @@ class Utils():
 				create_dir(os.path.join(os.path.dirname(__file__),self.log_folder +p["name"]+"/"+e["name"]))
 
 			
-def test(a):
-	return
-
-test(test(test(test(test(test(test()))))))

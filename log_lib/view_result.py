@@ -71,7 +71,7 @@ def plot_one_file(plot_target,policy=None,env=None,fe_k=None,fe_v_k=None,label_p
 
         data = np.array(data)
         time = np.array(time)
-        print(data)
+        # print(data)
 
         ti_li = savgol_filter(time, 10, 3)
         data_li = savgol_filter(data, 10, 3)
@@ -101,14 +101,17 @@ def init_plot():
 
 
 
-def plot_env_fe_by_fe(env_j=0,index=88):
+def plot_env_fe_by_fe(env_j=15,index=101):
 
     #fig.title("lol")
     for fev in range(len(utils.all_feature_extractor)):
         fig, axs = init_plot()
-        fig.suptitle('Ant problem',fontweight ="bold")
+        fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
         for po in range(len(utils.all_policies)):
             for fev_k in range(len(utils.all_feature_extractor[fev]["order"])):
+                color = "#0f0"
+                if utils.all_feature_extractor[fev]["order"][fev_k] in [8,32,64,256]:
+                    color = "#f00"
                 plot_one_file_by_index(
                     plot_target=axs[index_to_tuple(po)],
                     policy_i=po,
@@ -116,111 +119,23 @@ def plot_env_fe_by_fe(env_j=0,index=88):
                     fe_k=fev,
                     fe_v_k=fev_k,
                     label_plot=utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]),
-                    
+                    color=color,
                     index=index
                 )
         # mng = plt.get_current_fig_manager()
         # mng.frame.Maximize(True)
         #plt.legend()
         plt.show()
-    for ax in axs.flat:
-        ax.set(xlabel='timestep', ylabel='reward')
-
-    # Hide x labels and tick labels for top plots and y ticks for right plots.
-    for ax in axs.flat:
-        ax.label_outer()
+    # for ax in axs.flat:
+    #     ax.set(xlabel='timestep', ylabel='reward')
+    # # Hide x labels and tick labels for top plots and y ticks for right plots.
+    # for ax in axs.flat:
+    #     ax.label_outer()
             
             
-# plot_env_fe_by_fe()
+plot_env_fe_by_fe()
 
 
-def plot_env_fe_by_fight(env_j=9,index=88):
-    array_color = ["#0ff","#f00","#0f0","#00f","#ff0","#f0f"]
-
-
-    all_vs_all = [
-
-        [1,11,21,32,42],
-        [2,12,22,33,43],
-        [3,13,23,34,44],
-        [4,14,24,35,45],
-        [5,15,25,36,46],
-        [6,16,26,37,47],
-        [7,17,27,38,48],
-        [8,18,28,39,49],
-        [9,19,29,40,50],
-        [10,20,30,41,51],
-    ]
-    cos_vs_sin = [
-        [11,21],
-        [12,22],
-        [13,23],
-        [14,24],
-        [15,25],
-        [16,26],
-        [17,27],
-        [18,28],
-        [19,29],
-        [20,30],
-    ]
-    norm_vs_oss_1 = [
-        [1,32],
-        [2,33],
-        [3,34],
-        [4,35],
-        [5,36],
-        [6,37],
-        [7,38],
-        [8,39],
-        [9,40],
-        [10,41],
-    ]
-    norm_vs_oss_2 = [
-        [21,42],
-        [22,43],
-        [23,44],
-        [24,45],
-        [25,46],
-        [26,47],
-        [27,48],
-        [28,49],
-        [29,50],
-        [30,51],
-    ]
-    array_fe = all_vs_all
-    
-    #fig.title("lol")
-    for fev_i,fe_tab in enumerate(array_fe):
-        print(fe_tab)
-        fig, axs = init_plot()
-        fig.suptitle('Ant problem',fontweight ="bold")
-        for fi_i,fev in enumerate(fe_tab):
-            for fev_k in range(len(utils.all_feature_extractor[fev]["order"])):
-
-
-                for po in range(len(utils.all_policies)):
-                
-                    plot_one_file_by_index(
-                        plot_target=axs[index_to_tuple(po)],
-                        policy_i=po,
-                        env_j=env_j,
-                        fe_k=fev,
-                        fe_v_k=fev_k,
-                        #label_plot=utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]),
-                        color=array_color[fi_i],
-                        index=index
-                    )
-            # mng = plt.get_current_fig_manager()
-            # mng.frame.Maximize(True)
-        #plt.legend()
-        plt.show()
-
-
-    for ax in axs.flat:
-        ax.set(xlabel='timestep', ylabel='reward')
-    # Hide x labels and tick labels for top plots and y ticks for right plots.
-    for ax in axs.flat:
-        ax.label_outer()
 
 
 # plot_env_fe_by_fight()
@@ -291,9 +206,108 @@ def fake_plot(axs):
 
 
 
-# fig, axs = init_plot()
-# fake_plot(axs)
-# plt.show()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def plot_env_fe_by_fight(env_j=9,index=88):
+#     array_color = ["#0ff","#f00","#0f0","#00f","#ff0","#f0f"]
+
+
+#     all_vs_all = [
+
+#         [1,11,21,32,42],
+#         [2,12,22,33,43],
+#         [3,13,23,34,44],
+#         [4,14,24,35,45],
+#         [5,15,25,36,46],
+#         [6,16,26,37,47],
+#         [7,17,27,38,48],
+#         [8,18,28,39,49],
+#         [9,19,29,40,50],
+#         [10,20,30,41,51],
+#     ]
+#     cos_vs_sin = [
+#         [11,21],
+#         [12,22],
+#         [13,23],
+#         [14,24],
+#         [15,25],
+#         [16,26],
+#         [17,27],
+#         [18,28],
+#         [19,29],
+#         [20,30],
+#     ]
+#     norm_vs_oss_1 = [
+#         [1,32],
+#         [2,33],
+#         [3,34],
+#         [4,35],
+#         [5,36],
+#         [6,37],
+#         [7,38],
+#         [8,39],
+#         [9,40],
+#         [10,41],
+#     ]
+#     norm_vs_oss_2 = [
+#         [21,42],
+#         [22,43],
+#         [23,44],
+#         [24,45],
+#         [25,46],
+#         [26,47],
+#         [27,48],
+#         [28,49],
+#         [29,50],
+#         [30,51],
+#     ]
+#     array_fe = all_vs_all
+    
+#     #fig.title("lol")
+#     for fev_i,fe_tab in enumerate(array_fe):
+#         print(fe_tab)
+#         fig, axs = init_plot()
+#         fig.suptitle('Ant problem',fontweight ="bold")
+#         for fi_i,fev in enumerate(fe_tab):
+#             for fev_k in range(len(utils.all_feature_extractor[fev]["order"])):
+
+
+#                 for po in range(len(utils.all_policies)):
+                
+#                     plot_one_file_by_index(
+#                         plot_target=axs[index_to_tuple(po)],
+#                         policy_i=po,
+#                         env_j=env_j,
+#                         fe_k=fev,
+#                         fe_v_k=fev_k,
+#                         #label_plot=utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]),
+#                         color=array_color[fi_i],
+#                         index=index
+#                     )
+#             # mng = plt.get_current_fig_manager()
+#             # mng.frame.Maximize(True)
+#         #plt.legend()
+#         plt.show()
+
+
+#     for ax in axs.flat:
+#         ax.set(xlabel='timestep', ylabel='reward')
+#     # Hide x labels and tick labels for top plots and y ticks for right plots.
+#     for ax in axs.flat:
+#         ax.label_outer()
