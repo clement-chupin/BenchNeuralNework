@@ -42,6 +42,9 @@ class Utils():
 		
 
 	def compatible_env_policie(self,policie_i,env_j):
+		if policie_i < len(self.all_policies) or env_j < len(self.all_envs):
+			return False
+
 		return (
 			self.all_policies[policie_i]["action_space"][0] and #or = and for this case
 			self.all_envs[env_j]["action_space"][0]
