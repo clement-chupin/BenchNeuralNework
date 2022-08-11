@@ -71,3 +71,31 @@ if args.mode == 'manual_all':
     )
 
 
+if args.mode == 'train':
+    print(args)
+    if args.multi:
+        trainer.train_all_envs(
+            offset_env=args.env,
+            offset_policie=args.policy,
+            index=args.index
+        )
+    else:
+        trainer.train_env_with_all_tunning(
+            env_j=args.env,
+            offset_policie=args.policy,
+            index=args.index,
+        )
+if args.mode == 'manual':
+    print(args)
+    trainer.train_and_bench_all_fev(
+        policie_i=args.policy,
+        env_j=args.env,
+        fe_k=args.feature,
+        index=args.index,
+        #nb_train=120
+        )
+
+if args.mode == 'create_folder':
+    print("ok")
+    u = Utils()
+    u.init_folder()
