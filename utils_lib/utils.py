@@ -42,7 +42,7 @@ class Utils():
 		
 
 	def compatible_env_policie(self,policie_i,env_j):
-		if policie_i < len(self.all_policies) or env_j < len(self.all_envs):
+		if not(policie_i < len(self.all_policies) and env_j < len(self.all_envs)):
 			return False
 
 		return (

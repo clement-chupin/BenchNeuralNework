@@ -107,6 +107,7 @@ class TrainMaster():
         
 
         if len(self.all_feature_extractor) <= fe_k:
+            print("bad fe {}".format(fe_k))
             return False
 
 
@@ -114,6 +115,7 @@ class TrainMaster():
 
 
         if len(feature_extract["order"]) <= fev_l:
+            print("bad fev {}".format(fev_l))
             return False
 
         feature_extract_name = feature_extract["name"]

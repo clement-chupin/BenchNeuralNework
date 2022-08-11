@@ -99,3 +99,4 @@ if args.mode == 'create_folder':
     print("ok")
     u = Utils()
     u.init_folder()
+    print("create_folder")
