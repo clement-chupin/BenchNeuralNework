@@ -35,6 +35,7 @@ def plot_one_file_by_index(
     fe_v_k=None,
     label_plot="",
     color=None,
+    marker=None,
     index=0):
     plot_one_file(
         plot_target,
@@ -44,9 +45,10 @@ def plot_one_file_by_index(
         fe_v_k,
         label_plot,
         color,
+        marker,
         index)
 
-def plot_one_file(plot_target,policy=None,env=None,fe_k=None,fe_v_k=None,label_plot="",color=None,index=0):
+def plot_one_file(plot_target,policy=None,env=None,fe_k=None,fe_v_k=None,label_plot="",color=None,marker=None,index=0):
     path_log = get_path(
         policie_name=policy["name"],
         env_name=env["name"],
@@ -76,7 +78,7 @@ def plot_one_file(plot_target,policy=None,env=None,fe_k=None,fe_v_k=None,label_p
         ti_li = savgol_filter(time, 10, 3)
         data_li = savgol_filter(data, 10, 3)
         plt.legend()
-        plot_target.plot(ti_li,data_li,label=label_plot,c=color)
+        plot_target.plot(ti_li,data_li,label=label_plot,c=color, marker=marker,)
 
     #plot_target.plot(time,data)
 
@@ -101,7 +103,7 @@ def init_plot():
 
 
 
-def plot_env_fe_by_fe(env_j=15,index=101):
+def plot_env_fe_by_fe(env_j=2,index=101):
 
     #fig.title("lol")
     for fev in range(len(utils.all_feature_extractor)):
@@ -109,9 +111,11 @@ def plot_env_fe_by_fe(env_j=15,index=101):
         fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
         for po in range(len(utils.all_policies)):
             for fev_k in range(len(utils.all_feature_extractor[fev]["order"])):
-                color = "#0f0"
-                if utils.all_feature_extractor[fev]["order"][fev_k] in [8,32,64,256]:
-                    color = "#f00"
+                color = None
+                marker = None
+                if utils.all_feature_extractor[fev]["order"][fev_k] in [8,16,64,256]:
+                    #color = "r"
+                    marker="*"
                 plot_one_file_by_index(
                     plot_target=axs[index_to_tuple(po)],
                     policy_i=po,
@@ -120,11 +124,13 @@ def plot_env_fe_by_fe(env_j=15,index=101):
                     fe_v_k=fev_k,
                     label_plot=utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]),
                     color=color,
+                    marker=marker,
                     index=index
                 )
+                print(utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]))
         # mng = plt.get_current_fig_manager()
         # mng.frame.Maximize(True)
-        #plt.legend()
+        plt.legend()
         plt.show()
     # for ax in axs.flat:
     #     ax.set(xlabel='timestep', ylabel='reward')
