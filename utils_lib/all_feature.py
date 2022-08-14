@@ -78,6 +78,16 @@ all_feature_extract = [
 
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
+    # {#7
+    #     "feature_layer"        : FeatureExtractorLayer.L_FLF_Conv_cos,
+    #     "output_feature_nb"    : lambda order,input: (order + input),
+    #     "order"                : [8,16,64],#,128*0],
+    #     "name"                 : "lflf",
+    #     "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+    #     "power"                : 0,
+    #     "color"                : None,
+    #     "obs_shape"            : {"range":0.5,"offset":0.5},
+    # },
     {#7
         "feature_layer"        : FeatureExtractorLayer.L_FLF_cos,
         "output_feature_nb"    : lambda order,input: (order + input),

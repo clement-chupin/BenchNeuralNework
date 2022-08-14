@@ -13,7 +13,7 @@ do
         do 
             for l in {0..2}
             do 
-                sbatch single_run_cpu_experiment.sh $i $j $k $l 1000;
+                sbatch single_run_cpu_experiment.sh $i $j $k $l 1001;
                 sleep 0.1
             done
         done

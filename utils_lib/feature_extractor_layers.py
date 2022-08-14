@@ -522,7 +522,7 @@ class L_FF_cos(nn.Module):
         return output
 
 
-class L_FLF_Base_cos(nn.Module):
+class L_FLF_Base_conv_cos(nn.Module):
     def __init__(self, in_features, order,device="auto"):
         self.order = order
         self.in_features = in_features
@@ -551,6 +551,32 @@ class L_FLF_Base_cos(nn.Module):
 
         return output
 
+class L_FLF_Base_cos(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.device = get_device(device)
+        super().__init__()
+        
+        
+        self.linear_1 = torch.nn.Linear(1,order).to(self.device)
+        self.activation = torch.cos
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.in_features*self.order  
+        
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        x = torch.reshape(x,(x.size()[0],-1,1))*np.pi*2
+
+        output = self.linear_1(x)
+        output = self.flatten(output)
+
+        output = self.activation(output)
+
+
+        return output
+
 class L_FLF_cos(nn.Module):
     def __init__(self, in_features, order,device="auto"):
         self.order = order
@@ -559,6 +585,24 @@ class L_FLF_cos(nn.Module):
         super().__init__()
         
         self.fourier_feature = L_FLF_Base_cos(in_features, order,device)
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.in_features*self.order
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        output = self.fourier_feature(x)
+        output = self.flatten(output)
+        return output
+
+        
+class L_FLF_Conv_cos(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.device = get_device(device)
+        super().__init__()
+        
+        self.fourier_feature = L_FLF_Base_conv_cos(in_features, order,device)
         self.flatten = torch.nn.Flatten()
     def get_output_size(self,):
         return self.in_features*self.order
@@ -577,19 +621,17 @@ class R_FLF_NNI_cos(nn.Module):
         super().__init__()
         self.fourier_feature = R_FLF_Base_cos(in_features, order,device)
 
-        self.linear_1 = torch.nn.Linear(order,4).to(self.device)
-        self.linear_1_bis = torch.nn.Linear(4,4).to(self.device)
-        self.linear_2 = torch.nn.Linear(4,1).to(self.device)
+        self.linear_1 = torch.nn.Linear(order,order).to(self.device)
+
         self.flatten = torch.nn.Flatten()
         #self.kern = torch.FloatTensor(np.array(kern_array)).to(self.device)
     def get_output_size(self,):
-        return self.in_features
+        return self.in_features*self.order
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
         output = self.fourier_feature(x)
         output = self.linear_1(output)
-        output = self.linear_2(output)
         output = self.flatten(output)
         return output
 
@@ -603,18 +645,16 @@ class D_FLF_NNI_cos(nn.Module):
 
         self.fourier_feature = D_FLF_Base_cos(in_features, order,device)
 
-        self.linear_1 = torch.nn.Linear(order,4).to(self.device)
-        self.linear_1_bis = torch.nn.Linear(4,4).to(self.device)
-        self.linear_2 = torch.nn.Linear(4,1).to(self.device)
+        self.linear_1 = torch.nn.Linear(order,order).to(self.device)
         self.flatten = torch.nn.Flatten()
         #self.kern = torch.FloatTensor(np.array(kern_array)).to(self.device)
     def get_output_size(self,):
-        return self.in_features
+        return self.in_features*self.order
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
         output = self.fourier_feature(x)
         output = self.linear_1(output)
-        output = self.linear_2(output)
+
         output = self.flatten(output)
         return output
 
@@ -628,19 +668,17 @@ class L_FLF_NNI_cos(nn.Module):
 
         self.fourier_feature = L_FLF_Base_cos(in_features, order,device)
 
-        self.linear_1 = torch.nn.Linear(order,4).to(self.device)
-        self.linear_1_bis = torch.nn.Linear(4,4).to(self.device)
-        self.linear_2 = torch.nn.Linear(4,1).to(self.device)
+        self.linear_1 = torch.nn.Linear(order,order).to(self.device)
+
 
         self.flatten = torch.nn.Flatten()
         #self.kern = torch.FloatTensor(np.array(kern_array)).to(self.device)
     def get_output_size(self,):
-        return self.in_features
+        return self.in_features*self.order
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
         output = self.fourier_feature(x)
         output = self.linear_1(output)
-        output = self.linear_2(output)
         output = self.flatten(output)
         return output
 

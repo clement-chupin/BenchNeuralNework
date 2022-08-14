@@ -1,20 +1,47 @@
-#!/bin/bash
-source activate py_conda
-source ~/IA_chupin/py_env/bin/activate
 
-
-
-
-for i in {0..16} 
+for i in 0 
 do 
-    for j in {0..5} 
+    for j in 2 3 4 5 
     do 
-        for k in {0..10}
+        for k in 7
         do 
             for l in {0..2}
             do 
-                sbatch single_run_cpu_experiment.sh $i $j $k $l 1001;
-                sleep 0.1
+                echo $i $j $k $l 
+                python3.8 ../main.py --mode manual_all --env $i --policy $j --feature $k --feature_var $l --index 222 --compute auto
+                sleep 1
+            done
+        done
+    done
+done
+
+for i in 0 
+do 
+    for j in 0 2 3 4 5
+    do 
+        for k in 8
+        do 
+            for l in {0..2}
+            do 
+                echo $i $j $k $l 
+                python3.8 ../main.py --mode manual_all --env $i --policy $j --feature $k --feature_var $l --index 222 --compute auto
+                sleep 1
+            done
+        done
+    done
+done
+
+for i in 1 2
+do 
+    for j in 2 3 4 5
+    do 
+        for k in 7 8
+        do 
+            for l in {0..2}
+            do 
+                echo $i $j $k $l 
+                python3.8 ../main.py --mode manual_all --env $i --policy $j --feature $k --feature_var $l --index 222 --compute cpu
+                sleep 1
             done
         done
     done
