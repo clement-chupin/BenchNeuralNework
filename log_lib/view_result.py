@@ -103,10 +103,10 @@ def init_plot():
 
 
 
-def plot_env_fe_by_fe(env_j=2,index=101):
+def plot_env_fe_by_fe(env_j=2,index=222):
 
     #fig.title("lol")
-    for fev in range(len(utils.all_feature_extractor)):
+    for fev in [7,8]:# range(len(utils.all_feature_extractor)):
         fig, axs = init_plot()
         fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
         for po in range(len(utils.all_policies)):
@@ -139,9 +139,9 @@ def plot_env_fe_by_fe(env_j=2,index=101):
     #     ax.label_outer()
             
             
-plot_env_fe_by_fe()
-
-
+plot_env_fe_by_fe(0)
+plot_env_fe_by_fe(1)
+plot_env_fe_by_fe(2)
 
 
 # plot_env_fe_by_fight()
@@ -177,7 +177,7 @@ def plot_env_fe_by_fight_index(env_j=0,index=88):
     for ax in axs.flat:
         ax.label_outer()
 
-plot_env_fe_by_fight_index(index=88)
+#plot_env_fe_by_fight_index(index=88)
 
 # axs[0, 0].set_title('DQN')
 # axs[0, 1].set_title('SAC')
