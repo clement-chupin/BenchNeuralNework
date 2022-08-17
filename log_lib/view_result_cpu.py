@@ -40,7 +40,7 @@ def get_cpu_by_multi_fev(
     a=0
     b=0
     cmpt=0
-
+    result_all = []
     for f in range(len(fe_v_k)):
         result = get_cpu_by_index(
             policy_i,
@@ -55,7 +55,12 @@ def get_cpu_by_multi_fev(
             cmpt=cmpt+1
             a+=result[0]
             b+=result[1]
+            result_all.append(result)
+    
     if cmpt !=0:
+        result_all = np.array(result_all)
+        var_percent = (np.max(result_all[:,0])-np.min(result_all[:,0]))/np.mean(result_all[:,0])
+        print(var_percent)
         return (a/cmpt,b/cmpt)
     return (0,0)
 
@@ -185,9 +190,9 @@ def get_all_result(env_j=0,index=36):
     
     
     for e,en in enumerate(utils.all_envs):
-        print('\multirow{11}{4em}{'+en["name"].replace("_","")+'} & ',end='')
-        for fev in range(len(utils.all_feature_extractor)):
-            print(utils.all_feature_extractor[fev]["name"].replace("_",""),end=" & ")
+        #print('\midrule\n\multirow{11}{4em}{'+en["name"].replace("_","")+'} & ',end='')
+        for fev in range(len(utils.all_feature_extractor)-3):
+            #print("& "+utils.all_feature_extractor[fev]["name"].replace("_",""),end=" & ")
             for po in range(len(utils.all_policies)):
                 out = get_cpu_by_multi_fev(
                     policy_i=po,
@@ -204,24 +209,30 @@ def get_all_result(env_j=0,index=36):
                     #print(name)
                     #print()
                     if po == (len(utils.all_policies)-1):
-                        print("{} \\\\ ".format(round(out[0],0)),end='')
+                        a=4
+                        #print("{} \\\\ ".format(round(out[0],0)),end='')
                     else:
-                        print("{} & ".format(round(out[0],0)),end='')
+                        a=4
+                        #print("{} & ".format(round(out[0],0)),end='')
                 else:
                     if utils.compatible_env_policie(po,e):
                         
                         if po == (len(utils.all_policies)-1):
-                            print("IPP \\\\ ",end='')
+                            a=4
+                            #print("IPP \\\\ ",end='')
                         else:
-                            print("IPP & ",end='')
+                            a=4
+                            #print("IPP & ",end='')
 
                     else:
                         
                         if po == (len(utils.all_policies)-1):
-                            print("NC \\\\ ",end='')
+                            a=4
+                            #print("NC \\\\ ",end='')
                         else:
-                            print("NC & ",end='')
-            print("")
+                            a=4
+                            #print("NC & ",end='')
+            #print("")
 
 
     # DFF  & 10/12 & 10/12 & 10/12 & 10/12 & 10/12 & NC    \\

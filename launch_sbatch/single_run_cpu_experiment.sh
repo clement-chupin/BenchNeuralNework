@@ -4,7 +4,7 @@
 #SBATCH --time=1-00:00:00
 #SBATCH --ntasks=1
 #SBATCH --output=../log_meso/log_propre_cpu
-#SBATCH --mem-per-cpu=4G
+#SBATCH --mem-per-cpu=8G
 
 
 
