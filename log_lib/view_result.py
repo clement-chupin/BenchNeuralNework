@@ -139,17 +139,15 @@ def plot_env_fe_by_fe(env_j=2,index=222):
     #     ax.label_outer()
             
             
-plot_env_fe_by_fe(0)
-plot_env_fe_by_fe(1)
-plot_env_fe_by_fe(2)
+
 
 
 # plot_env_fe_by_fight()
 
-def plot_env_fe_by_fight_index(env_j=0,index=88):
-    array_color = ["#ff0","#f0f","#0ff","#f00","#0f0","#00f"]
+def plot_env_fe_by_fight_index(env_j=9,index=88):
+    array_color = ["#0f0","#f00","#0ff","#f00","#0f0","#00f"]
 
-    index_to_fight = [88,99]
+    index_to_fight = [501,601]
 
     #fig.title("lol")
     for fev in range(len(utils.all_feature_extractor)):
@@ -177,7 +175,7 @@ def plot_env_fe_by_fight_index(env_j=0,index=88):
     for ax in axs.flat:
         ax.label_outer()
 
-#plot_env_fe_by_fight_index(index=88)
+plot_env_fe_by_fight_index()
 
 # axs[0, 0].set_title('DQN')
 # axs[0, 1].set_title('SAC')

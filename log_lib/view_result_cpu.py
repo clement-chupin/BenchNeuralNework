@@ -26,7 +26,41 @@ def get_path(policie_name,env_name,fe_k,fev_l,index=0):
     str(utils.all_feature_extractor[fe_k]["order"][fev_l]) + "_i" +
     str(index) +".json"
     ))
-    
+
+
+def get_cpu_by_multi_fev(
+    policy_i=None,
+    env_j=None,
+    fe_k=None,
+    fe_v_k=None,
+    label_plot="",
+    color=None,
+    marker=None,
+    index=0):
+    a=0
+    b=0
+    cmpt=0
+
+    for f in range(len(fe_v_k)):
+        result = get_cpu_by_index(
+            policy_i,
+            env_j,
+            fe_k,
+            f,
+            label_plot,
+            color,
+            marker,
+            index)
+        if result != (0,0):
+            cmpt=cmpt+1
+            a+=result[0]
+            b+=result[1]
+    if cmpt !=0:
+        return (a/cmpt,b/cmpt)
+    return (0,0)
+
+
+
 def get_cpu_by_index(
     policy_i=None,
     env_j=None,
@@ -73,8 +107,10 @@ def get_cpu(policy=None,env=None,fe_k=None,fe_v_k=None,label_plot="",color=None,
 
         data = np.array(data)
         time = np.array(time)
+        # plt.plot()
+        # plt.show()
+        return(np.mean(np.sort(data)[20:-20]),np.mean(np.sort(time)[20:-20]))
 
-        return(np.mean(data[5:-5]),np.mean(time[5:-5]))
     return (0.0,0.0)
     #plot_target.plot(time,data)
 
@@ -111,7 +147,9 @@ def plot_env_fe_by_fe(env_j=0,index=36):
                     index=index
                 )
                 if out !=(0.0,0.0):
-                    print(utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]))
+                    name = utils.all_feature_extractor[fev]["name"]
+                    print()
+                    print()
                     print(out)
                     data_cpu.append(out[0])
                     label_cpu.append(utils.all_feature_extractor[fev]["order"][fev_k])
@@ -121,8 +159,7 @@ def plot_env_fe_by_fe(env_j=0,index=36):
                         po_already.append(po)
                         custom_legend.append(mpatches.Patch(color=color_lib[po], label=utils.all_policies[po]["name"]))
 
-    
-    
+
 
 
     plt.bar(
@@ -135,8 +172,65 @@ def plot_env_fe_by_fe(env_j=0,index=36):
     
     plt.legend(handles=custom_legend)
     plt.show()
-            
-plot_env_fe_by_fe()
+
+
+def get_all_result(env_j=0,index=36):
+
+    #fig.title("lol")
+    custom_legend = []
+    po_already=[]
+    
+    data_cpu=[]
+    label_cpu=[]
+    
+    
+    for e,en in enumerate(utils.all_envs):
+        print('\multirow{11}{4em}{'+en["name"].replace("_","")+'} & ',end='')
+        for fev in range(len(utils.all_feature_extractor)):
+            print(utils.all_feature_extractor[fev]["name"].replace("_",""),end=" & ")
+            for po in range(len(utils.all_policies)):
+                out = get_cpu_by_multi_fev(
+                    policy_i=po,
+                    env_j=e,
+                    fe_k=fev,
+                    fe_v_k=utils.all_feature_extractor[fev]["order"],
+                    label_plot=utils.all_feature_extractor[fev]["name"],
+                    color=None,
+                    marker=None,
+                    index=index
+                )
+                if out !=(0.0,0.0):
+                    name = utils.all_feature_extractor[fev]["name"]
+                    #print(name)
+                    #print()
+                    if po == (len(utils.all_policies)-1):
+                        print("{} \\\\ ".format(round(out[0],0)),end='')
+                    else:
+                        print("{} & ".format(round(out[0],0)),end='')
+                else:
+                    if utils.compatible_env_policie(po,e):
+                        
+                        if po == (len(utils.all_policies)-1):
+                            print("IPP \\\\ ",end='')
+                        else:
+                            print("IPP & ",end='')
+
+                    else:
+                        
+                        if po == (len(utils.all_policies)-1):
+                            print("NC \\\\ ",end='')
+                        else:
+                            print("NC & ",end='')
+            print("")
+
+
+    # DFF  & 10/12 & 10/12 & 10/12 & 10/12 & 10/12 & NC    \\
+    # & DFLF & 10/12 & 10/12 & 10/12 & 10/12 & 10/12 & NC    \\
+    # & RFF  & 10/12 & 10/12 & 10/12 & 10/12 & 10/12 & NC    \\
+    
+
+
+get_all_result()
 
 
 

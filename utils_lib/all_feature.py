@@ -15,7 +15,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-
+    
     ################         COS   #####################
     {#1
         "feature_layer"        : FeatureExtractorLayer.D_FF_LinLayer_cos,
