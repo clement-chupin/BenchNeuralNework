@@ -60,7 +60,7 @@ all_feature_extract = [
     {#5
         "feature_layer"        : FeatureExtractorLayer.R_FLF_cos,
         "output_feature_nb"    : lambda order,input: (order + input),
-        "order"                : [8,16,64], #work on 4
+        "order"                : [8,16], #work on 4
         "name"                 : "rflf",
         "description"          : "random fourier light feature, with matrix layer (good for power needed, but might be worst on gpu)\ninput => input",
         "power"                : 0,
@@ -81,7 +81,7 @@ all_feature_extract = [
     {#7
         "feature_layer"        : FeatureExtractorLayer.L_FLF_cos,
         "output_feature_nb"    : lambda order,input: (order + input),
-        "order"                : [8,16,64],#,128*0],
+        "order"                : [8,16],#,128*0],
         "name"                 : "lflf",
         "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
         "power"                : 0,
@@ -91,7 +91,7 @@ all_feature_extract = [
     {#8
         "feature_layer"        : FeatureExtractorLayer.R_FLF_NNI_cos,
         "output_feature_nb"    : lambda order,input: (order + input),
-        "order"                : [8,16,64], #16,32,64,128
+        "order"                : [8,16], #16,32,64,128
         "name"                 : "rflfnni",
         "description"          : "random fourier light feature, with neural network who focus on each input before global computaion, with matrix layer (good for power needed, but might be worst on gpu)\ninput => input",
         "power"                : 0,
@@ -101,7 +101,7 @@ all_feature_extract = [
     {#9
         "feature_layer"        : FeatureExtractorLayer.D_FLF_NNI_cos,
         "output_feature_nb"    : lambda order,input: (order + input),
-        "order"                : [8,16,64],
+        "order"                : [8,16],
         "name"                 : "dflfnni",
         "description"          : "deterministic fourier light feature, with neural network who focus on each input before global computaion, with matrix layer (good for power needed, but might be worst on gpu)\ninput => input",
         "power"                : 0,
@@ -111,7 +111,7 @@ all_feature_extract = [
     {#10
         "feature_layer"        : FeatureExtractorLayer.L_FLF_NNI_cos,
         "output_feature_nb"    : lambda order,input: (order + input),
-        "order"                : [8,16,64],#work on 4
+        "order"                : [8,16],#work on 4
         "name"                 : "lflfnni",
         "description"          : "learned fourier light feature, with neural network who focus on each input before global computaion, with matrix layer (bad for power needed, but might be better on gpu)\ninput => input",
         "power"                : 0,
