@@ -138,6 +138,11 @@ class TrainMaster():
                 device=compute_opti,
                 verbose=1
                 )
+            # print(vars(model.policy_kwargs["optimizer_class"]))
+            # print(vars(model.policy.optimizer))
+            # print("sssssssssssssssssssssssssssssssssssssss")
+            # print(vars(model.policy.features_extractor))
+
             
             self.last_time = process_time()
             self.rewards_tab = []
@@ -162,6 +167,8 @@ class TrainMaster():
                 self.timestep_i = self.timestep_i+1
             
             model.learn(total_timesteps=nb_train, log_interval=1000,callback = register_reward)
+            
+            
             del policy_kwargs
             env.close()
             del register_reward

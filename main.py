@@ -6,7 +6,7 @@ from utils_lib.train_master import TrainMaster
 
 parser = argparse.ArgumentParser(description='Benchmark all params')
 
-parser.add_argument('--mode', default="train",
+parser.add_argument('--mode', default="manual",
                     help='Mode train/manual/manual_all (default: train)')
 
 parser.add_argument('--compute', default="auto",
@@ -60,6 +60,7 @@ if args.mode == 'manual':
         index=args.index,
         #nb_train=120
         )
+    print("end")
 
 if args.mode == 'manual_all':
     trainer.train_and_bench(
@@ -85,15 +86,15 @@ if args.mode == 'train':
             offset_policie=args.policy,
             index=args.index,
         )
-if args.mode == 'manual':
-    print(args)
-    trainer.train_and_bench_all_fev(
-        policie_i=args.policy,
-        env_j=args.env,
-        fe_k=args.feature,
-        index=args.index,
-        #nb_train=120
-        )
+# if args.mode == 'manual':
+#     print(args)
+#     trainer.train_and_bench_all_fev(
+#         policie_i=args.policy,
+#         env_j=args.env,
+#         fe_k=args.feature,
+#         index=args.index,
+#         #nb_train=120
+#         )
 
 if args.mode == 'create_folder':
     print("ok")

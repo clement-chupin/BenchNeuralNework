@@ -6,7 +6,7 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-from utils_lib.utils import Utils 
+from utils_lib.utils import Utils
 
 
 import matplotlib.pyplot as plt
@@ -19,14 +19,14 @@ plt.rcParams["figure.figsize"] = (10,8)
 def get_path(policie_name,env_name,fe_k,fev_l,index=0):
     global util
     #util.all_feature_extractor[]
-    return os.path.join(os.path.dirname(__file__), ("../result/log_json/" + 
+    return os.path.join(os.path.dirname(__file__), ("../result/log_json/" +
     policie_name+ "/" +
     env_name+"/"+
-    utils.all_feature_extractor[fe_k]["name"] + "_v" + 
+    utils.all_feature_extractor[fe_k]["name"] + "_v" +
     str(utils.all_feature_extractor[fe_k]["order"][fev_l]) + "_i" +
     str(index) +".json"
     ))
-    
+
 def plot_one_file_by_index(
     plot_target,
     policy_i=None,
@@ -55,13 +55,16 @@ def plot_one_file(plot_target,policy=None,env=None,fe_k=None,fe_v_k=None,label_p
         fe_k=fe_k,
         fev_l=fe_v_k,
         index=index)
-    print(path_log)
+    #print(path_log)
 
     #path_log="../test.json"
     #print(path_log)
     data = []
     time = []
     if os.path.exists(path_log):
+        print("found")
+        print(path_log)
+
         with open(path_log, 'r') as fd:
             lines = fd.read().split('\n')
             for l in lines:
@@ -74,12 +77,14 @@ def plot_one_file(plot_target,policy=None,env=None,fe_k=None,fe_v_k=None,label_p
         data = np.array(data)
         time = np.array(time)
         # print(data)
-
-        ti_li = savgol_filter(time, 10, 3)
-        data_li = savgol_filter(data, 10, 3)
-        plt.legend()
-        plot_target.plot(ti_li,data_li,label=label_plot,c=color, marker=marker,)
-
+        if not(len(data) < 40 or len(time) <40):
+            ti_li = savgol_filter(time, 40, 1)
+            data_li = savgol_filter(data, 40, 1)
+            plt.legend()
+            plot_target.plot(ti_li,data_li,label=label_plot,c=color, marker=marker,)
+    else:
+        print("not_found")
+        print(path_log)
     #plot_target.plot(time,data)
 
 def index_to_tuple(index):
@@ -103,10 +108,10 @@ def init_plot():
 
 
 
-def plot_env_fe_by_fe(env_j=2,index=222):
+def plot_env_fe_by_fe(env_j=0,index=1002):
 
     #fig.title("lol")
-    for fev in [7,8]:# range(len(utils.all_feature_extractor)):
+    for fev in range(len(utils.all_feature_extractor)):
         fig, axs = init_plot()
         fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
         for po in range(len(utils.all_policies)):
@@ -137,17 +142,15 @@ def plot_env_fe_by_fe(env_j=2,index=222):
     # # Hide x labels and tick labels for top plots and y ticks for right plots.
     # for ax in axs.flat:
     #     ax.label_outer()
-            
-            
 
 
 
-# plot_env_fe_by_fight()
+# plot_env_fe_by_fe()
 
-def plot_env_fe_by_fight_index(env_j=9,index=88):
+def plot_env_fe_by_fight_index(env_j=0,index=88):
     array_color = ["#0f0","#f00","#0ff","#f00","#0f0","#00f"]
 
-    index_to_fight = [501,601]
+    index_to_fight = [1000,1001,1002,1003]
 
     #fig.title("lol")
     for fev in range(len(utils.all_feature_extractor)):
@@ -162,7 +165,7 @@ def plot_env_fe_by_fight_index(env_j=9,index=88):
                         env_j=env_j,
                         fe_k=fev,
                         fe_v_k=fev_k,
-                        label_plot=utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]),  
+                        label_plot=utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]),
                         color=array_color[iii],
                         index=index_fight
                     )
@@ -174,13 +177,56 @@ def plot_env_fe_by_fight_index(env_j=9,index=88):
     # Hide x labels and tick labels for top plots and y ticks for right plots.
     for ax in axs.flat:
         ax.label_outer()
-
-plot_env_fe_by_fight_index()
+# for i in range(17):
+#     plot_env_fe_by_fight_index(env_j=i)
 
 # axs[0, 0].set_title('DQN')
 # axs[0, 1].set_title('SAC')
 # axs[1, 0].set_title('DDPG')
 # axs[1, 1].set_title('PPO')
+
+
+
+
+
+
+def plot_env_fe_all(env_j=0,index=1002,aaa=0):
+    # fig, axs = init_plot()
+    # fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
+    #fig.title("lol")
+    for fev in range(len(utils.all_feature_extractor)):
+        for po in [aaa]:#range(len(utils.all_policies)):
+            for fev_k in range(len(utils.all_feature_extractor[fev]["order"])):
+                color = None
+                marker = None
+                if fev in [6,7]:
+                    #color = "r"
+                    marker="*"
+                if fev in [0]:
+                    color = "b"
+                    marker="1"
+                plot_one_file_by_index(
+                    plot_target=plt,#axs[index_to_tuple(po)],
+                    policy_i=po,
+                    env_j=env_j,
+                    fe_k=fev,
+                    fe_v_k=fev_k,
+                    label_plot=utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]),
+                    color=color,
+                    marker=marker,
+                    index=index
+                )
+                print(utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]))
+    plt.legend()
+    plt.show()
+
+for i in range(17):
+    for j in range(6):
+        print(str(i)+"___"+str(j))
+        plot_env_fe_all(env_j=i,aaa=j)
+
+
+
 
 def plot_and_save_all(index=101):
     for env_i in len(utils.all_envs):
@@ -198,10 +244,10 @@ def plot_and_save_all(index=101):
                         color=None,
                         index=index
                     )
-            plt.savefig("./figures/"+str(env_i)+"_"+str(po_j)+'.pdf')  
+            plt.savefig("./figures/"+str(env_i)+"_"+str(po_j)+'.pdf')
             plt.show()
             plt.close()
-    
+
 
 def fake_plot(axs):
     for i in range(6):
@@ -282,7 +328,7 @@ def fake_plot(axs):
 #         [30,51],
 #     ]
 #     array_fe = all_vs_all
-    
+
 #     #fig.title("lol")
 #     for fev_i,fe_tab in enumerate(array_fe):
 #         print(fe_tab)
@@ -293,7 +339,7 @@ def fake_plot(axs):
 
 
 #                 for po in range(len(utils.all_policies)):
-                
+
 #                     plot_one_file_by_index(
 #                         plot_target=axs[index_to_tuple(po)],
 #                         policy_i=po,

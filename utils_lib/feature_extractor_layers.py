@@ -40,6 +40,7 @@ class FeaturesExtractor_model(BaseFeaturesExtractor):
         self.network = nn.Sequential(
             FF_layer,
         )
+        
         #summary(FF_layer)
     def forward(self, observations):
         return self.network(observations)
@@ -210,8 +211,6 @@ class L_FF_cos(nn.Module):
         self.linear_1 = torch.nn.Linear(in_features,order).to(self.device)
         self.activation_1 = torch.cos
 
-        self.linear_1_bis = torch.nn.Linear(4,4).to(self.device)
-        self.linear_2 = torch.nn.Linear(4,1).to(self.device)
         self.flatten = torch.nn.Flatten()
     def get_output_size(self,):
         return self.order 
@@ -223,6 +222,26 @@ class L_FF_cos(nn.Module):
         output = self.flatten(output)
         return output
 
+class L_FF_cos_cheat(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        
+        self.device = get_device(device)
+        super().__init__()
+        self.linear_1 = torch.nn.Linear(in_features,order).to(self.device)
+        self.activation_1 = torch.cos
+
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.order 
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        output = self.linear_1(x*np.pi)
+        output = self.activation_1(output)*0.2
+
+        output = self.flatten(output)
+        return output
 
 class L_FLF_Base_conv_cos(nn.Module):
     def __init__(self, in_features, order,device="auto"):
@@ -235,8 +254,6 @@ class L_FLF_Base_conv_cos(nn.Module):
         self.linear_1 = torch.nn.Linear(in_features,order).to(self.device)
         self.activation = torch.cos
 
-        self.linear_1_bis = torch.nn.Linear(4,4).to(self.device)
-        self.linear_2 = torch.nn.Linear(4,1).to(self.device)
     def get_output_size(self,):
         return self.in_features*self.order  
         
@@ -254,10 +271,11 @@ class L_FLF_Base_conv_cos(nn.Module):
         return output
 
 class L_FLF_Base_cos(nn.Module):
-    def __init__(self, in_features, order,device="auto"):
+    def __init__(self, in_features, order,device="auto",learning_rate=0.001):
         self.order = order
         self.in_features = in_features
         self.device = get_device(device)
+        self.lr = learning_rate
         super().__init__()
         
         
@@ -293,6 +311,22 @@ class L_FLF_cos(nn.Module):
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
         output = self.fourier_feature(x)
+        output = self.flatten(output)
+        return output
+class L_FLF_cos_cheat(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.device = get_device(device)
+        super().__init__()
+        
+        self.fourier_feature = L_FLF_Base_cos(in_features, order,device)
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.in_features*self.order
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        output = self.fourier_feature(x)*0.2
         output = self.flatten(output)
         return output
 
