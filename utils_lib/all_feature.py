@@ -233,5 +233,15 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
+    {#21
+        "feature_layer"        : FeatureExtractorLayer.L_FLF_cos_genius,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [4,8,16],#,128*0],
+        "name"                 : "lflf_gen",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
 
 ]
