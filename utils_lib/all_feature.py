@@ -143,7 +143,7 @@ all_feature_extract = [
         "feature_layer"        : FeatureExtractorLayer.L_FF_cos_weird,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [64,128,256],#256,512],#warnuing warning, order r_ff != order d_ff
-        "name"                 : "lff_bet",
+        "name"                 : "lff_wei",
         "description"          : "learned fourier feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
         "power"                : 0,
         "color"                : None,
@@ -154,7 +154,7 @@ all_feature_extract = [
         "feature_layer"        : FeatureExtractorLayer.L_FLF_cos_weird,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16,64],#,128*0],
-        "name"                 : "lflf_bet",
+        "name"                 : "lflf_wei",
         "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
         "power"                : 0,
         "color"                : None,
