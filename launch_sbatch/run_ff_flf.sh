@@ -9,7 +9,7 @@ for i in {0..16}
 do 
     for j in {0..5} 
     do 
-        for k in 23 24
+        for k in 11 12 13 14
         do 
             for l in {0..3}
             do 
