@@ -242,6 +242,38 @@ class L_FF_cos_cheat(nn.Module):
 
         output = self.flatten(output)
         return output
+
+class L_FF_cos_genius(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+
+        self.device = get_device(device)
+        super().__init__()
+        self.linear_1 = torch.nn.Linear(1,order*in_features).to(self.device)
+        self.sig_acti = torch.nn.Sigmoid()
+        self.activation_1 = torch.cos
+
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.order 
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        
+        weird_kern = self.linear_1(torch.tensor([1.0]))
+        weird_kern = self.sig_acti(weird_kern)*8.0
+        weird_kern = torch.reshape(weird_kern,(self.in_features,self.order,))
+
+
+        #print(x.size())
+        #print(weird_kern.size())
+        output = torch.matmul(x,weird_kern)*np.pi
+        #print(output.size())
+        output = self.activation_1(output)
+
+        output = self.flatten(output)
+        return output
+
 class L_FF_cos_weird(nn.Module):
     def __init__(self, in_features, order,device="auto"):
         self.order = order
