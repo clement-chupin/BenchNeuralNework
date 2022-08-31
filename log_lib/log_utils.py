@@ -67,6 +67,12 @@ def save_log_train(
     r = str(round(rewards,  3))
     f = str(round(fps,  1))
 
-    with open(path_data, "a") as input_file:
-        #json.dump(data, input_file, sort_keys=True)
-        input_file.write(t + "," + c + "," + r + "," + f + ",\n")
+    if timestep ==0:
+
+        with open(path_data, "w") as input_file:
+            #json.dump(data, input_file, sort_keys=True)
+            input_file.write(t + "," + c + "," + r + "," + f + ",\n")
+    else:
+        with open(path_data, "a") as input_file:
+            #json.dump(data, input_file, sort_keys=True)
+            input_file.write(t + "," + c + "," + r + "," + f + ",\n")
