@@ -19,7 +19,7 @@ class FeaturesExtractor_model(BaseFeaturesExtractor):
     device="auto"
     
     ):
-        #print(observation_space.shape)
+        ##print(observation_space.shape)
         self.device=  device
         self.n_input= observation_space.shape[0]
         self.feature_extractor = FeatureExtractor
@@ -32,9 +32,9 @@ class FeaturesExtractor_model(BaseFeaturesExtractor):
         FF_layer = self.feature_layer(in_features=self.n_input, order=self.order,device=device)
 
         self.n_output = FF_layer.get_output_size() #(FeatureExtractor["order"])*(n_input_channels)+1 #FLF
-        # print("in features = " +str(self.n_input))
-        # print("ff_order = "    +str(self.order ))
-        # print("out features = "+str(self.n_output))
+        # #print("in features = " +str(self.n_input))
+        # #print("ff_order = "    +str(self.order ))
+        # #print("out features = "+str(self.n_output))
 
         super(FeaturesExtractor_model, self).__init__(observation_space, self.n_output)
         self.network = nn.Sequential(
@@ -76,7 +76,7 @@ class D_FF_LinLayer_cos(nn.Linear):
         return (self.order+1)**self.in_features
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
-        #print(x.size())
+        ##print(x.size())
         x = np.pi*super().forward(x)
         return torch.cos(x)
 
@@ -91,7 +91,7 @@ class D_FLF_LinLayer_cos(nn.Linear):
         coeff=np.arange(1, order+1)
         for i in range(in_features):
             c[1+i*order:1+order*(i+1), i]=coeff
-        #print(c)
+        ##print(c)
         with torch.no_grad():
             self.weight.copy_(torch.tensor(c, dtype=torch.float32))
         self.weight.requires_grad = False
@@ -100,7 +100,7 @@ class D_FLF_LinLayer_cos(nn.Linear):
         return self.in_features*self.order+1
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
-        #print(x)
+        ##print(x)
         x = np.pi*super().forward(x)
         return torch.cos(x)
 
@@ -265,10 +265,43 @@ class L_FF_cos_genius(nn.Module):
         weird_kern = torch.reshape(weird_kern,(self.in_features,self.order,))
 
 
-        print(x.size())
-        print(weird_kern.size())
+        #print(x.size())
+        #print(weird_kern.size())
         output = torch.matmul(x,weird_kern)*np.pi
-        print(output.size())
+        #print(output.size())
+        output = self.activation_1(output)
+
+        output = self.flatten(output)
+        return output
+
+class L_FF_cos_genius_a(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+
+        self.device = get_device(device)
+        super().__init__()
+        self.linear_1 = torch.nn.Linear(1,order*in_features).to(self.device)
+        self.linear_2 = torch.nn.Linear(order*in_features,order*in_features).to(self.device)
+        self.sig_acti = torch.nn.Sigmoid()
+        self.activation_1 = torch.cos
+
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.order 
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        
+        weird_kern = self.linear_1(torch.tensor([1.0]))
+        weird_kern = self.linear_2(weird_kern)
+        weird_kern = self.sig_acti(weird_kern)*8.0
+        weird_kern = torch.reshape(weird_kern,(self.in_features,self.order,))
+
+
+        #print(x.size())
+        #print(weird_kern.size())
+        output = torch.matmul(x,weird_kern)*np.pi
+        #print(output.size())
         output = self.activation_1(output)
 
         output = self.flatten(output)
@@ -297,12 +330,49 @@ class L_FLF_cos_genius(nn.Module):
 
         
         x = torch.reshape(x,(x.size()[0],-1,1))
-        # print(x.size())
-        # print(weird_kern.size())
+        # #print(x.size())
+        # #print(weird_kern.size())
 
 
         output = torch.matmul(x,weird_kern)*np.pi
-        # print(output.size())
+        # #print(output.size())
+        output = self.activation_1(output)
+
+        output = self.flatten(output)
+        return output
+
+class L_FLF_cos_genius_a(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+
+        self.device = get_device(device)
+        super().__init__()
+        self.linear_1 = torch.nn.Linear(1,order).to(self.device)
+        self.linear_2 = torch.nn.Linear(order,order).to(self.device)
+        self.sig_acti = torch.nn.Sigmoid()
+        self.activation_1 = torch.cos
+
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.order*self.in_features 
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        
+        weird_kern = self.linear_1(torch.tensor([1.0]))
+        weird_kern = self.linear_2(weird_kern)
+        weird_kern = self.sig_acti(weird_kern)*self.order
+        weird_kern = torch.reshape(weird_kern,(1,self.order))
+
+
+        
+        x = torch.reshape(x,(x.size()[0],-1,1))
+        # #print(x.size())
+        # #print(weird_kern.size())
+
+
+        output = torch.matmul(x,weird_kern)*np.pi
+        # #print(output.size())
         output = self.activation_1(output)
 
         output = self.flatten(output)
@@ -327,15 +397,53 @@ class L_FF_cos_stupid(nn.Module):
         
         weird_kern = self.linear_1(x)
         weird_kern = self.sig_acti(weird_kern)*8.0
-        #print(weird_kern.size())
+        ##print(weird_kern.size())
         weird_kern = torch.reshape(weird_kern,(weird_kern.size()[0],self.order,self.in_features,))
 
         x = torch.reshape(x,(x.size()[0],-1,1))
 
-        #print(x.size())
-        #print(weird_kern.size())
+        ##print(x.size())
+        ##print(weird_kern.size())
         output = torch.matmul(weird_kern,x)*np.pi
-        #print(output.size())
+        ##print(output.size())
+        output = self.activation_1(output)
+
+        output = self.flatten(output)
+        return output
+
+class L_FF_cos_stupid_a(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+
+        self.device = get_device(device)
+        super().__init__()
+        self.linear_1 = torch.nn.Linear(in_features,order*in_features).to(self.device)
+        self.linear_2 = torch.nn.Linear(order*in_features,order*in_features).to(self.device)
+        self.relu_acti = torch.nn.ReLU()
+        self.sig_acti = torch.nn.Sigmoid()
+        self.activation_1 = torch.cos
+
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.order 
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        
+        weird_kern = self.linear_1(x)
+        weird_kern = self.relu_acti(weird_kern)
+        weird_kern = self.linear_2(weird_kern)
+
+        weird_kern = self.sig_acti(weird_kern)*8.0
+        ##print(weird_kern.size())
+        weird_kern = torch.reshape(weird_kern,(weird_kern.size()[0],self.order,self.in_features,))
+
+        x = torch.reshape(x,(x.size()[0],-1,1))
+
+        ##print(x.size())
+        ##print(weird_kern.size())
+        output = torch.matmul(weird_kern,x)*np.pi
+        ##print(output.size())
         output = self.activation_1(output)
 
         output = self.flatten(output)
@@ -363,10 +471,46 @@ class L_FLF_cos_stupid(nn.Module):
         weird_kern = torch.reshape(weird_kern,(weird_kern.size()[0],1,self.order,))
         x = torch.reshape(x,(x.size()[0],-1,1))
         
-        #print(x.size())
-        #print(weird_kern.size())
+        ##print(x.size())
+        ##print(weird_kern.size())
         output = torch.matmul(x,weird_kern)*np.pi
-        #print(output.size())
+        ##print(output.size())
+        output = self.activation_1(output)
+
+        output = self.flatten(output)
+        return output
+class L_FLF_cos_stupid_a(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+
+        self.device = get_device(device)
+        super().__init__()
+        self.linear_1 = torch.nn.Linear(in_features,order).to(self.device)
+        self.linear_2 = torch.nn.Linear(order,order).to(self.device)
+        self.relu_acti = torch.nn.ReLU()
+        self.sig_acti = torch.nn.Sigmoid()
+        self.activation_1 = torch.cos
+
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.order*self.in_features 
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        
+        weird_kern = self.linear_1(x)
+        weird_kern = self.relu_acti(weird_kern)
+        weird_kern = self.linear_2(weird_kern)
+
+        weird_kern = self.sig_acti(weird_kern)*self.order
+
+        weird_kern = torch.reshape(weird_kern,(weird_kern.size()[0],1,self.order,))
+        x = torch.reshape(x,(x.size()[0],-1,1))
+        
+        ##print(x.size())
+        ##print(weird_kern.size())
+        output = torch.matmul(x,weird_kern)*np.pi
+        ##print(output.size())
         output = self.activation_1(output)
 
         output = self.flatten(output)
@@ -438,8 +582,75 @@ class L_FF_cos_relu(nn.Module):
         output = self.relu(output)
         
         return output
-
-
+class L_FF_cos_relu_a(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        
+        self.device = get_device(device)
+        super().__init__()
+        self.linear_1 = torch.nn.Linear(in_features,order).to(self.device)
+        self.activation_1 = torch.cos
+        self.post_trait = torch.nn.Linear(self.get_output_size(),self.get_output_size())
+        self.relu = torch.nn.SiLU()
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.order 
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        output = self.linear_1(x*np.pi)
+        output = self.activation_1(output)
+        output = self.flatten(output)
+        output = self.post_trait(output)
+        output = self.relu(output)
+        
+        return output
+class L_FF_cos_relu_b(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        
+        self.device = get_device(device)
+        super().__init__()
+        self.linear_1 = torch.nn.Linear(in_features,order).to(self.device)
+        self.activation_1 = torch.cos
+        self.post_trait = torch.nn.Linear(self.get_output_size(),self.get_output_size())
+        self.relu = torch.nn.RReLU()
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.order 
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        output = self.linear_1(x*np.pi)
+        output = self.activation_1(output)
+        output = self.flatten(output)
+        output = self.post_trait(output)
+        output = self.relu(output)
+        
+        return output
+class L_FF_cos_relu_c(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        
+        self.device = get_device(device)
+        super().__init__()
+        self.linear_1 = torch.nn.Linear(in_features,order).to(self.device)
+        self.activation_1 = torch.cos
+        self.post_trait = torch.nn.Linear(self.get_output_size(),self.get_output_size())
+        self.relu = torch.nn.ReLU6()
+        self.flatten = torch.nn.Flatten()
+    def get_output_size(self,):
+        return self.order 
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        output = self.linear_1(x*np.pi)
+        output = self.activation_1(output)
+        output = self.flatten(output)
+        output = self.post_trait(output)
+        output = self.relu(output)
+        
+        return output
 class L_FF_cos_nude(nn.Module):
     def __init__(self, in_features, order,device="auto"):
         self.order = order
@@ -481,8 +692,8 @@ class L_FLF_Base_conv_cos(nn.Module):
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
         x = torch.reshape(x,(x.size()[0],1,-1))*np.pi
-        # print(self.order)
-        # print(x.size())
+        # #print(self.order)
+        # #print(x.size())
         output = self.conv_1(x)
         output = torch.permute(output,(0,2,1))
 
@@ -601,6 +812,74 @@ class L_FLF_cos_relu(nn.Module):
         self.fourier_feature = L_FLF_Base_cos(in_features, order,device)
         self.post_trait = torch.nn.Linear(self.get_output_size(),self.get_output_size())
         self.relu = torch.nn.ReLU()
+        self.flatten = torch.nn.Flatten()
+
+    def get_output_size(self,):
+        return self.in_features*self.order
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        output = self.fourier_feature(x)
+        output = self.flatten(output)
+        output = self.post_trait(output)
+        output = self.relu(output)
+        
+        return output
+
+class L_FLF_cos_relu_a(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.device = get_device(device)
+        super().__init__()
+        
+        self.fourier_feature = L_FLF_Base_cos(in_features, order,device)
+        self.post_trait = torch.nn.Linear(self.get_output_size(),self.get_output_size())
+        self.relu = torch.nn.SiLU()
+        self.flatten = torch.nn.Flatten()
+
+    def get_output_size(self,):
+        return self.in_features*self.order
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        output = self.fourier_feature(x)
+        output = self.flatten(output)
+        output = self.post_trait(output)
+        output = self.relu(output)
+        
+        return output
+class L_FLF_cos_relu_b(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.device = get_device(device)
+        super().__init__()
+        
+        self.fourier_feature = L_FLF_Base_cos(in_features, order,device)
+        self.post_trait = torch.nn.Linear(self.get_output_size(),self.get_output_size())
+        self.relu = torch.nn.RReLU()
+        self.flatten = torch.nn.Flatten()
+
+    def get_output_size(self,):
+        return self.in_features*self.order
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+         #x = x.to(self.device)
+        output = self.fourier_feature(x)
+        output = self.flatten(output)
+        output = self.post_trait(output)
+        output = self.relu(output)
+        
+        return output
+
+class L_FLF_cos_relu_c(nn.Module):
+    def __init__(self, in_features, order,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.device = get_device(device)
+        super().__init__()
+        
+        self.fourier_feature = L_FLF_Base_cos(in_features, order,device)
+        self.post_trait = torch.nn.Linear(self.get_output_size(),self.get_output_size())
+        self.relu = torch.nn.ReLU6()
         self.flatten = torch.nn.Flatten()
 
     def get_output_size(self,):

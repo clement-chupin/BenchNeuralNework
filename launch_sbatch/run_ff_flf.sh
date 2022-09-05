@@ -9,12 +9,12 @@ for i in {0..16}
 do 
     for j in {0..5} 
     do 
-        for k in 11 12 13 14
+        for k in 25 26 27 28 29 30 31 32 33 34
         do 
             for l in {0..3}
             do 
                 sbatch single_run_cpu_experiment.sh $i $j $k $l 1088;
-                sleep 0.1
+                # sleep 0.1
             done
         done
     done

@@ -264,4 +264,115 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
+
+
+
+    {#25
+        "feature_layer"        : FeatureExtractorLayer.L_FF_cos_genius_a,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [64,128,256],#,128*0],
+        "name"                 : "lff_gen_a",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#26
+        "feature_layer"        : FeatureExtractorLayer.L_FLF_cos_genius_a,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [4,8,16],#,128*0],
+        "name"                 : "lflf_gen_a",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#27
+        "feature_layer"        : FeatureExtractorLayer.L_FF_cos_stupid_a,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [64,128,256],#,128*0],
+        "name"                 : "lff_stup_a",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#28
+        "feature_layer"        : FeatureExtractorLayer.L_FLF_cos_stupid_a,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [4,8,16],#,128*0],
+        "name"                 : "lflf_stup_a",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+
+
+
+    {#29
+        "feature_layer"        : FeatureExtractorLayer.L_FF_cos_relu_a,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [64,128,256],#256,512],#warnuing warning, order r_ff != order d_ff
+        "name"                 : "lff_ba",
+        "description"          : "learned fourier feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#30
+        "feature_layer"        : FeatureExtractorLayer.L_FLF_cos_relu_a,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [4,8,16,64],#,128*0],
+        "name"                 : "lflf_ba",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#31
+        "feature_layer"        : FeatureExtractorLayer.L_FF_cos_relu_b,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [64,128,256],#256,512],#warnuing warning, order r_ff != order d_ff
+        "name"                 : "lff_bb",
+        "description"          : "learned fourier feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#32
+        "feature_layer"        : FeatureExtractorLayer.L_FLF_cos_relu_b,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [4,8,16,64],#,128*0],
+        "name"                 : "lflf_bb",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#33
+        "feature_layer"        : FeatureExtractorLayer.L_FLF_cos_relu_c,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [64,128,256],#256,512],#warnuing warning, order r_ff != order d_ff
+        "name"                 : "lff_bc",
+        "description"          : "learned fourier feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#34
+        "feature_layer"        : FeatureExtractorLayer.L_FLF_cos_relu_c,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [4,8,16,64],#,128*0],
+        "name"                 : "lflf_bc",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
 ]
