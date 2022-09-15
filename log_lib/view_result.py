@@ -80,7 +80,7 @@ def plot_one_file(plot_target,policy=None,env=None,fe_k=None,fe_v_k=None,label_p
         if not(len(data) < 40 or len(time) <40):
             ti_li = savgol_filter(time, 40, 1)
             data_li = savgol_filter(data, 40, 1)
-            plt.legend()
+            #plt.legend()
             plot_target.plot(ti_li,data_li,label=label_plot,c=color, marker=marker,)
     else:
         print("not_found")
@@ -135,7 +135,7 @@ def plot_env_fe_by_fe(env_j=0,index=1002):
                 print(utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]))
         # mng = plt.get_current_fig_manager()
         # mng.frame.Maximize(True)
-        plt.legend()
+        #plt.legend()
         plt.show()
     # for ax in axs.flat:
     #     ax.set(xlabel='timestep', ylabel='reward')
@@ -190,23 +190,32 @@ def plot_env_fe_by_fight_index(env_j=0,index=88):
 
 
 
-def plot_env_fe_all(env_j=0,index=1002,aaa=0):
-    # fig, axs = init_plot()
-    # fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
-    #fig.title("lol")
+def plot_env_fe_all(env_j=0,index=1088,aaa=0,fig=None):
+    fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
+    #plt.title("lol")
     for fev in range(len(utils.all_feature_extractor)):
         for po in [aaa]:#range(len(utils.all_policies)):
             for fev_k in range(len(utils.all_feature_extractor[fev]["order"])):
                 color = None
                 marker = None
-                if fev in [6,7]:
-                    #color = "r"
-                    marker="*"
+                if fev not in [0,29,30,31,32,33,34]:
+                # if fev not in [0,29,30,31,32,33,34]:#,25,26,27,28,
+                    break
                 if fev in [0]:
-                    color = "b"
+                    color = "#000"
                     marker="1"
+                if fev in [29,30,25,]:
+                    color = "#f00"
+                if fev in [31,32,27]:
+                    color = "#0f0"
+                if fev in [33,34,26]:
+                    color = "#00f"
+                if fev in [28]:
+                    color = "#f0f"
+
+                    
                 plot_one_file_by_index(
-                    plot_target=plt,#axs[index_to_tuple(po)],
+                    plot_target=axs[index_to_tuple(po)],
                     policy_i=po,
                     env_j=env_j,
                     fe_k=fev,
@@ -217,13 +226,17 @@ def plot_env_fe_all(env_j=0,index=1002,aaa=0):
                     index=index
                 )
                 print(utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]))
-    plt.legend()
-    plt.show()
+    
+fig, axs = init_plot()
+
 
 for i in range(17):
+    fig, axs = init_plot()
     for j in range(6):
         print(str(i)+"___"+str(j))
-        plot_env_fe_all(env_j=i,aaa=j)
+        plot_env_fe_all(env_j=i,aaa=j,fig=fig)
+    #plt.legend()
+    plt.show()
 
 
 

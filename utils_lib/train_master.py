@@ -95,6 +95,7 @@ class TrainMaster():
 
         policie =      self.all_policies[policie_i]["policie"]
         policie_name = self.all_policies[policie_i]["name"]
+        policie_lr_r = self.all_policies[policie_i]["lr_ratio"]
         compute_opti = self.all_policies[policie_i]["compute_opti"]
         compute_opti = self.device
 
@@ -132,12 +133,18 @@ class TrainMaster():
         if policy_kwargs is not None:
             self.timestep_i = 0
             
+            
             model = policie(
-                "MlpPolicy", env,
+                policy="MlpPolicy",
+                #learning_rate = old_lr,
+                env=env,
                 policy_kwargs = policy_kwargs,
                 device=compute_opti,
-                verbose=1
+                verbose=1,
                 )
+            #print(model.learning_rate)
+            model.learning_rate = model.learning_rate*policie_lr_r
+            #print(model.learning_rate)
             # print(vars(model.policy_kwargs["optimizer_class"]))
             # print(vars(model.policy.optimizer))
             # print("sssssssssssssssssssssssssssssssssssssss")

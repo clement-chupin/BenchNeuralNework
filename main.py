@@ -6,7 +6,7 @@ from utils_lib.train_master import TrainMaster
 
 parser = argparse.ArgumentParser(description='Benchmark all params')
 
-parser.add_argument('--mode', default="manual",
+parser.add_argument('--mode', default="manual_all",
                     help='Mode train/manual/manual_all (default: train)')
 
 parser.add_argument('--compute', default="auto",
@@ -30,7 +30,7 @@ parser.add_argument('--feature', type=int, default=0, metavar='N',
 parser.add_argument('--feature_var', type=int, default=0, metavar='N',
                     help='')
 
-parser.add_argument('--index', type=int, default=0, metavar='N',
+parser.add_argument('--index', type=int, default=666666, metavar='N',
                     help='')
 
 args = parser.parse_args()

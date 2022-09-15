@@ -5,11 +5,19 @@ source ~/IA_chupin/py_env/bin/activate
 
 
 
+
+
+
+
+
+
+
+
 for i in {0..16} 
 do 
-    for j in {0..5} 
+    for j in 6 7 8 9 10 11
     do 
-        for k in 25 26 27 28 29 30 31 32 33 34
+        for k in 0 25 26
         do 
             for l in {0..3}
             do 
@@ -19,6 +27,43 @@ do
         done
     done
 done
+
+
+for i in {0..16} 
+do 
+    for j in {0..11}
+    do 
+        for k in 6 7 35 36 37 38
+        do 
+            for l in {0..3}
+            do 
+                sbatch single_run_cpu_experiment.sh $i $j $k $l 1088;
+                # sleep 0.1
+            done
+        done
+    done
+done
+
+
+
+
+
+
+
+# for i in {0..16} 
+# do 
+#     for j in {0..5} 
+#     do 
+#         for k in 25 26 27 28 29 30 31 32 33 34
+#         do 
+#             for l in {0..3}
+#             do 
+#                 sbatch single_run_cpu_experiment.sh $i $j $k $l 1088;
+#                 # sleep 0.1
+#             done
+#         done
+#     done
+# done
 
 
 
