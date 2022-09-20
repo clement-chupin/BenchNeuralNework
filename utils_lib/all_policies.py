@@ -88,4 +88,48 @@ all_policies = [
         "lr_ratio"     : 0.5,
     },
 
+    {#12
+        "policie"      : stable_baselines3.A2C,  #discrete, continuous action space
+        "name"         : "A2C_ulow",
+        "action_space" : [True,True],
+        "compute_opti" : "auto",   #to select cpu or gpu but no exploit
+        "lr_ratio"     : 0.2,
+    },
+    {#13
+        "policie"      : stable_baselines3.DDPG,
+        "name"         : "DDPG_ulow",
+        "action_space" : [False,True],
+        "compute_opti" : "auto",
+        "lr_ratio"     : 0.2,
+    },
+    {#14
+        "policie"      : stable_baselines3.DQN,
+        "name"         : "DQN_ulow",
+        "action_space" : [True,False],
+        "compute_opti" : "auto",
+        "lr_ratio"     : 0.2,
+    },
+    {#15
+        "policie"      : stable_baselines3.PPO,
+        "name"         : "PPO_ulow",
+        "action_space" : [True,True],
+        "compute_opti" : "auto",
+        "lr_ratio"     : 0.2,
+    },
+    {#16
+        "policie"      : stable_baselines3.SAC,
+        "name"         : "SAC_ulow",
+        "action_space" : [False,True],
+        "compute_opti" : "auto",
+        "lr_ratio"     : 0.2,
+    },
+    {#117
+        "policie"      : stable_baselines3.TD3,
+        "name"         : "TD3_ulow",
+        "action_space" : [False,True],
+        "compute_opti" : "auto",
+        "lr_ratio"     : 0.2,
+    },
+
+
 ]

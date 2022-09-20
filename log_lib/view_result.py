@@ -190,11 +190,61 @@ def plot_env_fe_by_fight_index(env_j=0,index=88):
 
 
 
-def plot_env_fe_all(env_j=0,index=1088,aaa=0,fig=None):
-    fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
-    #plt.title("lol")
+# def plot_env_fe_all_multi(env_j=0,index=1088,aaa=0,fig=None):
+#     fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
+#     #plt.title("lol")
+#     for fev in range(len(utils.all_feature_extractor)):
+#         for po in [aaa]:#range(len(utils.all_policies)):
+#             for fev_k in range(len(utils.all_feature_extractor[fev]["order"])):
+#                 color = None
+#                 marker = None
+#                 if fev not in [0,29,30,31,32,33,34]:
+#                 # if fev not in [0,29,30,31,32,33,34]:#,25,26,27,28,
+#                     break
+#                 if fev in [0]:
+#                     color = "#000"
+#                     marker="1"
+#                 if fev in [29,30,25,]:
+#                     color = "#f00"
+#                 if fev in [31,32,27]:
+#                     color = "#0f0"
+#                 if fev in [33,34,26]:
+#                     color = "#00f"
+#                 if fev in [28]:
+#                     color = "#f0f"
+
+                    
+#                 plot_one_file_by_index(
+#                     plot_target=axs[index_to_tuple(po)],
+#                     policy_i=po,
+#                     env_j=env_j,
+#                     fe_k=fev,
+#                     fe_v_k=fev_k,
+#                     label_plot=utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]),
+#                     color=color,
+#                     marker=marker,
+#                     index=index
+#                 )
+#                 print(utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]))
+    
+# fig, axs = init_plot()
+
+
+# for i in range(17):
+#     fig, axs = init_plot()
+#     for j in range(6):
+#         print(str(i)+"___"+str(j))
+#         plot_env_fe_all_multi(env_j=i,aaa=j,fig=fig)
+#     #plt.legend()
+#     plt.show()
+
+
+
+def plot_env_fe_all_solo(env_j=0,index=1088,policie=0):
+    #fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
+    plt.title(utils.all_envs[env_j]["env"])
     for fev in range(len(utils.all_feature_extractor)):
-        for po in [aaa]:#range(len(utils.all_policies)):
+        for po in [policie]:#range(len(utils.all_policies)):
             for fev_k in range(len(utils.all_feature_extractor[fev]["order"])):
                 color = None
                 marker = None
@@ -215,7 +265,7 @@ def plot_env_fe_all(env_j=0,index=1088,aaa=0,fig=None):
 
                     
                 plot_one_file_by_index(
-                    plot_target=axs[index_to_tuple(po)],
+                    plot_target=plt,
                     policy_i=po,
                     env_j=env_j,
                     fe_k=fev,
@@ -226,19 +276,15 @@ def plot_env_fe_all(env_j=0,index=1088,aaa=0,fig=None):
                     index=index
                 )
                 print(utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]))
-    
-fig, axs = init_plot()
-
 
 for i in range(17):
-    fig, axs = init_plot()
-    for j in range(6):
+    
+    for j in range(12):
+        plt.figure(i*12+j)
         print(str(i)+"___"+str(j))
-        plot_env_fe_all(env_j=i,aaa=j,fig=fig)
-    #plt.legend()
-    plt.show()
-
-
+        plot_env_fe_all_solo(env_j=i,policie=j)
+        plt.legend()
+        plt.show()
 
 
 def plot_and_save_all(index=101):
