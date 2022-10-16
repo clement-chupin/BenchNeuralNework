@@ -73,12 +73,15 @@ class outsider(nn.Linear):
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         out= torch.zeros(self.order,x.shape[0],)
-        print(x.shape[0])
-        print(self.order)
+        #print(x.shape[0])
+        #print(self.order)
         size_a = 1/(self.order-1)
 
         for i in range(self.order):
             for j in range(x.shape[0]):
+                print(x[j])
+                print(type(x[j]))
+                print(x[j] > size_a*(i-1))
                 if x[j] > size_a*(i-1) and x[j] < size_a*(i+1):
                     if x[j]<=size_a*(i):
                         out[i][j]=(x[j]-size_a*(i-1))/size_a
