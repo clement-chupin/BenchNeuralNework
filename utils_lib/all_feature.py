@@ -417,7 +417,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
     {#38
-        "feature_layer"        : FeatureExtractorLayer.outsider
+        "feature_layer"        : FeatureExtractorLayer.outsider,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
         "name"                 : "outsider",
