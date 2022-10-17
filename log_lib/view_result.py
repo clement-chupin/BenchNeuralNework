@@ -240,7 +240,7 @@ def plot_env_fe_by_fight_index(env_j=0,index=88):
 
 
 
-def plot_env_fe_all_solo(env_j=0,index=1088,policie=0):
+def plot_env_fe_all_solo(env_j=0,index=11011,policie=0):
     #fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
     plt.title(utils.all_envs[env_j]["env"])
     for fev in range(len(utils.all_feature_extractor)):
@@ -248,7 +248,7 @@ def plot_env_fe_all_solo(env_j=0,index=1088,policie=0):
             for fev_k in range(len(utils.all_feature_extractor[fev]["order"])):
                 color = None
                 marker = None
-                if fev not in [0,29,30,31,32,33,34]:
+                if fev not in [0,39]:
                 # if fev not in [0,29,30,31,32,33,34]:#,25,26,27,28,
                     break
                 if fev in [0]:
