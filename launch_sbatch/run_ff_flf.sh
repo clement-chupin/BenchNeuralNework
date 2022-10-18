@@ -19,11 +19,11 @@ for i in {0..16}
 do 
     for j in {0..5}
     do 
-        for k in 39  
+        for k in 39 40
         do 
             for l in {0..3}
             do 
-                sbatch single_run_cpu_experiment.sh $i $j $k $l 11011;
+                sbatch single_run_gpu_experiment.sh $i $j $k $l 11011;
                 # sleep 0.1
             done
         done

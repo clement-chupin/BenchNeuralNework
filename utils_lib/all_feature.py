@@ -416,11 +416,21 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#38
+    {#39
         "feature_layer"        : FeatureExtractorLayer.outsider,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
         "name"                 : "outsider",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#402
+        "feature_layer"        : FeatureExtractorLayer.outsider2,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [4,8,16],#,128*0],
+        "name"                 : "outsiderv",
         "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
         "power"                : 0,
         "color"                : None,
