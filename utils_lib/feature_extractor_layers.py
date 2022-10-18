@@ -64,7 +64,7 @@ class outsider(nn.Linear):
         self.size_pic = 1/(self.order-1)
         # if order > 0 and in_features > 70:
         #    self.order=0
-
+        self.device = get_device(device)
         super().__init__(in_features, (order+1)*in_features, bias=False)
         
 
@@ -73,8 +73,8 @@ class outsider(nn.Linear):
         return (self.order+1)*self.in_features
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
-        out= torch.zeros(x.shape[0],x.shape[1],self.order+1)
-        zeros = torch.zeros(x.shape[1])
+        out= torch.zeros(x.shape[0],x.shape[1],self.order+1).to(self.device)
+        zeros = torch.zeros(x.shape[1]).to(self.device)
 
         for i in range(x.shape[0]):#batch_size
             for j in range(self.order+1):
@@ -98,7 +98,7 @@ class outsider2(nn.Linear):
         self.size_pic = 1/(self.order-1)
         # if order > 0 and in_features > 70:
         #    self.order=0
-
+        self.device = get_device(device)
         super().__init__(in_features, (order+1)*in_features, bias=False)
         
 
@@ -107,8 +107,8 @@ class outsider2(nn.Linear):
         return (self.order+1)*self.in_features
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
-        out= torch.zeros(x.shape[0],x.shape[1],self.order+1)
-        zeros = torch.zeros(x.shape[1])
+        out= torch.zeros(x.shape[0],x.shape[1],self.order+1).to(self.device)
+        zeros = torch.zeros(x.shape[1]).to(self.device)
 
         for i in range(x.shape[0]):#batch_size
             for j in range(self.order+1):
