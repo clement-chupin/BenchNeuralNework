@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=normal
+#SBATCH --partition=gpu
 #SBATCH --job-name=ia_chupin
 #SBATCH --time=3-00:00:00
 #SBATCH --ntasks=1
