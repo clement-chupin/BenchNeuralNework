@@ -14,6 +14,17 @@ import numpy as np
 
 utils = Utils()
 
+
+def create_dir(path_dir):
+	if not os.path.exists(path_dir):
+		os.makedirs(path_dir)
+create_dir("./figures/A2C")
+create_dir("./figures/PPO")
+create_dir("./figures/DQN")
+create_dir("./figures/DDPG")
+create_dir("./figures/SAC")
+create_dir("./figures/TD3")
+
 plt.rcParams["figure.figsize"] = (10,8)
 
 def get_path(policie_name,env_name,fe_k,fev_l,index=0):
@@ -242,13 +253,13 @@ def plot_env_fe_by_fight_index(env_j=0,index=88):
 
 def plot_env_fe_all_solo(env_j=0,index=11011,policie=0):
     #fig.suptitle(utils.all_envs[env_j]["env"],fontweight ="bold")
-    plt.title(utils.all_envs[env_j]["env"])
+    plt.title(utils.all_envs[env_j]["env"]+"_"+utils.all_policies[policie]["name"])
     for fev in range(len(utils.all_feature_extractor)):
         for po in [policie]:#range(len(utils.all_policies)):
             for fev_k in range(len(utils.all_feature_extractor[fev]["order"])):
                 color = None
                 marker = None
-                if fev not in [0,39]:
+                if fev not in [0,39,40]:
                 # if fev not in [0,29,30,31,32,33,34]:#,25,26,27,28,
                     break
                 if fev in [0]:
@@ -275,11 +286,13 @@ def plot_env_fe_all_solo(env_j=0,index=11011,policie=0):
                     marker=marker,
                     index=index
                 )
+                plt.savefig("./figures/"+utils.all_policies[policie]["name"]+"/"+utils.all_envs[env_j]["env"]+"_"+utils.all_policies[policie]["name"]+'.pdf')
+
                 print(utils.all_feature_extractor[fev]["name"]+"_"+str(utils.all_feature_extractor[fev]["order"][fev_k]))
 
 for i in range(17):
     
-    for j in range(12):
+    for j in range(6):
         plt.figure(i*12+j)
         print(str(i)+"___"+str(j))
         plot_env_fe_all_solo(env_j=i,policie=j)
