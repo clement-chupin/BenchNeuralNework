@@ -58,7 +58,7 @@ class NoneLayer(nn.Module):
         return x
 
 class outsider(nn.Linear):
-    def __init__(self, in_features:int, order:int):
+    def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
         self.in_features = in_features
         self.size_pic = 1/(self.order-1)
@@ -88,7 +88,7 @@ class outsider(nn.Linear):
 
 
 class outsider2(nn.Linear):
-    def __init__(self, in_features:int, order:int):
+    def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
         self.in_features = in_features
         self.size_pic = 1/(self.order-1)
