@@ -10,14 +10,9 @@ source ~/IA_chupin/py_env/bin/activate
 
 
 
-
-
-
-
-
 for i in {0..16} 
 do 
-    for j in {0..5}
+    for j in 1 2 4 5
     do 
         for k in 39 40
         do 
@@ -36,15 +31,19 @@ done
 
 
 
+
+
+
+
 # for i in {0..16} 
 # do 
-#     for j in {0..5} 
+#     for j in {0..5}
 #     do 
-#         for k in 25 26 27 28 29 30 31 32 33 34
+#         for k in 39 40
 #         do 
 #             for l in {0..3}
 #             do 
-#                 sbatch single_run_cpu_experiment.sh $i $j $k $l 1088;
+#                 sbatch single_run_cpu_experiment.sh $i $j $k $l 11011;
 #                 # sleep 0.1
 #             done
 #         done
@@ -52,54 +51,5 @@ done
 # done
 
 
-
-# for i in {9..9} 15 16 17 18 19 20
-# do 
-#     for j in {0..5} 
-#     do 
-#         for k in {0..51}
-#         do 
-#             sbatch single_run_cpu.sh $i $j $k 99;
-#             sleep 1
-#         done
-#     done
-# done
-# for i in {10..16} 
-# do 
-#     for j in {0..5} 
-#     do 
-#         for k in {0..51}
-#         do 
-#             if [$i -lt 10 ]
-#             then
-#                 sbatch single_run_gpu.sh $i $j $k 12;
-#             else
-#                 sbatch single_run_cpu.sh $i $j $k 12;
-#             fi
-#             sleep 1
-#             #./single_run.sh $i $j $k 12
-#             #echo "./single_run.sh $i $j $k 12"
-#         done
-#     done
-# done
-
-# for i in {0..9} 
-# do 
-#     for j in {0..5} 
-#     do 
-#         for k in {0..51}
-#         do 
-#             if [$i -lt 10 ]
-#             then
-#                 sbatch single_run_gpu.sh $i $j $k 12;
-#             else
-#                 sbatch single_run_cpu.sh $i $j $k 12;
-#             fi
-#             sleep 1
-#             #./single_run.sh $i $j $k 12
-#             #echo "./single_run.sh $i $j $k 12"
-#         done
-#     done
-# done
 
 
