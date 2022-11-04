@@ -120,6 +120,36 @@ class outsider2(nn.Linear):
         out = torch.min(torch.relu((out+mean)/self.var),torch.relu((mean-out)/self.var))
         
         return torch.flatten(out, start_dim=1)
+class outsider3(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.size_pic = 1/(self.order-1)
+
+        self.var = 4/self.order
+        
+        # if order > 0 and in_features > 70:
+        #    self.order=0
+
+        super().__init__(in_features, (order)*in_features, bias=False)
+          
+
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out= torch.zeros(x.shape[0],x.shape[1],self.order)
+        #print(out.shape)
+        #print(x.shape)
+        for i in range(self.order):
+            out[:,:,i] = x-i*self.size_pic
+        mean = self.size_pic
+          
+          
+        out = torch.min(torch.relu((out+mean)/self.var),torch.relu((mean-out)/self.var))
+        
+        return torch.flatten(out, start_dim=1)
 class D_FF_LinLayer_cos(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order

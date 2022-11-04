@@ -25,6 +25,20 @@ do
     done
 done
 
+for i in {0..16} 
+do 
+    for j in {0..5}
+    do 
+        for k in 41
+        do 
+            for l in {0..4}
+            do 
+                sbatch single_run_cpu_experiment.sh $i $j $k $l 11011;
+                # sleep 0.1
+            done
+        done
+    done
+done
 
 
 
