@@ -440,7 +440,7 @@ all_feature_extract = [
         "feature_layer"        : FeatureExtractorLayer.outsider3,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [2,4,8,16,32],#,128*0],
-        "name"                 : "outsiderv",
+        "name"                 : "outsiderb",
         "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
         "power"                : 0,
         "color"                : None,
