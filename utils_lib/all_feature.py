@@ -419,7 +419,7 @@ all_feature_extract = [
     {#39
         "feature_layer"        : FeatureExtractorLayer.outsider,
         "output_feature_nb"    : lambda order,input: (order + input),
-        "order"                : [2,32,4,8,16],#,128*0],
+        "order"                : [2,4,8,16,32],#,128*0],
         "name"                 : "outsider",
         "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
         "power"                : 0,
@@ -429,7 +429,7 @@ all_feature_extract = [
     {#40
         "feature_layer"        : FeatureExtractorLayer.outsider2,
         "output_feature_nb"    : lambda order,input: (order + input),
-        "order"                : [2,32,4,8,16],#,128*0],
+        "order"                : [2,4,8,16,32],#,128*0],
         "name"                 : "outsiderv",
         "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
         "power"                : 0,
