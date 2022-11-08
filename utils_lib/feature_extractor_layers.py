@@ -195,6 +195,27 @@ class D_FLF_LinLayer_cos(nn.Linear):
         x = np.pi*super().forward(x)
         return torch.cos(x)
 
+
+class FFP(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        super().__init__(in_features, in_features*order, bias=False)
+          
+        self.lamb = torch.pi*2/self.order
+        self.lambda_tab = torch.arange(0,self.order)*self.lamb
+        self.kernel = torch.stack([torch.cos(self.lambda_tab),torch.sin(self.lambda_tab)],dim=0).type(torch.float64)
+
+
+    def get_output_size(self,):
+        return self.in_features*self.order
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = x*2*torch.pi
+        x = torch.stack([torch.sin(x),torch.cos(x)],dim=2)
+        out =torch.matmul(x,self.kernel)
+        return torch.flatten(out, start_dim=1)
+
 class R_FLF_Base_cos(nn.Module): ##############################################################
     def __init__(self, in_features, order,device="auto"):
         self.order = order
