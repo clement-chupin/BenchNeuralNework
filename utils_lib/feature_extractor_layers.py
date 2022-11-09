@@ -203,15 +203,15 @@ class FFP(nn.Linear):
         super().__init__(in_features, in_features*order, bias=False)
           
         self.lamb = torch.pi*2/self.order
-        self.lambda_tab = torch.arange(0,self.order)*self.lamb
-        self.kernel = torch.stack([torch.cos(self.lambda_tab),torch.sin(self.lambda_tab)],dim=0).type(torch.float64)
+        self.lambda_tab = torch.arange(0,self.order,dtype=torch.float32)*self.lamb
+        self.kernel = torch.stack([torch.cos(self.lambda_tab),torch.sin(self.lambda_tab)],dim=0)
 
 
     def get_output_size(self,):
         return self.in_features*self.order
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
-        x = (x*2*torch.pi).type(torch.float64)
+        x = (x*2*torch.pi)
         x = torch.stack([torch.sin(x),torch.cos(x)],dim=2)
         out =torch.matmul(x,self.kernel)
         return torch.flatten(out, start_dim=1)
