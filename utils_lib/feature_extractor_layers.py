@@ -211,7 +211,7 @@ class FFP(nn.Linear):
         return self.in_features*self.order
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
-        x = x*2*torch.pi
+        x = (x*2*torch.pi).type(torch.float64)
         x = torch.stack([torch.sin(x),torch.cos(x)],dim=2)
         out =torch.matmul(x,self.kernel)
         return torch.flatten(out, start_dim=1)
