@@ -490,7 +490,7 @@ all_feature_extract = [
         "feature_layer"        : FeatureExtractorLayer.FFP152,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [2,4,8],#,128*0],
-        "name"                 : "FFP152v",
+        "name"                 : "FFP152",
         "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
         "power"                : 0,
         "color"                : None,
