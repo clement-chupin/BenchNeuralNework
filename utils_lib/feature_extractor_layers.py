@@ -293,7 +293,7 @@ class FFP152(nn.Linear):
         return torch.flatten(out, start_dim=1)
 
 class triangular_base(nn.Linear):
-    def __init__(self, in_features:int, order:int):
+    def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
         self.in_features = in_features
         self.size_pic = 1/(self.order-1)
@@ -319,7 +319,7 @@ class triangular_base(nn.Linear):
                       
         return torch.flatten(out, start_dim=1)
 class mix_triangular(nn.Linear):
-    def __init__(self, in_features:int, order:int):
+    def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order+1
         self.in_features = in_features
         self.layers = []
