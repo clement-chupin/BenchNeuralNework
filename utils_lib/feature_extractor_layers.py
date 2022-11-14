@@ -291,6 +291,57 @@ class FFP152(nn.Linear):
         x = torch.stack([torch.sin(x),torch.cos(x)],dim=2)
         out =torch.matmul(x,self.kernel)
         return torch.flatten(out, start_dim=1)
+
+class triangular_base(nn.Linear):
+    def __init__(self, in_features:int, order:int):
+        self.order = order
+        self.in_features = in_features
+        self.size_pic = 1/(self.order-1)
+
+        self.var = 1/self.order
+
+
+        super().__init__(in_features, (order+1)*in_features, bias=False)
+          
+
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out= torch.zeros(x.shape[0],x.shape[1],self.order)
+
+        for i in range(self.order):
+            out[:,:,i] = x-i*self.size_pic
+        mean = self.size_pic
+
+        out = torch.min(torch.relu((out+self.size_pic)/self.var),torch.relu((self.size_pic-out)/self.var))/(self.size_pic/self.var)
+                      
+        return torch.flatten(out, start_dim=1)
+class mix_triangular(nn.Linear):
+    def __init__(self, in_features:int, order:int):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in range(2,self.order):
+            self.layers.append(triangular_base(self.in_features,i))
+
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, (order+1)*in_features, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
 class R_FLF_Base_cos(nn.Module): ##############################################################
     def __init__(self, in_features, order,device="auto"):
         self.order = order
