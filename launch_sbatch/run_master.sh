@@ -12,11 +12,11 @@ source ~/IA_chupin/py_env/bin/activate
 
 
 
-for i in {0..16} 
+for i in {0..9} 
 do 
     for j in {0..5}
     do 
-        for k in 47
+        for k in 0 48 49
         do 
             for l in {0..4}
             do 
@@ -26,6 +26,7 @@ do
         done
     done
 done
+
 
 
 

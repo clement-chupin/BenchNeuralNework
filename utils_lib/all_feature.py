@@ -506,6 +506,26 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
+    {#48
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular2,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [3,4,5,6],#,128*0],
+        "name"                 : "MIX_TRIANGULAR2",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#49
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular3,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [3,4,5,6],#,128*0],
+        "name"                 : "MIX_TRIANGULAR3",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
 
 
     

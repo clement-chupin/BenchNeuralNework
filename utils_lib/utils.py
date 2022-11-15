@@ -96,7 +96,7 @@ class Utils():
 		
 	def get_env(self,env_name,env_i,obs_shape,num_cpu=1):
 		from stable_baselines3.common.env_util import make_vec_env
-
+		
 		env = gym.make(env_name)
 		#env = DummyVecEnv([(lambda: env)])
 		env = DummyVecEnv([(lambda: env) for i in range(num_cpu)])
