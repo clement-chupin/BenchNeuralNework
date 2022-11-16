@@ -526,11 +526,79 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
+    {#50
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular4,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [3,4,5,6],#,128*0],
+        "name"                 : "MIX_TRIANGULAR4",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#51
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular5,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [3,4,5,6],#,128*0],
+        "name"                 : "MIX_TRIANGULAR5",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#52
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular1,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [8,12,16],#,128*0],
+        "name"                 : "MIX_TRIANGULAR6",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#53
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular2,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [8,12,16],#,128*0],
+        "name"                 : "MIX_TRIANGULAR7",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#54
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular3,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [8,12,16],#,128*0],
+        "name"                 : "MIX_TRIANGULAR8",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#55
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular4,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [8,12,16],#,128*0],
+        "name"                 : "MIX_TRIANGULAR9",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#56
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular5,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [8,12,16],#,128*0],
+        "name"                 : "MIX_TRIANGULAR10",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
 
 
     
 
-
-    
 
 ]
