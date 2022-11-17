@@ -547,7 +547,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
     {#52
-        "feature_layer"        : FeatureExtractorLayer.mix_triangular1,
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [8,12,16],#,128*0],
         "name"                 : "MIX_TRIANGULAR6",
