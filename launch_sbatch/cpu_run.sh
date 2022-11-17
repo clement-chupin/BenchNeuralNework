@@ -15,7 +15,7 @@ python3.8 ../main.py --mode manual_all --env $1 --policy $2 --feature $3 --featu
 echo end
 
 
-
+#python3.8 main.py --mode manual_all --env $0 --policy 0 --feature 51 --feature_var 0 --index 777 --compute cpu
 
 
 
