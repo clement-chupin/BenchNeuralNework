@@ -597,7 +597,56 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
+    {#57
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular6,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [3,5,8,12],#,128*0],
+        "name"                 : "MIX_TRIANGULAR11",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
 
+    {#58
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular7,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "MIX_TRIANGULAR12",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+
+    
+    {#59
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular8,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "MIX_TRIANGULAR13",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+
+    
+    {#60
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular9,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "MIX_TRIANGULAR14",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+
+    
     
 
 
