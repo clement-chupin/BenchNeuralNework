@@ -16,9 +16,9 @@ for i in {0..9}
 do 
     for j in {0..5}
     do 
-        for k in 57 58 59 60
+        for k in 61 62 63 64 65 66
         do 
-            for l in {0..4}
+            for l in 0
             do 
                 sbatch cpu_run.sh $i $j $k $l 11011;
                 # sleep 0.1
