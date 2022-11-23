@@ -301,7 +301,7 @@ class triangular_base(nn.Linear):
         self.var = 1/self.order
 
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
 
 
@@ -331,7 +331,7 @@ class mix_triangular(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -352,7 +352,7 @@ class triangular_base2(nn.Linear):
         self.size_pic = self.var_power*self.size_ecart
 
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
 
 
@@ -384,7 +384,7 @@ class mix_triangular2(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -405,7 +405,7 @@ class triangular_base3(nn.Linear):
         self.size_pic = self.var_power*self.size_ecart
 
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
 
 
@@ -437,7 +437,7 @@ class mix_triangular3(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -457,7 +457,7 @@ class triangular_base4(nn.Linear):
         self.size_pic = self.var_power*self.size_ecart
 
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
 
 
@@ -489,7 +489,7 @@ class mix_triangular4(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -509,7 +509,7 @@ class triangular_base5(nn.Linear):
         self.size_pic = self.var_power*self.size_ecart
 
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
 
 
@@ -541,7 +541,7 @@ class mix_triangular5(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -564,7 +564,7 @@ class triangular_base6(nn.Linear):
         self.size_pic = self.var_power*self.size_ecart
 
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
 
 
@@ -592,7 +592,7 @@ class triangular_base_custom(nn.Linear):
         self.size_pic = self.var_power*self.size_ecart
 
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
 
 
@@ -623,7 +623,7 @@ class mix_triangular6(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -651,7 +651,7 @@ class mix_triangular_full_1(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -677,7 +677,7 @@ class mix_triangular_full_2(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -702,7 +702,7 @@ class mix_triangular_full_3(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -725,7 +725,7 @@ class mix_triangular_full_4(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -753,7 +753,7 @@ class mix_triangular_full_5(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -780,7 +780,7 @@ class mix_triangular_full_6(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -804,7 +804,7 @@ class mix_triangular7(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -827,7 +827,7 @@ class mix_triangular8(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -850,7 +850,7 @@ class mix_triangular9(nn.Linear):
         for l in self.layers:
             self.out_size+=l.get_output_size()
 
-        super().__init__(in_features, (order+1)*in_features, bias=False)
+        super().__init__(in_features, self.out_size, bias=False)
           
     def get_output_size(self,):
         return self.out_size
@@ -860,6 +860,86 @@ class mix_triangular9(nn.Linear):
         for layer in self.layers:
             out.append(layer(x))
         return torch.cat(out, dim=1)
+class mix_triangular_full_7(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(triangular_base_custom(self.in_features,i,1.0))
+        
+        for i in [2,4,8]:
+            self.layers.append(triangular_base_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+class mix_triangular_full_8(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,8,16]:
+            self.layers.append(triangular_base_custom(self.in_features,i,1.0))
+        
+        for i in [2,4,8]:
+            self.layers.append(triangular_base_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+class mix_triangular_full_9(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,8,16]:
+            self.layers.append(triangular_base_custom(self.in_features,i,1.0))
+        
+        for i in [2,4,8,12,16]:
+            self.layers.append(triangular_base_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+class mix_triangular_full_10(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(triangular_base_custom(self.in_features,i,1.0))
+        
+        for i in [2,4,8,12,16]:
+            self.layers.append(triangular_base_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+class mix_triangular_full_11(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,8]:
+            self.layers.append(triangular_base_custom(self.in_features,i,1.0))
+        
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_custom(self.in_features,i,8.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
 class R_FLF_Base_cos(nn.Module): ##############################################################
     def __init__(self, in_features, order,device="auto"):
         self.order = order
