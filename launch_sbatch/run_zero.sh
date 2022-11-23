@@ -12,6 +12,7 @@ source ~/IA_chupin/py_env/bin/activate
 
 
 for p in 11012 11013 11014 11015
+do
     for i in {0..9} 
     do 
         for j in {0..5}
