@@ -592,7 +592,7 @@ class triangular_base_custom(nn.Linear):
         self.size_pic = self.var_power*self.size_ecart
 
 
-        super().__init__(in_features, self.out_size, bias=False)
+        super().__init__(in_features, (self.order)*self.in_features, bias=False)
           
 
 
