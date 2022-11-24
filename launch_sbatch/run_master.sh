@@ -31,12 +31,6 @@ done
 
 
 
-
-
-
-
-
-
 # for i in {0..16} 
 # do 
 #     for j in {0..5}
