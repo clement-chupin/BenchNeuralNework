@@ -876,6 +876,14 @@ class mix_triangular_full_7(nn.Linear):
             self.out_size+=l.get_output_size()
 
         super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
 class mix_triangular_full_8(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order+1
@@ -892,6 +900,14 @@ class mix_triangular_full_8(nn.Linear):
             self.out_size+=l.get_output_size()
 
         super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
 class mix_triangular_full_9(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order+1
@@ -908,6 +924,14 @@ class mix_triangular_full_9(nn.Linear):
             self.out_size+=l.get_output_size()
 
         super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
 class mix_triangular_full_10(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order+1
@@ -924,6 +948,14 @@ class mix_triangular_full_10(nn.Linear):
             self.out_size+=l.get_output_size()
 
         super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
 class mix_triangular_full_11(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order+1
@@ -940,6 +972,14 @@ class mix_triangular_full_11(nn.Linear):
             self.out_size+=l.get_output_size()
 
         super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
 class R_FLF_Base_cos(nn.Module): ##############################################################
     def __init__(self, in_features, order,device="auto"):
         self.order = order
