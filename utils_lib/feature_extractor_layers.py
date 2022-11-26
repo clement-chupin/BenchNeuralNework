@@ -980,6 +980,111 @@ class mix_triangular_full_11(nn.Linear):
         for layer in self.layers:
             out.append(layer(x))
         return torch.cat(out, dim=1)
+
+
+
+
+class mix_triangular_full_12(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_custom(self.in_features,i,1.0))
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_custom(self.in_features,i,4.0))
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_custom(self.in_features,i,8.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_13(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_custom(self.in_features,i,1.0))
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_custom(self.in_features,i,2.0))
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_triangular_full_14(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4]:
+            self.layers.append(triangular_base_custom(self.in_features,i,1.0))
+        for i in [2,4,8]:
+            self.layers.append(triangular_base_custom(self.in_features,i,2.0))
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_15(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_custom(self.in_features,i,1.0))
+        for i in [2,4,8]:
+            self.layers.append(triangular_base_custom(self.in_features,i,2.0))
+        for i in [2,4]:
+            self.layers.append(triangular_base_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
 class R_FLF_Base_cos(nn.Module): ##############################################################
     def __init__(self, in_features, order,device="auto"):
         self.order = order
