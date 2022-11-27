@@ -16,7 +16,7 @@ for i in {0..9}
 do 
     for j in {0..5}
     do 
-        for k in 72 73 74 75
+        for k in 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 
         do 
             for l in 0
             do 
