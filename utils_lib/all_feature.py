@@ -1185,9 +1185,6 @@ all_feature_extract = [
 
 
 
-    gaussian_test_layer
-
-
     
     
 
