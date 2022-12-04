@@ -626,7 +626,7 @@ class gaussian_test_layer1(nn.Module):
         x = self.fc_1(x)
         
         x = torch.exp(-torch.square(x)/0.025)
-                      0.025
+
 
         return torch.flatten(out, start_dim=1)
 class gaussian_test_layer2(nn.Module):
