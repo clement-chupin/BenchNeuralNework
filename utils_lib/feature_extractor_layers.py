@@ -581,7 +581,90 @@ class triangular_base6(nn.Linear):
         out = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
                       
         return torch.flatten(out, start_dim=1)
+class gaussian_base(nn.Linear):
+    def __init__(self, in_features:int, order:int,var:float,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.size_ecart = 1/(self.order-1)
+        self.var_power = var/4
+        
+        self.size_pic = self.size_ecart
 
+
+        super().__init__(in_features, (self.order)*self.in_features, bias=True)
+          
+
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out= torch.zeros(x.shape[0],x.shape[1],self.order)
+
+        for i in range(self.order):
+            out[:,:,i] = x-i*self.size_pic
+        mean = self.size_pic
+
+        out = torch.exp(-torch.square(out)/(0.1*self.var_power))
+                      
+        return torch.flatten(out, start_dim=1)
+
+
+class gaussian_test_layer1(nn.Module):
+    def __init__(self, in_features:int, order:int,var:float,device="auto"):
+
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        super().__init__(in_features, (self.order)*self.in_features, bias=True)
+          
+
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size[0],x.size[1],1))
+        x = self.fc_1(x)
+        
+        x = torch.exp(-torch.square(x)/0.025)
+                      0.025
+
+        return torch.flatten(out, start_dim=1)
+class gaussian_test_layer2(nn.Module):
+    def __init__(self, in_features:int, order:int,var:float,device="auto"):
+
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        super().__init__(in_features, (self.order)*self.in_features, bias=True)
+          
+
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size[0],x.size[1],1))
+        x = self.fc_1(x)
+        
+        x = torch.exp(-torch.square(x)/0.05)
+                      
+        return torch.flatten(out, start_dim=1)
+class gaussian_test_layer3(nn.Module):
+    def __init__(self, in_features:int, order:int,var:float,device="auto"):
+
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        super().__init__(in_features, (self.order)*self.in_features, bias=True)
+          
+
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size[0],x.size[1],1))
+        x = self.fc_1(x)
+        
+        x = torch.exp(-torch.square(x)/0.8)
+                      
+        return torch.flatten(out, start_dim=1)
 class triangular_base_custom(nn.Linear):
     def __init__(self, in_features:int, order:int,var:float,device="auto"):
         self.order = order
@@ -617,6 +700,75 @@ class mix_triangular6(nn.Linear):
         self.layers = []
         for i in range(2,self.order):
             self.layers.append(triangular_base6(self.in_features,i))
+
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular7(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8]:
+            self.layers.append(triangular_base2(self.in_features,i))
+
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular8(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,16,32]:
+            self.layers.append(triangular_base2(self.in_features,i))
+
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular9(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,5,7,9]:
+            self.layers.append(triangular_base2(self.in_features,i))
 
 
         self.out_size = 0 
@@ -791,75 +943,7 @@ class mix_triangular_full_6(nn.Linear):
             out.append(layer(x))
         return torch.cat(out, dim=1)
 
-class mix_triangular7(nn.Linear):
-    def __init__(self, in_features:int, order:int,device="auto"):
-        self.order = order+1
-        self.in_features = in_features
-        self.layers = []
-        for i in [2,4,8]:
-            self.layers.append(triangular_base2(self.in_features,i))
 
-
-        self.out_size = 0 
-        for l in self.layers:
-            self.out_size+=l.get_output_size()
-
-        super().__init__(in_features, self.out_size, bias=False)
-          
-    def get_output_size(self,):
-        return self.out_size
-
-    def forward(self, x:torch.Tensor)->torch.Tensor:
-        out = []
-        for layer in self.layers:
-            out.append(layer(x))
-        return torch.cat(out, dim=1)
-class mix_triangular8(nn.Linear):
-    def __init__(self, in_features:int, order:int,device="auto"):
-        self.order = order+1
-        self.in_features = in_features
-        self.layers = []
-        for i in [2,4,8,16,32]:
-            self.layers.append(triangular_base2(self.in_features,i))
-
-
-        self.out_size = 0 
-        for l in self.layers:
-            self.out_size+=l.get_output_size()
-
-        super().__init__(in_features, self.out_size, bias=False)
-          
-    def get_output_size(self,):
-        return self.out_size
-
-    def forward(self, x:torch.Tensor)->torch.Tensor:
-        out = []
-        for layer in self.layers:
-            out.append(layer(x))
-        return torch.cat(out, dim=1)
-class mix_triangular9(nn.Linear):
-    def __init__(self, in_features:int, order:int,device="auto"):
-        self.order = order+1
-        self.in_features = in_features
-        self.layers = []
-        for i in [2,3,5,7,9]:
-            self.layers.append(triangular_base2(self.in_features,i))
-
-
-        self.out_size = 0 
-        for l in self.layers:
-            self.out_size+=l.get_output_size()
-
-        super().__init__(in_features, self.out_size, bias=False)
-          
-    def get_output_size(self,):
-        return self.out_size
-
-    def forward(self, x:torch.Tensor)->torch.Tensor:
-        out = []
-        for layer in self.layers:
-            out.append(layer(x))
-        return torch.cat(out, dim=1)
 class mix_triangular_full_7(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order+1
@@ -1071,6 +1155,389 @@ class mix_triangular_full_15(nn.Linear):
             self.layers.append(triangular_base_custom(self.in_features,i,2.0))
         for i in [2,4]:
             self.layers.append(triangular_base_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_gaussian_full_1(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(gaussian_base(self.in_features,i,2.0))
+        for i in [2,3,4]:
+            self.layers.append(gaussian_base(self.in_features,i,4.0))
+        for i in [2,3,4]:
+            self.layers.append(gaussian_base(self.in_features,i,8.0))
+        for i in [2,3,4]:
+            self.layers.append(gaussian_base(self.in_features,i,16.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_gaussian_full_2(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+        
+        for i in [4,8]:
+            self.layers.append(gaussian_base(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_gaussian_full_3(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(gaussian_base(self.in_features,i,8.0))
+        
+        for i in [8,16]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_gaussian_full_4(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(gaussian_base(self.in_features,i,i*1.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_gaussian_full_5(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        
+        self.layers.append(gaussian_base(self.in_features,2,4.0))
+        
+        self.layers.append(gaussian_base(self.in_features,8,1.0))
+
+        self.layers.append(gaussian_base(self.in_features,4,2.0))
+
+        self.layers.append(gaussian_base(self.in_features,16,8.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+
+class mix_gaussian_full_6(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,5,8,16]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+        
+
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_gaussian_full_7(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+        
+        for i in [2,4,8]:
+            self.layers.append(gaussian_base(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_gaussian_full_8(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,8,16]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+        
+        for i in [2,4,8]:
+            self.layers.append(gaussian_base(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_gaussian_full_9(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,8,16]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+        
+        for i in [2,4,8,12,16]:
+            self.layers.append(gaussian_base(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_gaussian_full_10(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+        
+        for i in [2,4,8,12,16]:
+            self.layers.append(gaussian_base(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_gaussian_full_11(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,8]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+        
+        for i in [2,4,8,12]:
+            self.layers.append(gaussian_base(self.in_features,i,8.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+
+
+class mix_gaussian_full_12(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,12]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+        for i in [2,4,8,12]:
+            self.layers.append(gaussian_base(self.in_features,i,4.0))
+        for i in [2,4,8,12]:
+            self.layers.append(gaussian_base(self.in_features,i,8.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_gaussian_full_13(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,12]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+        for i in [2,4,8,12]:
+            self.layers.append(gaussian_base(self.in_features,i,2.0))
+        for i in [2,4,8,12]:
+            self.layers.append(gaussian_base(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_gaussian_full_14(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+        for i in [2,4,8]:
+            self.layers.append(gaussian_base(self.in_features,i,2.0))
+        for i in [2,4,8,12]:
+            self.layers.append(gaussian_base(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_gaussian_full_15(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,12]:
+            self.layers.append(gaussian_base(self.in_features,i,1.0))
+        for i in [2,4,8]:
+            self.layers.append(gaussian_base(self.in_features,i,2.0))
+        for i in [2,4]:
+            self.layers.append(gaussian_base(self.in_features,i,4.0))
 
         self.out_size = 0 
         for l in self.layers:
