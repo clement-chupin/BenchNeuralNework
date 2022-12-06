@@ -615,7 +615,7 @@ class gaussian_test_layer1(nn.Module):
         self.order = order
         self.in_features = in_features
         self.device = get_device(device)
-        super().__init__(in_features, (self.order)*self.in_features)
+        super().__init__()
         self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
         
           
@@ -637,7 +637,7 @@ class gaussian_test_layer2(nn.Module):
         self.order = order
         self.in_features = in_features
         self.device = get_device(device)
-        super().__init__(in_features, (self.order)*self.in_features)
+        super().__init__()
         self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
         
           
@@ -658,7 +658,7 @@ class gaussian_test_layer3(nn.Module):
         self.order = order
         self.in_features = in_features
         self.device = get_device(device)
-        super().__init__(in_features, (self.order)*self.in_features)
+        super().__init__()
 
         self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
         
