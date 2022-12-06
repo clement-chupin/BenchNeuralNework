@@ -625,7 +625,7 @@ class gaussian_test_layer1(nn.Module):
         return (self.order)*self.in_features
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
-        x = torch.reshape(x,(x.size[0],x.size[1],1))
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
         x = self.fc_1(x)
         
         x = torch.exp(-torch.square(x)/0.025)
@@ -647,7 +647,7 @@ class gaussian_test_layer2(nn.Module):
         return (self.order)*self.in_features
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
-        x = torch.reshape(x,(x.size[0],x.size[1],1))
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
         x = self.fc_1(x)
         
         x = torch.exp(-torch.square(x)/0.05)
@@ -669,7 +669,7 @@ class gaussian_test_layer3(nn.Module):
         return (self.order)*self.in_features
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
-        x = torch.reshape(x,(x.size[0],x.size[1],1))
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
         x = self.fc_1(x)
         
         x = torch.exp(-torch.square(x)/0.8)
