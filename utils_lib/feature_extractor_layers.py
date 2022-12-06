@@ -631,7 +631,7 @@ class gaussian_test_layer1(nn.Module):
         x = torch.exp(-torch.square(x)/0.025)
 
 
-        return torch.flatten(out, start_dim=1)
+        return torch.flatten(x, start_dim=1)
 class gaussian_test_layer2(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
@@ -652,7 +652,7 @@ class gaussian_test_layer2(nn.Module):
         
         x = torch.exp(-torch.square(x)/0.05)
                       
-        return torch.flatten(out, start_dim=1)
+        return torch.flatten(x, start_dim=1)
 class gaussian_test_layer3(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
@@ -674,7 +674,7 @@ class gaussian_test_layer3(nn.Module):
         
         x = torch.exp(-torch.square(x)/0.8)
                       
-        return torch.flatten(out, start_dim=1)
+        return torch.flatten(x, start_dim=1)
 class triangular_base_custom(nn.Linear):
     def __init__(self, in_features:int, order:int,var:float,device="auto"):
         self.order = order
