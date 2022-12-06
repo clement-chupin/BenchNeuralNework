@@ -648,7 +648,7 @@ class gaussian_test_layer2(nn.Module):
                       
         return torch.flatten(out, start_dim=1)
 class gaussian_test_layer3(nn.Module):
-    def __init__(self, in_features:int, order:int,var:float,device="auto"):
+    def __init__(self, in_features:int, order:int,device="auto"):
 
         self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
         super().__init__(in_features, (self.order)*self.in_features, bias=True)
