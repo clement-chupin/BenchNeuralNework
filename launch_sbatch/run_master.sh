@@ -31,7 +31,7 @@ for i in {0..9}
 do 
     for j in {0..5}
     do 
-        for k in 106 107 108
+        for k in 109 110 111
         do 
             for l in 0 1 2 
             do 

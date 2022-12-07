@@ -675,6 +675,71 @@ class gaussian_test_layer3(nn.Module):
         x = torch.exp(-torch.square(x)/0.8)
                       
         return torch.flatten(x, start_dim=1)
+class gaussian_test_layer1_bias(nn.Module):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.device = get_device(device)
+        super().__init__()
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        
+          
+
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features+1
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
+        x = self.fc_1(x)
+        
+        x = torch.exp(-torch.square(x)/0.025)
+
+
+        return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
+class gaussian_test_layer2_bias(nn.Module):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.device = get_device(device)
+        super().__init__()
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        
+          
+
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features+1
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
+        x = self.fc_1(x)
+        
+        x = torch.exp(-torch.square(x)/0.05)
+                      
+        return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
+class gaussian_test_layer3_bias(nn.Module):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.device = get_device(device)
+        super().__init__()
+
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        
+          
+
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features+1
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
+        x = self.fc_1(x)
+        
+        x = torch.exp(-torch.square(x)/0.8)
+                      
+        return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
 class triangular_base_custom(nn.Linear):
     def __init__(self, in_features:int, order:int,var:float,device="auto"):
         self.order = order
