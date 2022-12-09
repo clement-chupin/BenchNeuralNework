@@ -763,7 +763,7 @@ class triangle_activation_1(nn.Module):
     def forward(self, x:torch.Tensor)->torch.Tensor:
         x = torch.reshape(x,(x.size()[0],x.size()[1],1))
         x = self.fc_1(x)
-        x = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
+        x = torch.min(torch.relu(x+self.size_pic),torch.relu(self.size_pic-x))/(self.size_pic)
 
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
 class triangle_activation_2(nn.Module):
@@ -788,7 +788,7 @@ class triangle_activation_2(nn.Module):
     def forward(self, x:torch.Tensor)->torch.Tensor:
         x = torch.reshape(x,(x.size()[0],x.size()[1],1))
         x = self.fc_1(x)
-        x = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
+        x = torch.min(torch.relu(x+self.size_pic),torch.relu(self.size_pic-x))/(self.size_pic)
 
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
 class triangle_activation_3(nn.Module):
@@ -813,7 +813,7 @@ class triangle_activation_3(nn.Module):
     def forward(self, x:torch.Tensor)->torch.Tensor:
         x = torch.reshape(x,(x.size()[0],x.size()[1],1))
         x = self.fc_1(x)
-        x = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
+        x = torch.min(torch.relu(x+self.size_pic),torch.relu(self.size_pic-x))/(self.size_pic)
 
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
 class triangular_base_custom(nn.Linear):
