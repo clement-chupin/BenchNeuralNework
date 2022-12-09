@@ -743,7 +743,7 @@ class gaussian_test_layer3_bias(nn.Module):
 
 class triangle_activation_1(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
-        elf.order = order
+        self.order = order
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
         self.var_power = 1.0
@@ -768,7 +768,7 @@ class triangle_activation_1(nn.Module):
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
 class triangle_activation_2(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
-        elf.order = order
+        self.order = order
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
         self.var_power = 2.0
@@ -793,7 +793,7 @@ class triangle_activation_2(nn.Module):
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
 class triangle_activation_3(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
-        elf.order = order
+        self.order = order
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
         self.var_power = 4.0
