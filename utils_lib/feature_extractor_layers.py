@@ -740,6 +740,82 @@ class gaussian_test_layer3_bias(nn.Module):
         x = torch.exp(-torch.square(x)/0.8)
                       
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
+
+class triangle_activation_1(nn.Module):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        elf.order = order
+        self.in_features = in_features
+        self.size_ecart = 1/(self.order-1)
+        self.var_power = 1.0
+        
+        self.size_pic = self.var_power*self.size_ecart
+
+
+        self.device = get_device(device)
+        super().__init__()
+
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features+1
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
+        x = self.fc_1(x)
+        x = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
+
+        return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
+class triangle_activation_2(nn.Module):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        elf.order = order
+        self.in_features = in_features
+        self.size_ecart = 1/(self.order-1)
+        self.var_power = 2.0
+        
+        self.size_pic = self.var_power*self.size_ecart
+
+
+        self.device = get_device(device)
+        super().__init__()
+
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features+1
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
+        x = self.fc_1(x)
+        x = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
+
+        return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
+class triangle_activation_3(nn.Module):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        elf.order = order
+        self.in_features = in_features
+        self.size_ecart = 1/(self.order-1)
+        self.var_power = 4.0
+        
+        self.size_pic = self.var_power*self.size_ecart
+
+
+        self.device = get_device(device)
+        super().__init__()
+
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features+1
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
+        x = self.fc_1(x)
+        x = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
+
+        return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
 class triangular_base_custom(nn.Linear):
     def __init__(self, in_features:int, order:int,var:float,device="auto"):
         self.order = order

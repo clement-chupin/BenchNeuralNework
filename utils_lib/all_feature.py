@@ -1183,7 +1183,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
     
-        {#75
+    {#75
         "feature_layer"        : FeatureExtractorLayer.gaussian_test_layer1_bias,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [2,4,8],#,128*0],
@@ -1208,12 +1208,44 @@ all_feature_extract = [
         "feature_layer"        : FeatureExtractorLayer.gaussian_test_layer3_bias,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [2,4,8],#,128*0],
-        "name"                 : "gaussian_test_layer3_",
+        "name"                 : "gaussian_test_layer3_bias_",
         "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
         "power"                : 0,
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
+    {#75
+        "feature_layer"        : FeatureExtractorLayer.triangle_activation_1,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [4,8,16],#,128*0],
+        "name"                 : "triangle_activation_1_",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#75
+        "feature_layer"        : FeatureExtractorLayer.triangle_activation_2,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [4,8,16],#,128*0],
+        "name"                 : "triangle_activation_2_",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#75
+        "feature_layer"        : FeatureExtractorLayer.triangle_activation_3,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [4,8,16],#,128*0],
+        "name"                 : "triangle_activation_3_",
+        "description"          : "learned fourier light feature, with matrix layer (bad for power needed, but might be better on gpu) \ninput => input",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
 
 
 
