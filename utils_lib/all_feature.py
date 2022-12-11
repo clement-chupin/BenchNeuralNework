@@ -1214,7 +1214,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#75
+    {#112
         "feature_layer"        : FeatureExtractorLayer.triangle_activation_1,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1224,7 +1224,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#75
+    {#113
         "feature_layer"        : FeatureExtractorLayer.triangle_activation_2,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1235,7 +1235,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#75
+    {#114
         "feature_layer"        : FeatureExtractorLayer.triangle_activation_3,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
