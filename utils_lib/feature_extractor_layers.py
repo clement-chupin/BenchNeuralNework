@@ -675,6 +675,30 @@ class gaussian_test_layer3(nn.Module):
         x = torch.exp(-torch.square(x)/0.8)
                       
         return torch.flatten(x, start_dim=1)
+
+class gaussian_dense_acti_base(nn.Module):
+    def __init__(self, in_features:int, order:int,var,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.device = get_device(device)
+        self.var = var
+        super().__init__()
+
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        
+          
+
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
+        x = self.fc_1(x)
+        
+        x = torch.exp(-torch.square(x)/self.var)
+                      
+        return torch.flatten(x, start_dim=1)
 class gaussian_test_layer1_bias(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
@@ -697,6 +721,22 @@ class gaussian_test_layer1_bias(nn.Module):
 
 
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class gaussian_test_layer2_bias(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
@@ -718,6 +758,8 @@ class gaussian_test_layer2_bias(nn.Module):
         x = torch.exp(-torch.square(x)/0.05)
                       
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
+
+
 class gaussian_test_layer3_bias(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
@@ -797,6 +839,33 @@ class triangle_activation_3(nn.Module):
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
         self.var_power = 4.0
+        
+        self.size_pic = self.var_power*self.size_ecart
+
+
+        self.device = get_device(device)
+        super().__init__()
+
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features+1
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
+        x = self.fc_1(x)
+        x = torch.min(torch.relu(x+self.size_pic),torch.relu(self.size_pic-x))/(self.size_pic)
+
+        return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
+
+class triangle_dense_activation_base(nn.Module):
+    def __init__(self, in_features:int, order:int,var,device="auto"):
+        self.order = order
+
+        self.in_features = in_features
+        self.size_ecart = 1/(self.order-1)
+        self.var_power = var
         
         self.size_pic = self.var_power*self.size_ecart
 
@@ -2673,4 +2742,717 @@ class L_FLF_NNI_cos(nn.Module):
         output = self.linear_1(output)
         output = self.flatten(output)
         return output
+
+class mix_all_gaussian_01(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        # for i in [self.order]:
+        #     self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(gaussian_base(self.in_features,self.order,1.0))
+        self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.8))#0.1  0.025
+        self.layers.append(gaussian_base(self.in_features,self.order,1.0))
+
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_all_gaussian_02(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        # for i in [self.order]:
+        #     self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(gaussian_base(self.in_features,self.order,1.0))
+        self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.1))#0.2  0.025
+        self.layers.append(gaussian_base(self.in_features,self.order,2.0))
+
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_all_gaussian_03(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        # for i in [self.order]:
+        #     self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(gaussian_base(self.in_features,self.order,1.0))
+        self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.025))#0.2  0.025
+        self.layers.append(gaussian_base(self.in_features,self.order,4.0))
+
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_all_gaussian_04(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        # for i in [self.order]:
+        #     self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(gaussian_base(self.in_features,self.order,1.0))
+        self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.025))#0.2  0.025
+        self.layers.append(gaussian_base(self.in_features,self.order,1.0))
+
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_all_gaussian_05(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        # for i in [self.order]:
+        #     self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(gaussian_base(self.in_features,self.order,1.0))
+        self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.8))#0.2  0.025
+        self.layers.append(gaussian_base(self.in_features,self.order,4.0))
+
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+
+
+
+class mix_all_triangle_01(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,1.0))
+        self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+
+class mix_all_triangle_02(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,2.0))
+        self.layers.append(triangular_base_custom(self.in_features,self.order,2.0)) 
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_all_triangle_03(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,3.0))
+        self.layers.append(triangular_base_custom(self.in_features,self.order,3.0)) 
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+class mix_all_triangle_04(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,3.0))
+        self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_all_triangle_05(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,1.0))
+        self.layers.append(triangular_base_custom(self.in_features,self.order,3.0)) 
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_all_triangle_06(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,1.0))
+        self.layers.append(triangular_base_custom(self.in_features,self.order,2.0)) 
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_all_triangle_07(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,2.0))
+        self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+
+
+
+
+class mix_all_weird_acti_01(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,1.0))
+        self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.8))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+class mix_all_weird_acti_02(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,2.0))
+        self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.1))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+class mix_all_weird_acti_03(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,3.0))
+        self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.025))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_all_weird_acti_04(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,1.0))
+        self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.025))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+class mix_all_weird_acti_05(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangle_dense_activation_base(self.in_features,self.order,4.0))
+        self.layers.append(gaussian_dense_acti_base(self.in_features,self.order,0.8))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+
+
+class mix_all_weird_deter_01(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangular_base_custom(self.in_features,self.order,1.0))
+        self.layers.append(gaussian_base(self.in_features,self.order,1.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+class mix_all_weird_deter_02(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangular_base_custom(self.in_features,self.order,2.0))
+        self.layers.append(gaussian_base(self.in_features,self.order,2.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+class mix_all_weird_deter_03(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangular_base_custom(self.in_features,self.order,3.0))
+        self.layers.append(gaussian_base(self.in_features,self.order,3.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+
+
+class mix_all_weird_deter_04(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangular_base_custom(self.in_features,self.order,1.0))
+        self.layers.append(gaussian_base(self.in_features,self.order,3.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+class mix_all_weird_deter_05(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangular_base_custom(self.in_features,self.order,3.0))
+        self.layers.append(gaussian_base(self.in_features,self.order,1.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_all_weird_deter_06(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangular_base_custom(self.in_features,self.order,2.0))
+        self.layers.append(gaussian_base(self.in_features,self.order,1.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_all_weird_deter_07(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+
+        # for i in [self.order]:
+        #     self.layers.append(triangle_dense_activation_base(self.in_features,self.order,0.8))#0.2  0.025
+        # for i in [self.order]:
+        #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangular_base_custom(self.in_features,self.order,1.0))
+        self.layers.append(gaussian_base(self.in_features,self.order,2.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=False)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
 
