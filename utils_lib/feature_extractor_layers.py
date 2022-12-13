@@ -2898,7 +2898,7 @@ class mix_all_triangle_01(nn.Linear):
         # for i in [self.order]:
         #     self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
         self.layers.append(triangle_dense_activation_base(self.in_features,self.order,1.0))
-        self.layers.append(triangular_base_custom(self.in_features,self.order,1.0)) 2 4
+        self.layers.append(triangular_base_custom(self.in_features,self.order,1.0))
         
 
         self.out_size = 0 
