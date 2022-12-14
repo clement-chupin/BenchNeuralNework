@@ -34,7 +34,7 @@ for i in 0 1 6 7 8 9
 do 
     for j in {0..5}
     do 
-        for k in 115 116 117 118 119
+        for k in 115 116 #117 118 119
         do 
             for l in 0 1 2 
             do 
