@@ -273,7 +273,7 @@ class FFP21(nn.Linear):
         out =torch.matmul(x,self.kernel)
         return torch.flatten(out, start_dim=1)
 class FFP152(nn.Linear):
-    def __init__(self, in_features:int, order:int,de-vice="auto"):
+    def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
         self.in_features = in_features
         super().__init__(in_features, in_features*order, bias=True)
