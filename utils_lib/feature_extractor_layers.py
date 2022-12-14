@@ -685,7 +685,11 @@ class gaussian_dense_acti_base(nn.Module):
         super().__init__()
 
         self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
-        
+        weight = 0.2+torch.rand(self.order,1,dtype=torch.float32)*0.5
+        bias = -torch.rand(self.order,dtype=torch.float32).mul(weight[:,0])
+        with torch.no_grad():
+            self.fc_1.weight.copy_(weight)
+            self.fc_1.bias.copy_(bias)
           
 
 
@@ -2762,6 +2766,12 @@ class L_FLF_NNI_cos(nn.Module):
         output = self.flatten(output)
         return output
 
+
+
+
+
+
+
 class mix_all_gaussian_01(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order+1
@@ -2901,7 +2911,6 @@ class mix_all_gaussian_05(nn.Linear):
         for layer in self.layers:
             out.append(layer(x))
         return torch.cat(out, dim=1)
-
 
 
 
@@ -3474,4 +3483,10 @@ class mix_all_weird_deter_07(nn.Linear):
         for layer in self.layers:
             out.append(layer(x))
         return torch.cat(out, dim=1)
+
+
+
+
+
+
 
