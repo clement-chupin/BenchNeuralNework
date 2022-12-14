@@ -690,7 +690,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-        {#65
+    {#65
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_5,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -813,7 +813,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#61
+    {#76
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_1,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -824,7 +824,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#62
+    {#77
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_2,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -835,7 +835,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#63
+    {#78
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_3,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -847,7 +847,7 @@ all_feature_extract = [
     },
 
 
-    {#64
+    {#79
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_4,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -858,7 +858,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#65
+    {#80
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_5,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -869,7 +869,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#66
+    {#81
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_6,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -880,7 +880,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#67
+    {#82
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_7,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -891,7 +891,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#68
+    {#83
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_8,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -902,7 +902,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#69
+    {#84
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_9,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -913,7 +913,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#70
+    {#85
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_10,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -924,7 +924,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#71
+    {#86
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_11,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -935,7 +935,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#72
+    {#87
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_12,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -947,7 +947,7 @@ all_feature_extract = [
     },
 
 
-    {#73
+    {#88
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_13,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -959,7 +959,7 @@ all_feature_extract = [
     },
 
 
-    {#74
+    {#89
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_14,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -971,7 +971,7 @@ all_feature_extract = [
     },
 
 
-    {#75
+    {#90
         "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_15,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -983,7 +983,7 @@ all_feature_extract = [
     },
 
 
-    {#61
+    {#91
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_1,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -994,7 +994,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#62
+    {#92
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_2,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1005,7 +1005,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#63
+    {#93
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_3,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1017,7 +1017,7 @@ all_feature_extract = [
     },
 
 
-    {#64
+    {#94
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_4,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1028,7 +1028,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#65
+    {#95
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_5,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1039,7 +1039,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#66
+    {#96
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_6,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1050,7 +1050,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#67
+    {#97
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_7,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1061,7 +1061,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#68
+    {#98
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_8,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1072,7 +1072,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#69
+    {#99
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_9,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1083,7 +1083,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#70
+    {#100
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_10,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1094,7 +1094,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#71
+    {#101
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_11,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1105,7 +1105,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#72
+    {#102
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_12,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1117,7 +1117,7 @@ all_feature_extract = [
     },
 
 
-    {#73
+    {#103
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_13,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1129,7 +1129,7 @@ all_feature_extract = [
     },
 
 
-    {#74
+    {#104
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_14,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1141,7 +1141,7 @@ all_feature_extract = [
     },
 
 
-    {#75
+    {#105
         "feature_layer"        : FeatureExtractorLayer.mix_gaussian_full_15,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [0],#,128*0],
@@ -1151,7 +1151,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#75
+    {#106
         "feature_layer"        : FeatureExtractorLayer.gaussian_test_layer1,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [2,4,8],#,128*0],
@@ -1161,7 +1161,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#75
+    {#107
         "feature_layer"        : FeatureExtractorLayer.gaussian_test_layer2,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [2,4,8],#,128*0],
@@ -1172,7 +1172,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#75
+    {#108
         "feature_layer"        : FeatureExtractorLayer.gaussian_test_layer3,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [2,4,8],#,128*0],
@@ -1183,7 +1183,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
     
-    {#75
+    {#109
         "feature_layer"        : FeatureExtractorLayer.gaussian_test_layer1_bias,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [2,4,8],#,128*0],
@@ -1193,7 +1193,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#75
+    {#110
         "feature_layer"        : FeatureExtractorLayer.gaussian_test_layer2_bias,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [2,4,8],#,128*0],
@@ -1204,7 +1204,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#75
+    {#111
         "feature_layer"        : FeatureExtractorLayer.gaussian_test_layer3_bias,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [2,4,8],#,128*0],
@@ -1247,7 +1247,7 @@ all_feature_extract = [
     },
 
 
-    {#114
+    {#115
         "feature_layer"        : FeatureExtractorLayer.mix_all_gaussian_01,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1257,7 +1257,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#116
         "feature_layer"        : FeatureExtractorLayer.mix_all_gaussian_02,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1267,7 +1267,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#117
         "feature_layer"        : FeatureExtractorLayer.mix_all_gaussian_03,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1277,7 +1277,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#118
         "feature_layer"        : FeatureExtractorLayer.mix_all_gaussian_04,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1287,7 +1287,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#119
         "feature_layer"        : FeatureExtractorLayer.mix_all_gaussian_05,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1300,7 +1300,7 @@ all_feature_extract = [
 
 
 
-    {#114
+    {#120
         "feature_layer"        : FeatureExtractorLayer.mix_all_triangle_01,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1310,7 +1310,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#121
         "feature_layer"        : FeatureExtractorLayer.mix_all_triangle_02,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1320,7 +1320,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#122
         "feature_layer"        : FeatureExtractorLayer.mix_all_triangle_03,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1330,7 +1330,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#123
         "feature_layer"        : FeatureExtractorLayer.mix_all_triangle_04,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1340,7 +1340,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#124
         "feature_layer"        : FeatureExtractorLayer.mix_all_triangle_05,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1350,7 +1350,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#125
         "feature_layer"        : FeatureExtractorLayer.mix_all_triangle_06,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1360,7 +1360,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#126
         "feature_layer"        : FeatureExtractorLayer.mix_all_triangle_07,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1372,7 +1372,7 @@ all_feature_extract = [
     },
 
 
-    {#114
+    {#127
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_acti_01,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1382,7 +1382,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#128
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_acti_02,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1392,7 +1392,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#129
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_acti_03,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1402,7 +1402,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#130
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_acti_04,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1412,7 +1412,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#131
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_acti_05,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1424,7 +1424,7 @@ all_feature_extract = [
     },
 
 
-    {#114
+    {#132
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_deter_01,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1434,7 +1434,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#133
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_deter_02,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1444,7 +1444,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#134
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_deter_03,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1454,7 +1454,7 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-    {#114
+    {#135
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_deter_04,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1465,7 +1465,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#114
+    {#136
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_deter_05,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1476,7 +1476,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#114
+    {#137
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_deter_06,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
@@ -1487,7 +1487,7 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-    {#114
+    {#138
         "feature_layer"        : FeatureExtractorLayer.mix_all_weird_deter_07,
         "output_feature_nb"    : lambda order,input: (order + input),
         "order"                : [4,8,16],#,128*0],
