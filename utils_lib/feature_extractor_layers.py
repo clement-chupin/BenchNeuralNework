@@ -617,7 +617,12 @@ class gaussian_test_layer1(nn.Module):
         self.device = get_device(device)
         super().__init__()
         self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
-        
+        weight = 0.2+torch.rand(self.order,1,dtype=torch.float32)*0.5
+        bias = -torch.rand(self.order,dtype=torch.float32).mul(weight[:,0])
+        with torch.no_grad():
+            self.fc_1.weight.copy_(weight)
+            self.fc_1.bias.copy_(bias)
+          
           
 
 
@@ -639,7 +644,12 @@ class gaussian_test_layer2(nn.Module):
         self.device = get_device(device)
         super().__init__()
         self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
-        
+        weight = 0.2+torch.rand(self.order,1,dtype=torch.float32)*0.5
+        bias = -torch.rand(self.order,dtype=torch.float32).mul(weight[:,0])
+        with torch.no_grad():
+            self.fc_1.weight.copy_(weight)
+            self.fc_1.bias.copy_(bias)
+          
           
 
 
@@ -661,7 +671,12 @@ class gaussian_test_layer3(nn.Module):
         super().__init__()
 
         self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
-        
+        weight = 0.2+torch.rand(self.order,1,dtype=torch.float32)*0.5
+        bias = -torch.rand(self.order,dtype=torch.float32).mul(weight[:,0])
+        with torch.no_grad():
+            self.fc_1.weight.copy_(weight)
+            self.fc_1.bias.copy_(bias)
+          
           
 
 
