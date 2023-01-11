@@ -4,7 +4,7 @@ do
     do 
         for k in 0
         do 
-            for l in 0 1 2 
+            for l in 0
             do 
                 sbatch cpu_run.sh $i $j $k $l 11011;
                 # sleep 0.1
