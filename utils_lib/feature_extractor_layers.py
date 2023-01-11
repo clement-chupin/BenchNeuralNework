@@ -3592,23 +3592,24 @@ class Siren(nn.Module):
         return activations
 
 
-class siren_decompo_1(nn.Linear):
+class siren_decompo_1(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.out_size = 64
-        
+        super().__init__()
         self.siren = Siren(in_features=in_features, out_features=self.out_size, hidden_features=self.out_size, hidden_layers=0, outermost_linear=False).to(device)
-        super().__init__(in_features, self.out_size, bias=True)
+
           
     def get_output_size(self,):
         return self.out_size
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         return self.siren(x)
-class siren_decompo_2(nn.Linear):
+class siren_decompo_2(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.out_size = 64
+        super().__init__()
         self.siren = Siren(in_features=in_features, out_features=self.out_size, hidden_features=self.out_size, hidden_layers=0, outermost_linear=False).to(device)
-        super().__init__(in_features, self.out_size, bias=True)
+
           
     def get_output_size(self,):
         return self.out_size
