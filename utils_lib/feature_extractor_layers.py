@@ -3618,3 +3618,28 @@ class siren_decompo_2(nn.Module):
     def forward(self, x:torch.Tensor)->torch.Tensor:
 
         return self.siren(x)
+class siren_decompo_3(nn.Module):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.out_size = 64
+        super().__init__()
+        self.siren = SineLayer(in_features, self.out_size)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        
+        return self.siren(x)
+class siren_decompo_4(nn.Module):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.out_size = 128
+        super().__init__()
+        self.siren = SineLayer(in_features, self.out_size)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        
+        return self.siren(x)
+

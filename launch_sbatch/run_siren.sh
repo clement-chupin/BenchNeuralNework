@@ -6,7 +6,7 @@ for i in 0 1 6 7 8 9
 do 
     for j in {0..5}
     do 
-        for k in 139 140
+        for k in 141 142
         do 
             for l in 0  
             do 
