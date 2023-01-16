@@ -931,14 +931,9 @@ class triangular_base_custom(nn.Linear):
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
         self.var_power = var
-        
         self.size_pic = self.var_power*self.size_ecart
-
-
         super().__init__(in_features, (self.order)*self.in_features, bias=True)
           
-
-
     def get_output_size(self,):
         return (self.order)*self.in_features
 
@@ -952,6 +947,59 @@ class triangular_base_custom(nn.Linear):
         out = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
                       
         return torch.flatten(out, start_dim=1)
+
+
+class triangular_base_custom(nn.Linear):
+    def __init__(self, in_features:int, order:int,var:float,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.size_ecart = 1/(self.order-1)
+        self.var_power = var
+        self.size_pic = self.var_power*self.size_ecart
+        super().__init__(in_features, (self.order)*self.in_features, bias=True)
+          
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out= torch.zeros(x.shape[0],x.shape[1],self.order)
+
+        for i in range(self.order):
+            out[:,:,i] = x-i*self.size_ecart
+        mean = self.size_pic
+
+        #torch.min(torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic),torch.ones(x.shape[0],x.shape[1],self.order)*0.5)
+        out = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
+                      
+        return torch.flatten(out, start_dim=1)
+
+
+class triangular_base_seuil_custom(nn.Linear):
+    def __init__(self, in_features:int, order:int,var:float,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.size_ecart = 1/(self.order-1)
+        self.var_power = var
+        self.size_pic = self.var_power*self.size_ecart
+        super().__init__(in_features, (self.order)*self.in_features, bias=True)
+          
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out= torch.zeros(x.shape[0],x.shape[1],self.order)
+
+        for i in range(self.order):
+            out[:,:,i] = x-i*self.size_ecart
+        mean = self.size_pic
+
+        out = torch.min(torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic),torch.ones(x.shape[0],x.shape[1],self.order)*0.5)
+                      
+        return torch.flatten(out, start_dim=1)
+
+
+
+
 
 class mix_triangular6(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
@@ -3643,3 +3691,532 @@ class siren_decompo_4(nn.Module):
         
         return self.siren(x)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class mix_triangular_full_seuil_1(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,2.0))
+        for i in [2,3,4]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,4.0))
+        for i in [2,3,4]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,8.0))
+        for i in [2,3,4]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,16.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_triangular_full_seuil_2(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+        
+        for i in [4,8]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_seuil_3(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,8.0))
+        
+        for i in [8,16]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_seuil_4(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,5]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,i*1.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_seuil_5(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        
+        self.layers.append(triangular_base_seuil_custom(self.in_features,2,4.0))
+        
+        self.layers.append(triangular_base_seuil_custom(self.in_features,8,1.0))
+
+        self.layers.append(triangular_base_seuil_custom(self.in_features,4,2.0))
+
+        self.layers.append(triangular_base_seuil_custom(self.in_features,16,8.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+
+class mix_triangular_full_seuil_6(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,16]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+        
+
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+class mix_triangular_full_seuil_7(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+        
+        for i in [2,4,8]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_seuil_8(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,8,16]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+        
+        for i in [2,4,8]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_seuil_9(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,8,16]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+        
+        for i in [2,4,8,12,16]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_seuil_10(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+        
+        for i in [2,4,8,12,16]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_seuil_11(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,8]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+        
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,8.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+
+
+class mix_triangular_full_seuil_12(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,4.0))
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,8.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_seuil_13(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,2.0))
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_triangular_full_seuil_14(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+        for i in [2,4,8]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,2.0))
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_seuil_15(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,12]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,1.0))
+        for i in [2,4,8]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,2.0))
+        for i in [2,4]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,4.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+
+    
+class mix_triangular_full_seuil_16(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,5]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,i*2.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_seuil_17(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,16]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,i*2.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+    
+class mix_triangular_full_seuil_18(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,3,4,5]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,i*4.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+class mix_triangular_full_seuil_19(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [2,4,8,16]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,i*4.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class mix_triangular_full_seuil_20(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order+1
+        self.in_features = in_features
+        self.layers = []
+        for i in [8]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,i*1.0))
+        for i in [8]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,i*2.0))
+        for i in [8]:
+            self.layers.append(triangular_base_seuil_custom(self.in_features,i,i*4.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)

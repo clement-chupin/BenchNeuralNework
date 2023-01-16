@@ -8,33 +8,11 @@ source ~/IA_chupin/py_env/bin/activate
 
 
 
-# for i in 0 1 6 7 8 9
-# do 
-#     for j in {0..5}
-#     do 
-#         for k in 112 113 114
-#         do 
-#             for l in 0 1 2 
-#             do 
-#                 sbatch cpu_run.sh $i $j $k $l 11011;
-#                 # sleep 0.1
-#             done
-#         done
-#     done
-# done
-
-
-
-
-
-# # for i in 0 1 6 7 8 9
-
-
 for i in 0 1 6 7 8 9
 do 
     for j in {0..5}
     do 
-        for k in 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90
+        for k in 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182
         do 
             for l in 0 1 2 
             do 
@@ -44,86 +22,6 @@ do
         done
     done
 done
-
-
-for i in 0 1 6 7 8 9
-do 
-    for j in {0..5}
-    do 
-        for k in 106 107 108 
-        do 
-            for l in 0 1 2 
-            do 
-                sbatch cpu_run.sh $i $j $k $l 11011;
-                # sleep 0.1
-            done
-        done
-    done
-done
-
-
-for i in 0 1 6 7 8 9
-do 
-    for j in {0..5}
-    do 
-        for k in 117 118 119
-        do 
-            for l in 0 1 2 
-            do 
-                sbatch cpu_run.sh $i $j $k $l 11011;
-                # sleep 0.1
-            done
-        done
-    done
-done
-
-for i in 0 1 6 7 8 9
-do 
-    for j in {0..5}
-    do 
-        for k in 122 123 124 125 126
-        do 
-            for l in 0 1 2 
-            do 
-                sbatch cpu_run.sh $i $j $k $l 11011;
-                # sleep 0.1
-            done
-        done
-    done
-done
-
-
-for i in 0 1 6 7 8 9
-do 
-    for j in {0..5}
-    do 
-        for k in 129 130 131
-        do 
-            for l in 0 1 2 
-            do 
-                sbatch cpu_run.sh $i $j $k $l 11011;
-                # sleep 0.1
-            done
-        done
-    done
-done
-
-
-for i in 0 1 6 7 8 9
-do 
-    for j in {0..5}
-    do 
-        for k in 134 135 136 137 138
-        do 
-            for l in 0 1 2 
-            do 
-                sbatch cpu_run.sh $i $j $k $l 11011;
-                # sleep 0.1
-            done
-        done
-    done
-done
-
 
 
 

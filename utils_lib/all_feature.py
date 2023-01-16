@@ -1539,6 +1539,238 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
+    {#143
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_1,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_1",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+        {#144
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_2,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_2",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#145
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_3,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_3",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#146
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_4,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_4",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#147
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_5,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_5",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#148
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_6,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_6",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#149
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_7,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_7",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#150
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_8,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_8",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#151
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_9,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_9",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#152
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_10,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_10",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#153
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_11,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_11",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#154
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_12,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_12",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#155
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_13,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_13",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#156
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_14,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_14",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#157
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_15,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_15",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#158
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_16,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_16",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#159
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_17,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_17",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#160
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_18,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_18",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#161
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_19,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_19",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#162
+        "feature_layer"        : FeatureExtractorLayer.mix_triangular_full_seuil_20,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_triangular_full_seuil_20",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
