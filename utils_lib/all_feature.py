@@ -1761,6 +1761,53 @@ all_feature_extract = [
 
 
 
+    {#163
+        "feature_layer"        : FeatureExtractorLayer.traingular_seuil_dense_1,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "traingular_seuil_dense_1",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#164
+        "feature_layer"        : FeatureExtractorLayer.traingular_seuil_dense_2,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "traingular_seuil_dense_2",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#165
+        "feature_layer"        : FeatureExtractorLayer.traingular_seuil_dense_3,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "traingular_seuil_dense_3",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+    {#166
+        "feature_layer"        : FeatureExtractorLayer.traingular_seuil_dense_4,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "traingular_seuil_dense_4",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+
+
+
 
 
 

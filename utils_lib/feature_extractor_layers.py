@@ -925,6 +925,46 @@ class triangle_dense_activation_base(nn.Module):
         x = torch.min(torch.relu(x+self.size_pic),torch.relu(self.size_pic-x))/(self.size_pic)
 
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
+
+class triangle_seuil_dense_activation_base(nn.Module):
+    def __init__(self, in_features:int, order:int,var,device="auto"):
+        self.order = order
+
+        self.in_features = in_features
+        self.size_ecart = 1/(self.order-1)
+        self.var_power = var
+        
+        self.size_pic = self.var_power*self.size_ecart
+
+
+        self.device = get_device(device)
+        super().__init__()
+
+        self.fc_1 = torch.nn.Linear(1,self.order).to(self.device)
+        weight = 0.2+torch.rand(self.order,1,dtype=torch.float32)*0.5
+        bias = -torch.rand(self.order,dtype=torch.float32).mul(weight[:,0])
+        with torch.no_grad():
+            self.fc_1.weight.copy_(weight)
+            self.fc_1.bias.copy_(bias)
+
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = torch.reshape(x,(x.size()[0],x.size()[1],1))
+        x = self.fc_1(x)
+        x = torch.min(torch.min(torch.relu(x+self.size_pic),torch.relu(self.size_pic-x))/(self.size_pic),torch.ones(x.shape[0],x.shape[1],self.order)*0.5)
+
+        return torch.flatten(x, start_dim=1)
+
+
+
+
+
+
+
+
+
 class triangular_base_custom(nn.Linear):
     def __init__(self, in_features:int, order:int,var:float,device="auto"):
         self.order = order
@@ -4204,6 +4244,113 @@ class mix_triangular_full_seuil_20(nn.Linear):
             self.layers.append(triangular_base_seuil_custom(self.in_features,i,i*2.0))
         for i in [8]:
             self.layers.append(triangular_base_seuil_custom(self.in_features,i,i*4.0))
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+
+
+
+
+class traingular_seuil_dense_1(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.layers = []
+
+        self.layers.append(triangle_seuil_dense_activation_base(self.in_features,8,1.0))
+
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class traingular_seuil_dense_2(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.layers = []
+
+        self.layers.append(triangle_seuil_dense_activation_base(self.in_features,8,4.0))
+
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+class traingular_seuil_dense_3(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.layers = []
+
+        self.layers.append(triangle_seuil_dense_activation_base(self.in_features,16,1.0))
+
+        
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=1)
+
+
+class traingular_seuil_dense_4(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        self.layers = []
+
+        self.layers.append(triangle_seuil_dense_activation_base(self.in_features,4,1.0))
+        self.layers.append(triangle_seuil_dense_activation_base(self.in_features,4,2.0))
+        self.layers.append(triangle_seuil_dense_activation_base(self.in_features,4,4.0))
         
 
         self.out_size = 0 
