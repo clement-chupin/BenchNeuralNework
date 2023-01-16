@@ -108,6 +108,7 @@ class TrainMaster():
         
 
         if len(self.all_feature_extractor) <= fe_k:
+            print(len(self.all_feature_extractor))
             print("bad fe {}".format(fe_k))
             return False
 
