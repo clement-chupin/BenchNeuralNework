@@ -966,8 +966,9 @@ class triangle_seuil_dense_activation_base(nn.Module):
 
 
 class triangular_base_custom(nn.Linear):
-    def __init__(self, in_features:int, order:int,var:float,device="auto"):
+    def __init__(self, in_features:int, order:int,var:float,phase:float=0.0,device="auto"):
         self.order = order
+        self.phase = phase
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
         self.var_power = var
@@ -981,7 +982,7 @@ class triangular_base_custom(nn.Linear):
         out= torch.zeros(x.shape[0],x.shape[1],self.order)
 
         for i in range(self.order):
-            out[:,:,i] = x-i*self.size_ecart
+            out[:,:,i] = x-i*self.size_ecart+self.phase
         mean = self.size_pic
 
         out = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
@@ -4367,3 +4368,101 @@ class traingular_seuil_dense_4(nn.Linear):
         for layer in self.layers:
             out.append(layer(x))
         return torch.cat(out, dim=1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class mix_final_1(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+
+        self.layers = []
+        self.layers.append(NoneLayer(self.in_features,0))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0))
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=-1)
+
+
+class mix_final_2(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+
+        self.layers = []
+        self.layers.append(NoneLayer(self.in_features,0))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0))
+        self.layers.append(triangular_base_custom(self.in_features,4,2.0))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=-1)
+
+class mix_final_3(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+
+        self.layers = []
+        self.layers.append(NoneLayer(self.in_features,0))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0))
+        self.layers.append(triangular_base_custom(self.in_features,4,2.0))
+
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0,0.33/2))
+        self.layers.append(triangular_base_custom(self.in_features,4,2.0,0.33/2))
+
+        self.out_size = 0 
+        for l in self.layers:
+            self.out_size+=l.get_output_size()
+
+        super().__init__(in_features, self.out_size, bias=True)
+          
+    def get_output_size(self,):
+        
+        return self.out_size
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out = []
+        for layer in self.layers:
+            out.append(layer(x))
+        return torch.cat(out, dim=-1)

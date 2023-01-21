@@ -6,13 +6,11 @@ source ~/IA_chupin/py_env/bin/activate
 
 
 
-
-
-for i in 0 1 6 7 8 9
+for i in {0..16}
 do 
     for j in {0..5}
     do 
-        for k in 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 166 164 165 166
+        for k in 167 168 169
         do 
             for l in 0
             do 

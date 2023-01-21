@@ -1806,6 +1806,43 @@ all_feature_extract = [
     },
 
 
+    {#167
+        "feature_layer"        : FeatureExtractorLayer.mix_final_1,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_final_1",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+
+    {#168
+        "feature_layer"        : FeatureExtractorLayer.mix_final_2,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_final_2",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+
+    {#169
+        "feature_layer"        : FeatureExtractorLayer.mix_final_3,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "mix_final_3",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+
+
+
 
 
 
