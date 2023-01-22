@@ -1841,15 +1841,16 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
-
-
-
-
-
-
-
-
-
+    {#170
+        "feature_layer"        : FeatureExtractorLayer.triangular_sinus,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [2,4,8],#,128*0],
+        "name"                 : "triangular_sinus",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
 
 
 

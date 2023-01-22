@@ -4466,3 +4466,28 @@ class mix_final_3(nn.Linear):
         for layer in self.layers:
             out.append(layer(x))
         return torch.cat(out, dim=-1)
+
+
+class triangular_sinus(nn.Linear):
+    def __init__(self, in_features:int, order:int,var:float,phase=0.0,device="auto"):
+        self.order = order
+        self.phase = phase
+        self.in_features = in_features
+        super().__init__(in_features, (self.order)*self.in_features, bias=True)
+          
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x+=self.phase
+        out= torch.zeros(x.shape[0],x.shape[1],self.order)
+
+        for i in range(self.order):
+
+            fact_div = 1/(0.5*(i+1))
+            a = x%fact_div*(4/fact_div)
+            b = 4-a
+            out[:,:,i] = torch.min(a,b)-1
+
+                      
+        return out#torch.flatten(out, start_dim=1)
