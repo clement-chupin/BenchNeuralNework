@@ -4489,4 +4489,4 @@ class triangular_sinus(nn.Linear):
             out[:,:,i] = torch.min(a,b)-1
 
                       
-        return torch.flatten(out, start_dim=-1)
+        return torch.flatten(out, start_dim=1)
