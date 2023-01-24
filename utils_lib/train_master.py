@@ -13,7 +13,7 @@
 
 import sys
 import os
-  
+import random
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
@@ -142,14 +142,11 @@ class TrainMaster():
                 policy_kwargs = policy_kwargs,
                 device=compute_opti,
                 verbose=1,
+                seed=random.randint(100,100000),
                 )
             #print(model.learning_rate)
             model.learning_rate = model.learning_rate*policie_lr_r
-            #print(model.learning_rate)
-            # print(vars(model.policy_kwargs["optimizer_class"]))
-            # print(vars(model.policy.optimizer))
-            # print("sssssssssssssssssssssssssssssssssssssss")
-            # print(vars(model.policy.features_extractor))
+
 
             
             self.last_time = process_time()

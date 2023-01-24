@@ -20,7 +20,7 @@ all_feature_extract = [
     {#1
         "feature_layer"        : FeatureExtractorLayer.D_FF_LinLayer_cos,
         "output_feature_nb"    : lambda order,input: ((order+1)**input),
-        "order"                : [4],
+        "order"                : [1,3,4],
         "name"                 : "dff",
         "description"          : "deterministic fourier feature, with linear layer (bad for power needed, but might be better on gpu), bad if n_input >>~ 20 \ninput => input",
         "power"                : 0,
@@ -30,7 +30,7 @@ all_feature_extract = [
     {#2
         "feature_layer"        : FeatureExtractorLayer.D_FLF_LinLayer_cos,
         "output_feature_nb"    : lambda order,input: (order + input),
-        "order"                : [8,16,64], #4/8>16>>all 8
+        "order"                : [3,6,7,9,10], #4/8>16>>all 8
         "name"                 : "dflf_ll",
         "description"          : "deterministic fourier light feature, with linear layer (bad for power needed, but might be better on gpu) \ninput => input",
         "power"                : 0,        
@@ -1852,6 +1852,27 @@ all_feature_extract = [
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
 
+
+    {#171
+        "feature_layer"        : FeatureExtractorLayer.D_TF_LinLayer,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [1,3,4],#,128*0],
+        "name"                 : "D_TF_LinLayer",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#172
+        "feature_layer"        : FeatureExtractorLayer.D_TLF_LinLayer,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [3,6,7,9,10],#,128*0],
+        "name"                 : "D_TLF_LinLayer",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
 
 
 

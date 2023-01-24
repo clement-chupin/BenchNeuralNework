@@ -195,6 +195,46 @@ class D_FLF_LinLayer_cos(nn.Linear):
         x = np.pi*super().forward(x)
         return torch.cos(x)
 
+class D_TF_LinLayer(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+        # if order > 0 and in_features > 70:
+        #    self.order=0
+
+        super().__init__(in_features, (order+1)**in_features, bias=True)
+        c=np.array(list(product(range(order + 1), repeat=in_features)))*0.5
+        with torch.no_grad():
+            self.weight.copy_(torch.tensor(c, dtype=torch.float32))
+        self.weight.requires_grad = False
+    def get_output_size(self,):
+        return (self.order+1)**self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = super().forward(x)
+        return torch.abs(torch.remainder(x,1)-0.5)
+
+class D_TLF_LinLayer(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto"):
+        self.order = order
+        self.in_features = in_features
+
+        super().__init__(in_features, in_features*order+1, bias=True)
+        c=np.zeros((in_features*order+1, in_features))
+        coeff=np.arange(1, order+1)*0.5
+        for i in range(in_features):
+            c[1+i*order:1+order*(i+1), i]=coeff
+        ##print(c)
+        with torch.no_grad():
+            self.weight.copy_(torch.tensor(c, dtype=torch.float32))
+        self.weight.requires_grad = False
+    def get_output_size(self,):
+        return self.in_features*self.order+1
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        x = super().forward(x)
+        return torch.abs(torch.remainder(x,1)-0.5)
+
+
 
 class FFP(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
