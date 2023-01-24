@@ -22,7 +22,7 @@ source ~/IA_chupin/py_env/bin/activate
 # done
 
 
-for $iii in 11011 #11012 11013 11014 11015
+for iii in 11011 #11012 11013 11014 11015
 do 
     #sin vs trian 0 plot
     for i in 10 11 13 16
