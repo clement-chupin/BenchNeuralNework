@@ -10,7 +10,7 @@ source ~/IA_chupin/py_env/bin/activate
             do 
                 for l in 0 1 2 3 4
                 do 
-                    sbatch cpu_run.sh $i $j $k $l $index;
+                    sbatch cpu_run.sh $i $j $k $l 11011;
                     # sleep 0.1
                 done
             done
