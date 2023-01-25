@@ -22,7 +22,7 @@ source ~/IA_chupin/py_env/bin/activate
 # done
 
 
-for iii in 11011 #11012 11013 11014 11015
+for index in 11011 #11012 11013 11014 11015
 do 
     #sin vs trian 0 plot
     for i in 10 11 13 16
@@ -33,7 +33,7 @@ do
             do 
                 for l in 0
                 do 
-                    sbatch cpu_run.sh $i $j $k $l $iii;
+                    sbatch cpu_run.sh $i $j $k $l $index;
                     # sleep 0.1
                 done
             done
@@ -48,7 +48,7 @@ do
             do 
                 for l in 0
                 do 
-                    sbatch cpu_run.sh $i $j $k $l $iii;
+                    sbatch cpu_run.sh $i $j $k $l $index;
                     # sleep 0.1
                 done
             done
@@ -64,7 +64,7 @@ do
             do 
                 for l in 0
                 do 
-                    sbatch cpu_run.sh $i $j $k $l $iii;
+                    sbatch cpu_run.sh $i $j $k $l $index;
                     # sleep 0.1
                 done
             done
@@ -80,7 +80,7 @@ do
             do 
                 for l in 0 1 2
                 do 
-                    sbatch cpu_run.sh $i $j $k $l $iii;
+                    sbatch cpu_run.sh $i $j $k $l $index;
                     # sleep 0.1
                 done
             done
@@ -94,7 +94,7 @@ do
             do 
                 for l in 0 1 2 3 4
                 do 
-                    sbatch cpu_run.sh $i $j $k $l $iii;
+                    sbatch cpu_run.sh $i $j $k $l $index;
                     # sleep 0.1
                 done
             done
@@ -102,41 +102,41 @@ do
     done
 
 
-    for i in 10 11 13 16
-    do 
-        for j in 2
-        do 
-            for k in 0
-            do 
-                for l in 0
-                do 
-                    sbatch cpu_run.sh $i $j $k $l $iii;
-                    # sleep 0.1
-                done
-            done
-        done
-    done
+    # for i in 10 11 13 16
+    # do 
+    #     for j in 2
+    #     do 
+    #         for k in 0
+    #         do 
+    #             for l in 0
+    #             do 
+    #                 sbatch cpu_run.sh $i $j $k $l $index;
+    #                 # sleep 0.1
+    #             done
+    #         done
+    #     done
+    # done
 
 
-    sbatch cpu_run.sh 10 2 1 1 $iii;
-    sbatch cpu_run.sh 10 2 171 4 $iii;
-    sbatch cpu_run.sh 10 2 2 1 $iii;
-    sbatch cpu_run.sh 10 2 172 4 $iii;
+    sbatch cpu_run.sh 10 2 1 1 $index;
+    sbatch cpu_run.sh 10 2 171 4 $index;
+    sbatch cpu_run.sh 10 2 2 1 $index;
+    sbatch cpu_run.sh 10 2 172 4 $index;
 
-    sbatch cpu_run.sh 11 2 1 1 $iii;
-    sbatch cpu_run.sh 11 2 171 2 $iii;
-    sbatch cpu_run.sh 11 2 2 1 $iii;
-    sbatch cpu_run.sh 11 2 172 2 $iii;
+    sbatch cpu_run.sh 11 2 1 1 $index;
+    sbatch cpu_run.sh 11 2 171 2 $index;
+    sbatch cpu_run.sh 11 2 2 1 $index;
+    sbatch cpu_run.sh 11 2 172 2 $index;
 
-    sbatch cpu_run.sh 13 2 1 2 $iii;
-    sbatch cpu_run.sh 13 2 171 3 $iii;
-    sbatch cpu_run.sh 13 2 2 2 $iii;
-    sbatch cpu_run.sh 13 2 172 3 $iii;
+    sbatch cpu_run.sh 13 2 1 2 $index;
+    sbatch cpu_run.sh 13 2 171 3 $index;
+    sbatch cpu_run.sh 13 2 2 2 $index;
+    sbatch cpu_run.sh 13 2 172 3 $index;
 
-    sbatch cpu_run.sh 16 2 1 0 $iii;
-    sbatch cpu_run.sh 16 2 171 3 $iii;
-    sbatch cpu_run.sh 16 2 2 0 $iii;
-    sbatch cpu_run.sh 16 2 172 3 $iii;
+    sbatch cpu_run.sh 16 2 1 0 $index;
+    sbatch cpu_run.sh 16 2 171 3 $index;
+    sbatch cpu_run.sh 16 2 2 0 $index;
+    sbatch cpu_run.sh 16 2 172 3 $index;
 
 
 
