@@ -4431,10 +4431,10 @@ class mix_final_1(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
         self.in_features = in_features
-
+        self.device = get_device(device)
         self.layers = []
-        self.layers.append(NoneLayer(self.in_features,0))
-        self.layers.append(triangular_base_custom(self.in_features,4,1.0))
+        self.layers.append(NoneLayer(self.in_features,0).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0).to(self.device))
         self.out_size = 0 
         for l in self.layers:
             self.out_size+=l.get_output_size()
@@ -4447,6 +4447,7 @@ class mix_final_1(nn.Linear):
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         out = []
+        x=x.to(self.device)
         for layer in self.layers:
             out.append(layer(x))
         return torch.cat(out, dim=-1)
@@ -4456,11 +4457,11 @@ class mix_final_2(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
         self.in_features = in_features
-
+        self.device = get_device(device)
         self.layers = []
-        self.layers.append(NoneLayer(self.in_features,0))
-        self.layers.append(triangular_base_custom(self.in_features,4,1.0))
-        self.layers.append(triangular_base_custom(self.in_features,4,2.0))
+        self.layers.append(NoneLayer(self.in_features,0).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,2.0).to(self.device))
 
         self.out_size = 0 
         for l in self.layers:
@@ -4473,23 +4474,25 @@ class mix_final_2(nn.Linear):
         return self.out_size
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
+
         out = []
+        x=x.to(self.device)
         for layer in self.layers:
-            out.append(layer(x))
+            out.append(layer(x).to(self.device))
         return torch.cat(out, dim=-1)
 
 class mix_final_3(nn.Linear):
     def __init__(self, in_features:int, order:int,device="auto"):
         self.order = order
         self.in_features = in_features
-
+        self.device = get_device(device)
         self.layers = []
         self.layers.append(NoneLayer(self.in_features,0))
-        self.layers.append(triangular_base_custom(self.in_features,4,1.0))
-        self.layers.append(triangular_base_custom(self.in_features,4,2.0))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,2.0).to(self.device))
 
-        self.layers.append(triangular_base_custom(self.in_features,4,1.0,0.33/2))
-        self.layers.append(triangular_base_custom(self.in_features,4,2.0,0.33/2))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0,0.33/2).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,2.0,0.33/2).to(self.device))
 
         self.out_size = 0 
         for l in self.layers:
@@ -4503,6 +4506,7 @@ class mix_final_3(nn.Linear):
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         out = []
+        x=x.to(self.device)
         for layer in self.layers:
             out.append(layer(x))
         return torch.cat(out, dim=-1)
