@@ -7,11 +7,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 utils = Utils()
 
-env_j = 1
-policie_i = 0
+env_j = 16
+policie_i = 2
 
-fe_k=168
-fev_l=0
+fe_k=1#168
+fev_l=1
 
 if not(utils.compatible_env_policie(policie_i,env_j)):
     print("not compatible")
@@ -20,7 +20,7 @@ policie =      utils.all_policies[policie_i]["policie"]
 policie_name = utils.all_policies[policie_i]["name"]
 
 compute_opti = utils.all_policies[policie_i]["compute_opti"]
-compute_opti = "cpu"
+compute_opti = "auto"
 env =          utils.all_envs[env_j]["env"]
 env_name =     utils.all_envs[env_j]["name"]
 if len(utils.all_feature_extractor) <= fe_k:
@@ -66,7 +66,7 @@ def register_reward(input,_):
         r_epi.clear()
     
 model.learn(
-    total_timesteps=400000, 
+    total_timesteps=1000000, 
     log_interval=1,
     callback=register_reward
     )

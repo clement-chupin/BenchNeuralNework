@@ -11,7 +11,7 @@ all_envs = [
         "num_cpu"          :  1,
     },
     {#1
-        "env"              :  "HalfCheetah-v3",
+        "env"              :  "HalfCheetah-v2",
         "name"             :  "halfcheetah",
         "action_space"     :  [False,True],
         "nb_train"         :  1000000,
@@ -19,7 +19,7 @@ all_envs = [
         "num_cpu"          :  1,
     },
     {#2
-        "env"              :  "Hopper-v4",
+        "env"              :  "Hopper-v3",
         "name"             :  "hopper",
         "action_space"     :  [False,True],
         "nb_train"         :  1000000,

@@ -1856,7 +1856,7 @@ all_feature_extract = [
     {#171
         "feature_layer"        : FeatureExtractorLayer.D_TF_LinLayer,
         "output_feature_nb"    : lambda order,input: (order + input),
-        "order"                : [1,3,4],#,128*0],
+        "order"                : [1,2,3,4],#,128*0],
         "name"                 : "D_TF_LinLayer",
         "description"          : "",
         "power"                : 0,
