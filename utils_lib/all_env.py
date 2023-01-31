@@ -67,7 +67,7 @@ all_envs = [
         "num_cpu"          :  1,
     },
     {#8
-        "env"              :  "Swimmer-v3",
+        "env"              :  "Swimmer-v4",
         "name"             :  "swimmer",
         "action_space"     :  [False,True],
         "nb_train"         :  1000000,
