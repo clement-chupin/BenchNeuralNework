@@ -75,7 +75,7 @@ all_envs = [
         "num_cpu"          :  1,
     },
     {#9
-        "env"              :  "Walker2d-v4",
+        "env"              :  "Walker2d-v3",
         "name"             :  "walker2d",
         "action_space"     :  [False,True],
         "nb_train"         :  1000000,

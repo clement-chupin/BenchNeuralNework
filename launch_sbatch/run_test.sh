@@ -2,11 +2,11 @@ source activate py_conda
 source ~/IA_chupin/py_env/bin/activate
 
 
-    for i in 16
+    for i in 8
     do 
-        for j in 2
+        for j in 3
         do 
-            for k in 171
+            for k in 1 2 
             do 
                 for l in 0 1 2 3 4 
                 do 
