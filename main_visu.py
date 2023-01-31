@@ -10,8 +10,8 @@ utils = Utils()
 env_j = 8
 policie_i = 3
 
-fe_k=0#168
-fev_l=0
+fe_k=2#168
+fev_l=1
 
 if not(utils.compatible_env_policie(policie_i,env_j)):
     print("not compatible")

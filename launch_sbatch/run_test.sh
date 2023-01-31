@@ -6,7 +6,7 @@ source ~/IA_chupin/py_env/bin/activate
     do 
         for j in 3
         do 
-            for k in 1 2 
+            for k in 172
             do 
                 for l in 0 1 2 3 4 
                 do 

@@ -1866,7 +1866,7 @@ all_feature_extract = [
     {#172
         "feature_layer"        : FeatureExtractorLayer.D_TLF_LinLayer,
         "output_feature_nb"    : lambda order,input: (order + input),
-        "order"                : [3,6,7,9,10],#,128*0],
+        "order"                : [3,4,6,8,10],#,128*0],
         "name"                 : "D_TLF_LinLayer",
         "description"          : "",
         "power"                : 0,
