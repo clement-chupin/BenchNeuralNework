@@ -25,6 +25,12 @@ from utils_lib.all_env import all_envs as All_Envs
 from utils_lib.all_feature import all_feature_extract as All_Features
 from utils_lib.all_policies import all_policies as All_Policies
 
+
+from utils_lib.all_policies import all_policies_robotics as All_Policies_robotics
+from utils_lib.all_policies import all_policies_discrete as All_Policies_discrete
+from utils_lib.all_env import all_envs_mini as All_Envs_mini
+
+
 class Utils():
 	def __init__(self):
 		self.result_folder = "../result"
@@ -39,6 +45,10 @@ class Utils():
 		self.all_envs = All_Envs
 		self.all_policies = All_Policies
 		self.all_feature_extractor = All_Features
+
+		self.all_envs_mini = All_Envs_mini
+		self.all_policies_robotics = All_Policies_robotics
+		self.all_policies_discrete = All_Policies_discrete
 		
 
 	def compatible_env_policie(self,policie_i,env_j):
