@@ -48,7 +48,7 @@ class FeaturesExtractor_model(BaseFeaturesExtractor):
 
 
 class NoneLayer(nn.Module):
-    def __init__(self, in_features, order,device="auto"):
+    def __init__(self, in_features, order,device="auto",no_flatten=False):
         self.in_features = in_features
         super(NoneLayer, self).__init__()
 
@@ -1006,8 +1006,9 @@ class triangle_seuil_dense_activation_base(nn.Module):
 
 
 class triangular_base_custom(nn.Linear):
-    def __init__(self, in_features:int, order:int,var:float,phase:float=0.0,device="auto"):
+    def __init__(self, in_features:int, order:int,var:float,phase:float=0.0,device="auto",no_flatten=False):
         self.order = order
+        self.no_flatten = no_flatten
         self.phase = phase
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
@@ -1026,7 +1027,8 @@ class triangular_base_custom(nn.Linear):
         mean = self.size_pic
 
         out = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
-                      
+        if self.no_flatten:
+            return out
         return torch.flatten(out, start_dim=1)
 
 
@@ -4428,13 +4430,14 @@ class traingular_seuil_dense_4(nn.Linear):
 
 
 class mix_final_1(nn.Linear):
-    def __init__(self, in_features:int, order:int,device="auto"):
+    def __init__(self, in_features:int, order:int,device="auto",no_flatten=False):
         self.order = order
+        self.no_flatten = no_flatten
         self.in_features = in_features
         self.device = get_device(device)
         self.layers = []
-        self.layers.append(NoneLayer(self.in_features,0).to(self.device))
-        self.layers.append(triangular_base_custom(self.in_features,4,1.0).to(self.device))
+        self.layers.append(NoneLayer(self.in_features,0,no_flatten).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0,no_flatten).to(self.device))
         self.out_size = 0 
         for l in self.layers:
             self.out_size+=l.get_output_size()
