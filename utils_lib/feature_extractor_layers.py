@@ -1004,37 +1004,10 @@ class triangle_seuil_dense_activation_base(nn.Module):
 
 
 
-
 class triangular_base_custom(nn.Linear):
     def __init__(self, in_features:int, order:int,var:float,phase:float=0.0,device="auto",no_flatten=False):
         self.order = order
         self.no_flatten = no_flatten
-        self.phase = phase
-        self.in_features = in_features
-        self.size_ecart = 1/(self.order-1)
-        self.var_power = var
-        self.size_pic = self.var_power*self.size_ecart
-        super().__init__(in_features, (self.order)*self.in_features, bias=True)
-          
-    def get_output_size(self,):
-        return (self.order)*self.in_features
-
-    def forward(self, x:torch.Tensor)->torch.Tensor:
-        out= torch.zeros(x.shape[0],x.shape[1],self.order)
-
-        for i in range(self.order):
-            out[:,:,i] = x-i*self.size_ecart+self.phase
-        mean = self.size_pic
-
-        out = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
-        if self.no_flatten:
-            return out
-        return torch.flatten(out, start_dim=1)
-
-
-class triangular_base_custom(nn.Linear):
-    def __init__(self, in_features:int, order:int,var:float,device="auto"):
-        self.order = order
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
         self.var_power = var
@@ -1054,8 +1027,9 @@ class triangular_base_custom(nn.Linear):
         #torch.min(torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic),torch.ones(x.shape[0],x.shape[1],self.order)*0.5)
         out = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
                       
+        if self.no_flatten:
+            return out
         return torch.flatten(out, start_dim=1)
-
 
 class triangular_base_seuil_custom(nn.Linear):
     def __init__(self, in_features:int, order:int,var:float,device="auto"):
