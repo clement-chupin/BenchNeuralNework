@@ -1005,7 +1005,7 @@ class triangle_seuil_dense_activation_base(nn.Module):
 
 
 class triangular_base_custom(nn.Linear):
-    def __init__(self, in_features:int, order:int,var1:float=1.0,phase:float=0.0,device="auto",no_flatten:bool=False):
+    def __init__(self, in_features:int, order:int,var:float=1.0,phase:float=0.0,device="auto",no_flatten:bool=False):
         self.order = order
         self.no_flatten = no_flatten
         self.in_features = in_features
