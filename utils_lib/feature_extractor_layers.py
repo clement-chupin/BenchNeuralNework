@@ -49,12 +49,15 @@ class FeaturesExtractor_model(BaseFeaturesExtractor):
 
 class NoneLayer(nn.Module):
     def __init__(self, in_features, order,device="auto",no_flatten=False):
+        self.no_flatten = no_flatten
         self.in_features = in_features
         super(NoneLayer, self).__init__()
 
     def get_output_size(self,):
         return self.in_features
     def forward(self, x:torch.Tensor)->torch.Tensor:
+        if self.no_flatten:
+            return x.view(x.shape[0],x.shape[1],1)
         return x
 
 class outsider(nn.Linear):
@@ -1018,6 +1021,7 @@ class triangular_base_custom(nn.Linear):
         return (self.order)*self.in_features
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
+        #print(x.shape)
         out= torch.zeros(x.shape[0],x.shape[1],self.order)
 
         for i in range(self.order):
@@ -1026,7 +1030,6 @@ class triangular_base_custom(nn.Linear):
 
         #torch.min(torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic),torch.ones(x.shape[0],x.shape[1],self.order)*0.5)
         out = torch.min(torch.relu(out+self.size_pic),torch.relu(self.size_pic-out))/(self.size_pic)
-                      
         if self.no_flatten:
             return out
         return torch.flatten(out, start_dim=1)
@@ -1943,7 +1946,7 @@ class D_FLF_Base_cos(nn.Module): ###############################################
 
         self.device = get_device(device)
         super().__init__()
-        kern_array = torch.arange(0,order,dtype=torch.float32).to(self.device)*np.pi
+        kern_array = torch.arange(1,order+1,dtype=torch.float64).to(self.device)*np.pi
         #kern_array = torch.arange(1,order+1).to(self.device)
 
         self.kern = torch.reshape(kern_array,(1,-1,)).to(self.device)
@@ -1953,13 +1956,14 @@ class D_FLF_Base_cos(nn.Module): ###############################################
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         x = torch.reshape(x,(x.size()[0],-1,1))#.to(self.device)
-        coeff_four = torch.matmul(x,self.kern).to(self.device)
+        coeff_four = torch.matmul(x.type(torch.float64),self.kern).to(self.device)
         output = torch.cos(coeff_four)
         return output
 
 class D_FLF_cos(nn.Module):
-    def __init__(self, in_features, order,device="auto"):
+    def __init__(self, in_features, order,device="auto",no_flatten=False):
         self.order = order
+        self.no_flatten = no_flatten
         self.in_features = in_features
 
         self.device = get_device(device)
@@ -1972,6 +1976,8 @@ class D_FLF_cos(nn.Module):
     def forward(self, x:torch.Tensor)->torch.Tensor:
          #x = x.to(self.device)
         output = self.fourier_feature(x)
+        if self.no_flatten:
+            return output
         output = self.flatten(output)
         return output
 
@@ -4410,8 +4416,8 @@ class mix_final_1(nn.Linear):
         self.in_features = in_features
         self.device = get_device(device)
         self.layers = []
-        self.layers.append(NoneLayer(self.in_features,0,no_flatten).to(self.device))
-        self.layers.append(triangular_base_custom(self.in_features,4,1.0,no_flatten).to(self.device))
+        self.layers.append(NoneLayer(self.in_features,0,device,no_flatten).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0,0.0,device,no_flatten).to(self.device))
         self.out_size = 0 
         for l in self.layers:
             self.out_size+=l.get_output_size()
@@ -4431,14 +4437,15 @@ class mix_final_1(nn.Linear):
 
 
 class mix_final_2(nn.Linear):
-    def __init__(self, in_features:int, order:int,device="auto"):
+    def __init__(self, in_features:int, order:int,device="auto",no_flatten=False):
         self.order = order
         self.in_features = in_features
+        self.no_flatten = no_flatten
         self.device = get_device(device)
         self.layers = []
-        self.layers.append(NoneLayer(self.in_features,0).to(self.device))
-        self.layers.append(triangular_base_custom(self.in_features,4,1.0).to(self.device))
-        self.layers.append(triangular_base_custom(self.in_features,4,2.0).to(self.device))
+        self.layers.append(NoneLayer(self.in_features,0,device,no_flatten).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0,0.0,device,no_flatten).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,2.0,0.0,device,no_flatten).to(self.device))
 
         self.out_size = 0 
         for l in self.layers:
@@ -4459,17 +4466,18 @@ class mix_final_2(nn.Linear):
         return torch.cat(out, dim=-1)
 
 class mix_final_3(nn.Linear):
-    def __init__(self, in_features:int, order:int,device="auto"):
+    def __init__(self, in_features:int, order:int,device="auto",no_flatten=False):
         self.order = order
         self.in_features = in_features
+        self.no_flatten = no_flatten
         self.device = get_device(device)
         self.layers = []
-        self.layers.append(NoneLayer(self.in_features,0))
-        self.layers.append(triangular_base_custom(self.in_features,4,1.0).to(self.device))
-        self.layers.append(triangular_base_custom(self.in_features,4,2.0).to(self.device))
+        self.layers.append(NoneLayer(self.in_features,0,device,no_flatten).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0,0.0,device,no_flatten).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,2.0,0.0,device,no_flatten).to(self.device))
 
-        self.layers.append(triangular_base_custom(self.in_features,4,1.0,0.33/2).to(self.device))
-        self.layers.append(triangular_base_custom(self.in_features,4,2.0,0.33/2).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,1.0,0.33/2,device,no_flatten).to(self.device))
+        self.layers.append(triangular_base_custom(self.in_features,4,2.0,0.33/2,device,no_flatten).to(self.device))
 
         self.out_size = 0 
         for l in self.layers:
@@ -4490,9 +4498,9 @@ class mix_final_3(nn.Linear):
 
 
 class triangular_sinus(nn.Linear):
-    def __init__(self, in_features:int, order:int,device="auto"):
+    def __init__(self, in_features:int, order:int,device="auto",no_flatten=False):
         self.order = order
-
+        self.no_flatten = no_flatten
         self.in_features = in_features
         super().__init__(in_features, (self.order)*self.in_features, bias=True)
           
@@ -4508,6 +4516,7 @@ class triangular_sinus(nn.Linear):
             a = x%fact_div*(4/fact_div)
             b = 4-a
             out[:,:,i] = torch.min(a,b)-1
-
+        if self.no_flatten:
+            return out
                       
         return torch.flatten(out, start_dim=1)
