@@ -39,17 +39,18 @@ source ~/IA_chupin/py_env/bin/activate
 
 for index in 11012 11013 11014 11015
 do 
-    sbatch cpu_run.sh 8 3 0 0 $index;
-    sbatch cpu_run.sh 8 3 2 1 $index;
-    sbatch cpu_run.sh 8 3 172 3 $index;
-    sbatch cpu_run.sh 8 3 168 0 $index;
+    # sbatch cpu_run.sh 8 3 0 0 $index;
+    # sbatch cpu_run.sh 8 3 2 1 $index;
+    # sbatch cpu_run.sh 8 3 172 3 $index;
+    # sbatch cpu_run.sh 8 3 168 0 $index;
 
-    sbatch cpu_run.sh 15 3 0 0 $index;
-    sbatch cpu_run.sh 15 3 2 1 $index;
-    sbatch cpu_run.sh 15 3 168 0 $index;
+    # sbatch cpu_run.sh 15 3 0 0 $index;
+    # sbatch cpu_run.sh 15 3 2 1 $index;
+    # sbatch cpu_run.sh 15 3 168 0 $index;
 
-    sbatch cpu_run.sh 16 2 0 0 $index;
-    sbatch cpu_run.sh 16 2 1 2 $index;
-    sbatch cpu_run.sh 16 2 167 0 $index;
+    # sbatch cpu_run.sh 16 2 0 0 $index;
+    sbatch cpu_run.sh 16 2 1 1 $index;
+    # sbatch cpu_run.sh 16 2 167 0 $index;
 
 done
+sbatch cpu_run.sh 16 2 0 0 11011;

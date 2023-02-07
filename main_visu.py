@@ -7,11 +7,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 utils = Utils()
 
-env_j = 8
+env_j = 11
 policie_i = 3
 
-fe_k=172#168
-fev_l=4
+fe_k=0#168
+fev_l=0
 
 if not(utils.compatible_env_policie(policie_i,env_j)):
     print("not compatible")
@@ -66,7 +66,7 @@ def register_reward(input,_):
         r_epi.clear()
     
 model.learn(
-    total_timesteps=1000000, 
+    total_timesteps=100000, 
     log_interval=1,
     callback=register_reward
     )
@@ -75,7 +75,7 @@ model.learn(
 plt.plot(rewards_tab)
 plt.show()
 obs = env.reset()
-for i in range(10000):
+for i in range(1000000):
     action, _state = model.predict(obs, deterministic=True)
     obs, reward, done, info = env.step(action)
     env.render()

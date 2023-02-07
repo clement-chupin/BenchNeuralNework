@@ -171,14 +171,6 @@ all_envs_mini = [
         "enable_ff"        :  True,
         "num_cpu"          :  1,
     },
-    {#6
-        "env"              :  "InvertedPendulum-v4",
-        "name"             :  "invertedpendulum",
-        "action_space"     :  [False,True],
-        "nb_train"         :  1000000,
-        "enable_ff"        :  True,
-        "num_cpu"          :  1,
-    },
     {#7
         "env"              :  "Reacher-v4",
         "name"             :  "reacher",
@@ -239,6 +231,99 @@ all_envs_mini = [
         "num_cpu"          :  1,
     },
 
+    {#16-
+        "env"              :  "LunarLander-v2",
+        "name"             :  "lunarlander",
+        "action_space"     :  [True,False],
+        "nb_train"         :  1000000,
+        "enable_ff"        :  True,
+        "num_cpu"          :  1,
+    },
+]    
+
+
+all_envs_robotics = [
+    ######### MuJoCo #######
+    {#0
+        "env"              :  "Ant-v4",
+        "name"             :  "ant",
+        "action_space"     :  [False,True],
+        "nb_train"         :  1000000,
+        "enable_ff"        :  True,
+        "num_cpu"          :  1,
+    },
+    {#1
+        "env"              :  "HalfCheetah-v2",
+        "name"             :  "halfcheetah",
+        "action_space"     :  [False,True],
+        "nb_train"         :  1000000,
+        "enable_ff"        :  True,
+        "num_cpu"          :  1,
+    },
+    {#2
+        "env"              :  "Hopper-v3",
+        "name"             :  "hopper",
+        "action_space"     :  [False,True],
+        "nb_train"         :  1000000,
+        "enable_ff"        :  True,
+        "num_cpu"          :  1,
+    },
+    {#7
+        "env"              :  "Reacher-v4",
+        "name"             :  "reacher",
+        "action_space"     :  [False,True],
+        "nb_train"         :  1000000,
+        "enable_ff"        :  True,
+        "num_cpu"          :  1,
+    },
+    {#8
+        "env"              :  "Swimmer-v4",
+        "name"             :  "swimmer",
+        "action_space"     :  [False,True],
+        "nb_train"         :  1000000,
+        "enable_ff"        :  True,
+        "num_cpu"          :  1,
+    },
+    {#9
+        "env"              :  "Walker2d-v3",
+        "name"             :  "walker2d",
+        "action_space"     :  [False,True],
+        "nb_train"         :  1000000,
+        "enable_ff"        :  True,
+        "num_cpu"          :  1,
+    },
+    ######### Classic Control ########
+    ############## Box2d ##############
+    {#15
+        "env"              :  "BipedalWalker-v3",
+        "name"             :  "bipedalwalker",
+        "action_space"     :  [False,True],
+        "nb_train"         :  1000000,
+        "enable_ff"        :  True,
+        "num_cpu"          :  1,
+    },
+]    
+
+all_envs_discrete = [
+    ######### MuJoCo #######
+    
+    ######### Classic Control ########
+    {#10
+        "env"              :  "Acrobot-v1",
+        "name"             :  "acrobot",
+        "action_space"     :  [True,False],
+        "nb_train"         :  1000000,
+        "enable_ff"        :  True,
+        "num_cpu"          :  1,
+    },
+    {#11
+        "env"              :  "CartPole-v1",
+        "name"             :  "cartpole",
+        "action_space"     :  [True,False],
+        "nb_train"         :  1000000,
+        "enable_ff"        :  True,
+        "num_cpu"          :  1,
+    },
     {#16-
         "env"              :  "LunarLander-v2",
         "name"             :  "lunarlander",
