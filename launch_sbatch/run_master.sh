@@ -49,8 +49,12 @@ do
     # sbatch cpu_run.sh 15 3 168 0 $index;
 
     # sbatch cpu_run.sh 16 2 0 0 $index;
-    sbatch cpu_run.sh 16 2 1 1 $index;
+    #sbatch cpu_run.sh 16 2 1 1 $index;
     # sbatch cpu_run.sh 16 2 167 0 $index;
 
 done
-sbatch cpu_run.sh 16 2 0 0 11011;
+sbatch cpu_run.sh 16 3 0 0 11011;
+sbatch cpu_run.sh 16 0 0 0 11011;
+
+sbatch cpu_run.sh 11 3 0 0 11011;
+sbatch cpu_run.sh 11 0 0 0 11011;

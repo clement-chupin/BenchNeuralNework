@@ -29,6 +29,8 @@ from utils_lib.all_policies import all_policies as All_Policies
 from utils_lib.all_policies import all_policies_robotics as All_Policies_robotics
 from utils_lib.all_policies import all_policies_discrete as All_Policies_discrete
 from utils_lib.all_env import all_envs_mini as All_Envs_mini
+from utils_lib.all_env import all_envs_robotics as All_Envs_robotics
+from utils_lib.all_env import all_envs_discrete as All_Envs_discrete
 
 
 class Utils():
@@ -47,6 +49,10 @@ class Utils():
 		self.all_feature_extractor = All_Features
 
 		self.all_envs_mini = All_Envs_mini
+
+		self.all_envs_robotics = All_Envs_robotics
+		self.all_envs_discrete = All_Envs_discrete
+
 		self.all_policies_robotics = All_Policies_robotics
 		self.all_policies_discrete = All_Policies_discrete
 		
