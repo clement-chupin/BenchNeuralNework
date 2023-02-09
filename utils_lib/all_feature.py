@@ -30,7 +30,7 @@ all_feature_extract = [
     {#2
         "feature_layer"        : FeatureExtractorLayer.D_FLF_LinLayer_cos,
         "output_feature_nb"    : lambda order,input: (order + input),
-        "order"                : [3,4,6,8,10], #4/8>16>>all 8
+        "order"                : [3,4,5,6,8,10], #4/8>16>>all 8
         "name"                 : "dflf_ll",
         "description"          : "deterministic fourier light feature, with linear layer (bad for power needed, but might be better on gpu) \ninput => input",
         "power"                : 0,        
