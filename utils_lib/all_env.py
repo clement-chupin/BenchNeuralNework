@@ -11,7 +11,7 @@ all_envs = [
         "num_cpu"          :  1,
     },
     {#1
-        "env"              :  "HalfCheetah-v2",
+        "env"              :  "HalfCheetah-v4",
         "name"             :  "halfcheetah",
         "action_space"     :  [False,True],
         "nb_train"         :  1000000,
@@ -260,14 +260,14 @@ all_envs_robotics = [
         "enable_ff"        :  True,
         "num_cpu"          :  1,
     },
-    {#2
-        "env"              :  "Hopper-v3",
-        "name"             :  "hopper",
-        "action_space"     :  [False,True],
-        "nb_train"         :  1000000,
-        "enable_ff"        :  True,
-        "num_cpu"          :  1,
-    },
+    # {#2
+    #     "env"              :  "Hopper-v3",
+    #     "name"             :  "hopper",
+    #     "action_space"     :  [False,True],
+    #     "nb_train"         :  1000000,
+    #     "enable_ff"        :  True,
+    #     "num_cpu"          :  1,
+    # },
     {#7
         "env"              :  "Reacher-v4",
         "name"             :  "reacher",
@@ -284,14 +284,14 @@ all_envs_robotics = [
         "enable_ff"        :  True,
         "num_cpu"          :  1,
     },
-    {#9
-        "env"              :  "Walker2d-v3",
-        "name"             :  "walker2d",
-        "action_space"     :  [False,True],
-        "nb_train"         :  1000000,
-        "enable_ff"        :  True,
-        "num_cpu"          :  1,
-    },
+    # {#9
+    #     "env"              :  "Walker2d-v3",
+    #     "name"             :  "walker2d",
+    #     "action_space"     :  [False,True],
+    #     "nb_train"         :  1000000,
+    #     "enable_ff"        :  True,
+    #     "num_cpu"          :  1,
+    # },
     ######### Classic Control ########
     ############## Box2d ##############
     {#15
