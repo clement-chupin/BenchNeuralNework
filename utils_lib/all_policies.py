@@ -61,13 +61,13 @@ all_policies_robotics = [
         "compute_opti" : "auto",   #to select cpu or gpu but no exploit
         "lr_ratio"     : 1.0,
     },
-    {#1
-        "policie"      : stable_baselines3.DDPG,
-        "name"         : "DDPG",
-        "action_space" : [False,True],
-        "compute_opti" : "auto",
-        "lr_ratio"     : 1.0,
-    },
+    # {#1
+    #     "policie"      : stable_baselines3.DDPG,
+    #     "name"         : "DDPG",
+    #     "action_space" : [False,True],
+    #     "compute_opti" : "auto",
+    #     "lr_ratio"     : 1.0,
+    # },
     {#3
         "policie"      : stable_baselines3.PPO,
         "name"         : "PPO",

@@ -627,8 +627,9 @@ class triangular_base6(nn.Linear):
                       
         return torch.flatten(out, start_dim=1)
 class gaussian_base(nn.Linear):
-    def __init__(self, in_features:int, order:int,var:float,device="auto"):
+    def __init__(self, in_features:int, order:int,var:float,device="auto",no_flatten:bool=False):
         self.order = order
+        self.no_flatten = no_flatten
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
         self.var_power = var/4
@@ -651,7 +652,8 @@ class gaussian_base(nn.Linear):
         mean = self.size_pic
 
         out = torch.exp(-torch.square(out)/(0.1*self.var_power))
-                      
+        if self.no_flatten:
+            return out
         return torch.flatten(out, start_dim=1)
 
 
@@ -737,8 +739,9 @@ class gaussian_test_layer3(nn.Module):
         return torch.flatten(x, start_dim=1)
 
 class gaussian_dense_acti_base(nn.Module):
-    def __init__(self, in_features:int, order:int,var,device="auto"):
+    def __init__(self, in_features:int, order:int,var:float=1.0,device="auto",no_flatten:bool=False):
         self.order = order
+        self.no_flatten = no_flatten
         self.in_features = in_features
         self.device = get_device(device)
         self.var = var
@@ -758,10 +761,11 @@ class gaussian_dense_acti_base(nn.Module):
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         x = torch.reshape(x,(x.size()[0],x.size()[1],1))
-        x = self.fc_1(x)
+        x = self.fc_1(x.type(torch.float32).to(self.device))
         
         x = torch.exp(-torch.square(x)/self.var)
-                      
+        if self.no_flatten:
+            return x.detach()
         return torch.flatten(x, start_dim=1)
 class gaussian_test_layer1_bias(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
@@ -841,14 +845,16 @@ class gaussian_test_layer3_bias(nn.Module):
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         x = torch.reshape(x,(x.size()[0],x.size()[1],1))
-        x = self.fc_1(x)
+        x = self.fc_1(x.type(torch.float32).to(self.device))
         
         x = torch.exp(-torch.square(x)/0.8)
                       
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
 
 class triangle_activation_1(nn.Module):
-    def __init__(self, in_features:int, order:int,device="auto"):
+    def __init__(self, in_features:int, order:int,device="auto",no_flatten:bool=False):
+        self.order = order
+        self.no_flatten = no_flatten
         self.order = order
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
@@ -873,9 +879,10 @@ class triangle_activation_1(nn.Module):
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         x = torch.reshape(x,(x.size()[0],x.size()[1],1))
-        x = self.fc_1(x)
+        x = self.fc_1(x.type(torch.float32))
         x = torch.min(torch.relu(x+self.size_pic),torch.relu(self.size_pic-x))/(self.size_pic)
-
+        if self.no_flatten:
+            return x.detach()
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
 class triangle_activation_2(nn.Module):
     def __init__(self, in_features:int, order:int,device="auto"):
@@ -1946,7 +1953,7 @@ class D_FLF_Base_cos(nn.Module): ###############################################
 
         self.device = get_device(device)
         super().__init__()
-        kern_array = torch.arange(1,order+1,dtype=torch.float64).to(self.device)*np.pi
+        kern_array = torch.arange(1,order+1,dtype=torch.float32).to(self.device)*np.pi
         #kern_array = torch.arange(1,order+1).to(self.device)
 
         self.kern = torch.reshape(kern_array,(1,-1,)).to(self.device)
@@ -1956,7 +1963,7 @@ class D_FLF_Base_cos(nn.Module): ###############################################
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         x = torch.reshape(x,(x.size()[0],-1,1))#.to(self.device)
-        coeff_four = torch.matmul(x.type(torch.float64),self.kern).to(self.device)
+        coeff_four = torch.matmul(x.type(torch.float32),self.kern).to(self.device)
         output = torch.cos(coeff_four)
         return output
 

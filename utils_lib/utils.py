@@ -93,7 +93,6 @@ class Utils():
 		while max_size < 15:
 			(max_size, size_now) = (max_size*2, size_now*2)
 		
-		
 		offset_x = 5
 		print("#"*(offset_x)+" "+name+" "+"#"*(max_size-offset_x-len(name)))
 		print("#"+"-"*size_now+" "*(max_size-size_now)+"#")

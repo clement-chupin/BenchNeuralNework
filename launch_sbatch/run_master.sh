@@ -37,16 +37,16 @@ source ~/IA_chupin/py_env/bin/activate
 #p3 e15 f168 v0
 
 
-for index in 11011 11012 11013 11014 11015
+for index in 11012 11013 11014 11015
 do 
 
     for i in 1 
     do 
         for j in 0 1 3 4 5
         do 
-            for k in 0 2 167 168
+            for k in 169
             do 
-                for l in 0 1 2
+                for l in 0
                 do 
                         sbatch cpu_run.sh $i $j $k $l $index;
                         # sleep 0.1
@@ -55,20 +55,20 @@ do
         done
     done
 
-    # for i in 10 11 16
-    # do 
-    #     for j in 0 2 3 
-    #     do 
-    #         for k in 0 2 167 168
-    #         do 
-    #             for l in 0 1 2
-    #             do 
-    #                     sbatch cpu_run.sh $i $j $k $l $index;
-    #                     # sleep 0.1
-    #             done
-    #         done
-    #     done
-    # done
+    for i in 10 11 16
+    do 
+        for j in 0 2 3 
+        do 
+            for k in 169
+            do 
+                for l in 0
+                do 
+                        sbatch cpu_run.sh $i $j $k $l $index;
+                        # sleep 0.1
+                done
+            done
+        done
+    done
 
     # sbatch cpu_run.sh 8 3 0 0 $index;
     # sbatch cpu_run.sh 8 3 2 1 $index;
