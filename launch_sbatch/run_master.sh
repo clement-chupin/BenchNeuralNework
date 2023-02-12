@@ -44,9 +44,9 @@ do
     do 
         for j in 0 1 3 4 5
         do 
-            for k in 172
+            for k in 2
             do 
-                for l in 0 1 2 3 4
+                for l in 3 4
                 do 
                         sbatch cpu_run.sh $i $j $k $l $index;
                         # sleep 0.1
@@ -58,9 +58,9 @@ do
     do 
         for j in 0 2 3 
         do 
-            for k in 172
+            for k in 2
             do 
-                for l in 0 1 2 3 4
+                for l in 3 4
                 do 
                         sbatch cpu_run.sh $i $j $k $l $index;
                         # sleep 0.1
