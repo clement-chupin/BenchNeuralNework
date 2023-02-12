@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 utils = Utils()
 
-env_j = 11
+env_j = 7
 policie_i = 3
 
 fe_k=0#168
@@ -66,7 +66,7 @@ def register_reward(input,_):
         r_epi.clear()
     
 model.learn(
-    total_timesteps=100000, 
+    total_timesteps=1000000, 
     log_interval=1,
     callback=register_reward
     )
