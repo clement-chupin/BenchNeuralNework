@@ -4575,7 +4575,7 @@ class angular_1(nn.Linear):
         out = [torch.cos(x*2*torch.pi),torch.sin(x*2*torch.pi),x]
         if self.no_flatten:
             return torch.stack(out,dim=2)
-        return torch.stack(out,dim=1)
+        return torch.cat(out)
     
 
     
@@ -4596,6 +4596,6 @@ class angular_2(nn.Linear):
         sin = torch.sin(x*2*torch.pi)
         if self.no_flatten:
             return torch.stack([cos*torch.abs(cos),sin*torch.abs(sin),x],dim=2)
-        return torch.stack([cos*torch.abs(cos),sin*torch.abs(sin),x],dim=1)
+        return torch.cat([cos*torch.abs(cos),sin*torch.abs(sin),x])
 
 
