@@ -858,7 +858,7 @@ class triangle_activation_1(nn.Module):
         self.order = order
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
-        self.var_power = 1.0
+        self.var_power = 0.5
         
         self.size_pic = self.var_power*self.size_ecart
 
@@ -885,7 +885,9 @@ class triangle_activation_1(nn.Module):
             return x.detach()
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
 class triangle_activation_2(nn.Module):
-    def __init__(self, in_features:int, order:int,device="auto"):
+    def __init__(self, in_features:int, order:int,device="auto",no_flatten:bool=False):
+        self.order = order
+        self.no_flatten = no_flatten
         self.order = order
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
@@ -910,12 +912,15 @@ class triangle_activation_2(nn.Module):
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         x = torch.reshape(x,(x.size()[0],x.size()[1],1))
-        x = self.fc_1(x)
+        x = self.fc_1(x.type(torch.float32))
         x = torch.min(torch.relu(x+self.size_pic),torch.relu(self.size_pic-x))/(self.size_pic)
-
+        if self.no_flatten:
+            return x.detach()
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
 class triangle_activation_3(nn.Module):
-    def __init__(self, in_features:int, order:int,device="auto"):
+    def __init__(self, in_features:int, order:int,device="auto",no_flatten:bool=False):
+        self.order = order
+        self.no_flatten = no_flatten
         self.order = order
         self.in_features = in_features
         self.size_ecart = 1/(self.order-1)
@@ -940,11 +945,11 @@ class triangle_activation_3(nn.Module):
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         x = torch.reshape(x,(x.size()[0],x.size()[1],1))
-        x = self.fc_1(x)
+        x = self.fc_1(x.type(torch.float32))
         x = torch.min(torch.relu(x+self.size_pic),torch.relu(self.size_pic-x))/(self.size_pic)
-
+        if self.no_flatten:
+            return x.detach()
         return torch.cat([torch.flatten(x, start_dim=1),torch.ones(x.size()[0],1)],dim=1)
-
 class triangle_dense_activation_base(nn.Module):
     def __init__(self, in_features:int, order:int,var,device="auto"):
         self.order = order
@@ -4527,3 +4532,73 @@ class triangular_sinus(nn.Linear):
             return out
                       
         return torch.flatten(out, start_dim=1)
+
+class triangular_cosinus(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto",no_flatten=False):
+        self.order = order
+        self.no_flatten = no_flatten
+        self.in_features = in_features
+        super().__init__(in_features, (self.order)*self.in_features, bias=True)
+          
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+        out= torch.zeros(x.shape[0],x.shape[1],self.order)
+
+        for i in range(self.order):
+            fact_div = 1/(0.5*(i+1))
+            a = x%fact_div*(4/fact_div)
+            b = 4-a
+            out[:,:,i] = torch.min(a,b)-1
+        if self.no_flatten:
+            return -out
+                      
+        return torch.flatten(-out, start_dim=1)
+
+
+
+
+class angular_1(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto",no_flatten=False):
+        self.order = order
+        self.no_flatten = no_flatten
+        self.in_features = in_features
+        super().__init__(in_features, (self.order)*self.in_features, bias=True)
+          
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+
+
+        out = torch.stack([torch.cos(x*2*torch.pi),torch.sin(x*2*torch.pi),x],dim=2)
+        if self.no_flatten:
+            return out
+                      
+        return torch.flatten(out, start_dim=1)
+    
+
+    
+
+class angular_2(nn.Linear):
+    def __init__(self, in_features:int, order:int,device="auto",no_flatten=False):
+        self.order = order
+        self.no_flatten = no_flatten
+        self.in_features = in_features
+        super().__init__(in_features, (self.order)*self.in_features, bias=True)
+          
+    def get_output_size(self,):
+        return (self.order)*self.in_features
+
+    def forward(self, x:torch.Tensor)->torch.Tensor:
+
+        cos = torch.cos(x*2*torch.pi)
+        sin = torch.sin(x*2*torch.pi)
+        out = torch.stack([cos*torch.abs(cos),sin*torch.abs(sin),x],dim=2)
+        if self.no_flatten:
+            return out
+                      
+        return torch.flatten(out, start_dim=1)
+
+

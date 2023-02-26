@@ -1873,7 +1873,26 @@ all_feature_extract = [
         "color"                : None,
         "obs_shape"            : {"range":0.5,"offset":0.5},
     },
-
+    {#173
+        "feature_layer"        : FeatureExtractorLayer.angular_1,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "angular_1",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
+    {#174
+        "feature_layer"        : FeatureExtractorLayer.angular_2,
+        "output_feature_nb"    : lambda order,input: (order + input),
+        "order"                : [0],#,128*0],
+        "name"                 : "angular_2",
+        "description"          : "",
+        "power"                : 0,
+        "color"                : None,
+        "obs_shape"            : {"range":0.5,"offset":0.5},
+    },
 
 
 

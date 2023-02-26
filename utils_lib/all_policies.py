@@ -100,6 +100,13 @@ all_policies_discrete = [
         "compute_opti" : "auto",   #to select cpu or gpu but no exploit
         "lr_ratio"     : 1.0,
     },
+    {#2
+        "policie"      : stable_baselines3.DQN,
+        "name"         : "DQN",
+        "action_space" : [True,False],
+        "compute_opti" : "auto",
+        "lr_ratio"     : 1.0,
+    },
     {#3
         "policie"      : stable_baselines3.PPO,
         "name"         : "PPO",
@@ -107,11 +114,5 @@ all_policies_discrete = [
         "compute_opti" : "auto",
         "lr_ratio"     : 1.0,
     },
-    {#14
-        "policie"      : stable_baselines3.DQN,
-        "name"         : "DQN",
-        "action_space" : [True,False],
-        "compute_opti" : "auto",
-        "lr_ratio"     : 1.0,
-    },
+    
 ]
