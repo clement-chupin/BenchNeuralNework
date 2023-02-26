@@ -4572,11 +4572,10 @@ class angular_1(nn.Linear):
     def forward(self, x:torch.Tensor)->torch.Tensor:
 
 
-        out = torch.stack([torch.cos(x*2*torch.pi),torch.sin(x*2*torch.pi),x],dim=2)
+        out = [torch.cos(x*2*torch.pi),torch.sin(x*2*torch.pi),x]
         if self.no_flatten:
-            return out
-                      
-        return torch.flatten(out, start_dim=1)
+            return torch.stack(out,dim=2)
+        return torch.stack(out,dim=1)
     
 
     
@@ -4595,10 +4594,8 @@ class angular_2(nn.Linear):
 
         cos = torch.cos(x*2*torch.pi)
         sin = torch.sin(x*2*torch.pi)
-        out = torch.stack([cos*torch.abs(cos),sin*torch.abs(sin),x],dim=2)
         if self.no_flatten:
-            return out
-                      
-        return torch.flatten(out, start_dim=1)
+            return torch.stack([cos*torch.abs(cos),sin*torch.abs(sin),x],dim=2)
+        return torch.stack([cos*torch.abs(cos),sin*torch.abs(sin),x],dim=1)
 
 
