@@ -4567,7 +4567,7 @@ class angular_1(nn.Linear):
         super().__init__(in_features, (self.order)*self.in_features, bias=True)
           
     def get_output_size(self,):
-        return (self.order)*self.in_features
+        return 3*self.in_features
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
 
@@ -4588,7 +4588,7 @@ class angular_2(nn.Linear):
         super().__init__(in_features, (self.order)*self.in_features, bias=True)
           
     def get_output_size(self,):
-        return (self.order)*self.in_features
+        return 3*self.in_features
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
 
