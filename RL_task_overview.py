@@ -7,11 +7,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 utils = Utils()
 
-env_j = 8
-policie_i = 3
+env_j = 16
+policie_i = 2
 
-fe_k=173
-fev_l=0
+fe_k=2
+fev_l=3
 
 if not(utils.compatible_env_policie(policie_i,env_j)):
     print("not compatible")
@@ -66,7 +66,7 @@ def register_reward(input,_):
         r_epi.clear()
     
 model.learn(
-    total_timesteps=2000000, 
+    total_timesteps=1000000, 
     log_interval=1,
     callback=register_reward
     )
